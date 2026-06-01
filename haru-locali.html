@@ -1,0 +1,431 @@
+<!doctype html><html lang="it"><head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>I nostri locali — Harù · 13 ristoranti nel Nord Italia</title>
+<meta name="description" content="I 13 ristoranti Harù in Lombardia, Piemonte, Liguria e Torino. Indirizzi, telefono, mappa e ordini online: un solo brand, la stessa esperienza." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Harù" />
+<meta property="og:locale" content="it_IT" />
+<meta property="og:title" content="I nostri locali — Harù · 13 ristoranti nel Nord Italia" />
+<meta property="og:description" content="I 13 ristoranti Harù in Lombardia, Piemonte, Liguria e Torino. Indirizzi, telefono, mappa e ordini online: un solo brand, la stessa esperienza." />
+<meta property="og:image" content="https://haru-sushi-cn.vercel.app/assets/img/og/default.png" />
+<meta property="og:image:width" content="1200" /><meta property="og:image:height" content="800" />
+<meta property="og:url" content="https://haru-sushi-cn.vercel.app/haru-locali.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="I nostri locali — Harù · 13 ristoranti nel Nord Italia" />
+<meta name="twitter:description" content="I 13 ristoranti Harù in Lombardia, Piemonte, Liguria e Torino. Indirizzi, telefono, mappa e ordini online: un solo brand, la stessa esperienza." />
+<meta name="twitter:image" content="https://haru-sushi-cn.vercel.app/assets/img/og/default.png" />
+<link rel="icon" href="assets/img/site/favicon.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600&family=Geist+Mono:wght@400;500&family=Noto+Sans+JP:wght@200;300;400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css" /><link rel="stylesheet" href="assets/haru.css" />
+<style>
+/* page-specific */
+.loc-intro { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(28px, 5vw, 80px); align-items: end; margin-bottom: clamp(40px, 5vw, 64px); }
+@media (max-width: 880px) { .loc-intro { grid-template-columns: 1fr; gap: 28px; } }
+.loc-intro .lede { margin-bottom: 22px; }
+.loc-intro .honesty {
+  font-size: 14px; color: var(--fg-muted); line-height: 1.6;
+  padding-left: 18px; border-left: 1px solid var(--border-gold); max-width: 46ch;
+}
+.loc-intro .honesty strong { color: var(--fg); font-weight: 500; }
+
+.store-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+@media (max-width: 980px) { .store-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .store-grid { grid-template-columns: 1fr; } }
+
+.store-card {
+  background: var(--bg-2); border: 1px solid var(--border);
+  display: flex; flex-direction: column; overflow: hidden;
+  transition: border-color 0.35s var(--ease), transform 0.35s var(--ease);
+}
+.store-card:hover { border-color: var(--border-gold); transform: translateY(-3px); }
+.store-card .sc-media { position: relative; aspect-ratio: 4/3; overflow: hidden; background: var(--bg-3); }
+.store-card .sc-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease), filter 0.5s var(--ease); filter: brightness(0.9); }
+.store-card:hover .sc-media img { transform: scale(1.05); filter: brightness(1); }
+.store-card .sc-badge { position: absolute; top: 12px; left: 12px; z-index: 2; backdrop-filter: blur(6px); background: rgba(10,10,10,0.55); }
+.store-card .sc-prov {
+  position: absolute; top: 12px; right: 12px; z-index: 2;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--fg); background: rgba(10,10,10,0.6); border: 1px solid var(--border-strong);
+  padding: 4px 9px; border-radius: 100px; backdrop-filter: blur(6px);
+}
+.store-card .sc-body { padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.store-card .sc-city { font-size: 21px; font-weight: 400; letter-spacing: -0.015em; }
+.store-card .sc-addr { font-size: 13.5px; color: var(--fg-muted); line-height: 1.5; flex: 1; }
+.store-card .sc-tel { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.04em; color: var(--fg); display: inline-flex; align-items: center; gap: 8px; }
+.store-card .sc-tel::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--accent-2); }
+.store-card .sc-tel:hover { color: var(--accent-2); }
+.store-card .sc-actions { display: flex; gap: 8px; margin-top: 6px; padding-top: 16px; border-top: 1px solid var(--border); }
+.store-card .sc-actions a {
+  flex: 1; text-align: center; padding: 11px 14px; border-radius: 100px;
+  font-size: 13px; font-weight: 500; transition: all 0.3s var(--ease);
+}
+.store-card .sc-actions .a-order { background: var(--fg); color: var(--bg); }
+.store-card .sc-actions .a-order:hover { background: var(--accent-2); }
+.store-card .sc-actions .a-map { border: 1px solid var(--border-strong); color: var(--fg); }
+.store-card .sc-actions .a-map:hover { border-color: var(--border-gold); background: rgba(255,255,255,0.05); }
+.store-card.is-soon .sc-media img { filter: brightness(0.62) grayscale(0.35); }
+
+/* rating line + maps affordance on cards */
+.store-card .sc-rating {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
+  color: var(--fg-muted); display: inline-flex; align-items: center; gap: 7px;
+}
+.store-card .sc-rating .stars { color: var(--accent-2); letter-spacing: 2px; }
+.store-card .sc-actions .a-map { display: inline-flex; align-items: center; justify-content: center; gap: 7px; }
+.store-card .sc-actions .a-map .pin {
+  width: 5px; height: 5px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg);
+  border: 1.5px solid currentColor; opacity: 0.8;
+}
+
+/* big-stat band */
+.loc-statband {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: clamp(20px, 4vw, 56px); align-items: end;
+  padding: clamp(28px, 4vw, 40px) 0; margin-bottom: clamp(36px, 5vw, 56px);
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+@media (max-width: 760px) { .loc-statband { grid-template-columns: repeat(2, 1fr); gap: 28px 24px; } }
+
+/* region filter chips */
+.loc-filter {
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  margin-bottom: clamp(22px, 3vw, 30px);
+}
+.loc-filter .lf-label {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--fg-dim); margin-right: 6px;
+}
+.loc-filter .lf-chip {
+  font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.08em;
+  color: var(--fg-muted); background: var(--bg-2); border: 1px solid var(--border);
+  padding: 9px 18px; border-radius: 100px; cursor: pointer;
+  transition: color .3s var(--ease), border-color .3s var(--ease), background .3s var(--ease);
+}
+.loc-filter .lf-chip:hover { border-color: var(--border-gold); color: var(--fg); }
+.loc-filter .lf-chip[aria-pressed="true"] {
+  color: var(--bg); background: var(--fg); border-color: var(--fg);
+}
+.loc-filter .lf-chip .lf-n { opacity: 0.55; margin-left: 6px; }
+
+.store-card.is-hidden { display: none; }
+
+/* "perché un solo brand" band */
+.loc-why { margin: clamp(48px, 6vw, 76px) 0 0; }
+.loc-why .lw-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-top: 26px; }
+@media (max-width: 760px) { .loc-why .lw-grid { grid-template-columns: 1fr; } }
+.loc-why .lw-card {
+  background: var(--bg-2); border: 1px solid var(--border); padding: 26px 26px 28px;
+  display: flex; flex-direction: column; gap: 12px;
+  transition: border-color .35s var(--ease), transform .35s var(--ease);
+}
+.loc-why .lw-card:hover { border-color: var(--border-gold); transform: translateY(-3px); }
+.loc-why .lw-num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--accent-2); }
+.loc-why .lw-h { font-size: 18px; font-weight: 400; letter-spacing: -0.015em; }
+.loc-why .lw-p { font-size: 14px; line-height: 1.6; color: var(--fg-muted); }
+
+.loc-reviews { margin: clamp(48px, 6vw, 76px) 0 0; }
+.loc-reviews .lr-head { margin-bottom: 26px; }
+
+/* aree coperte — region coverage band */
+.loc-coverage { margin-bottom: clamp(32px, 4vw, 48px); }
+.loc-coverage .lc-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap; margin-bottom: 18px;
+}
+.loc-coverage .lc-head .lc-eyebrow {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--fg-dim);
+}
+.loc-coverage .lc-head .lc-note { font-size: 13px; color: var(--fg-muted); }
+.loc-coverage .lc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+@media (max-width: 760px) { .loc-coverage .lc-grid { grid-template-columns: 1fr; } }
+.loc-coverage .lc-card {
+  background: var(--bg-2); border: 1px solid var(--border);
+  padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 14px;
+  transition: border-color .35s var(--ease), transform .35s var(--ease);
+}
+.loc-coverage .lc-card:hover { border-color: var(--border-gold); transform: translateY(-3px); }
+.loc-coverage .lc-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.loc-coverage .lc-region { font-size: 19px; font-weight: 400; letter-spacing: -0.015em; }
+.loc-coverage .lc-region .jp { font-family: var(--font-jp); font-size: 13px; color: var(--fg-dim); margin-left: 8px; font-weight: 200; }
+.loc-coverage .lc-count { font-size: 30px; font-weight: 200; letter-spacing: -0.04em; color: var(--accent-2); line-height: 1; }
+.loc-coverage .lc-count .unit { font-family: var(--font-mono); font-size: 11px; color: var(--fg-muted); margin-left: 4px; letter-spacing: 0; }
+.loc-coverage .lc-cities { font-size: 13.5px; color: var(--fg-muted); line-height: 1.6; }
+.loc-coverage .lc-provs {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.loc-coverage .lc-provs span {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
+  color: var(--fg-muted); border: 1px solid var(--border-strong);
+  padding: 3px 8px; border-radius: 100px;
+}
+</style></head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <span><strong>Ordina diretto su harù.it</strong> &nbsp;·&nbsp; <span class="pill-0">−10% sul primo ordine</span> &nbsp;·&nbsp; Prezzi del ristorante, nessun sovrapprezzo</span>
+  <div class="tb-right"><span>13 ristoranti · LO · PI · LI · TO</span><span>★ 4,4 / 5 su Google</span></div>
+</div></div>
+<div class="nav-shell"><nav class="nav">
+  <a href="haru-index.html" class="brand"><span class="mark">春</span> Harù</a>
+  <div class="links">
+    <a href="haru-index.html">Home</a>
+    <a href="haru-menu.html">Menu</a>
+    <a href="haru-order.html">Ordina</a>
+    <a href="haru-locali.html" class="active">Locali</a>
+    <a href="haru-app.html">App</a>
+    <a href="haru-owners.html" class="owners">Per i proprietari</a>
+  </div>
+  <a href="haru-order.html" class="cta-mini">Ordina ora</a>
+  <button class="menu-toggle" aria-label="Menu"><span></span></button>
+</nav></div>
+<div class="mobile-menu">
+  <a href="haru-index.html">Home</a><a href="haru-menu.html">Menu</a><a href="haru-order.html">Ordina</a><a href="haru-locali.html">Locali</a><a href="haru-app.html">App &amp; membership</a><a href="haru-owners.html">Per i proprietari</a>
+</div>
+
+<header class="page-head">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="haru-index.html">Home</a><span class="sep">/</span><span>Locali</span></div>
+      <h1 class="h1">13 ristoranti, <em>un solo</em> brand</h1>
+    </div>
+    <div class="meta">
+      <span>Lombardia · Piemonte</span>
+      <span>Liguria · Torino</span>
+      <span>★ 4,4 / 5 su Google</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="loc-intro">
+      <div>
+        <p class="lede">Dal Lago di Como alla Valtellina, da Milano a Torino fino alla Liguria: ogni Harù è un ristorante vero, con la sua cucina e il suo team.</p>
+        <span class="badge0"><span class="n">13</span> ristoranti in tutto il Nord Italia</span>
+      </div>
+      <p class="honesty">L'obiettivo è semplice e chiaro: portare <strong>tutti</strong> i ristoranti su un'unica piattaforma di ordini diretti. Alcuni locali hanno già attivato gli ordini online, gli altri stanno migrando al nuovo sistema.</p>
+    </div>
+
+    <div class="loc-statband reveal-stagger">
+      <div class="bigstat">
+        <span class="v"><span data-countup="13">13</span></span>
+        <span class="l">Ristoranti</span>
+      </div>
+      <div class="bigstat">
+        <span class="v"><span data-countup="5">5</span></span>
+        <span class="l">Province coperte</span>
+      </div>
+      <div class="bigstat">
+        <span class="v"><span data-countup="6000" data-sep="dot" data-prefix="≈">≈6.000</span></span>
+        <span class="l">Recensioni Google</span>
+      </div>
+      <div class="bigstat">
+        <span class="v"><span data-countup="4.4" data-decimals="1">4,4</span><span class="u">★</span></span>
+        <span class="l">Voto medio</span>
+      </div>
+    </div>
+
+    <div class="loc-coverage reveal">
+      <div class="lc-head">
+        <span class="lc-eyebrow">Aree coperte · tre regioni</span>
+        <span class="lc-note">Dai piedi delle Alpi alla costa ligure: tre regioni e diverse province del Nord Italia.</span>
+      </div>
+      <div class="lc-grid reveal-stagger">
+        <div class="lc-card">
+          <div class="lc-top">
+            <span class="lc-region">Lombardia<span class="jp">ロンバルディア</span></span>
+            <span class="lc-count">10<span class="unit">locali</span></span>
+          </div>
+          <p class="lc-cities">Area metropolitana di Milano, Lago di Como, Valtellina e la zona di Bergamo: il cuore con la maggiore densità di ristoranti.</p>
+          <div class="lc-provs"><span>MI</span><span>CO</span><span>SO</span><span>BS</span><span>BG</span><span>LC</span></div>
+        </div>
+        <div class="lc-card">
+          <div class="lc-top">
+            <span class="lc-region">Piemonte<span class="jp">ピエモンテ</span></span>
+            <span class="lc-count">2<span class="unit">locali</span></span>
+          </div>
+          <p class="lc-cities">Hinterland di Torino e Valsesia, per portare lo stesso menu Harù nel Nord-Ovest.</p>
+          <div class="lc-provs"><span>TO</span><span>NO</span></div>
+        </div>
+        <div class="lc-card">
+          <div class="lc-top">
+            <span class="lc-region">Liguria<span class="jp">リグーリア</span></span>
+            <span class="lc-count">1<span class="unit">locale</span></span>
+          </div>
+          <p class="lc-cities">Cairo Montenotte, che estende la mappa Harù fino alla costa ligure.</p>
+          <div class="lc-provs"><span>SV</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="loc-filter" id="locFilter" role="group" aria-label="Filtra i locali per regione">
+      <span class="lf-label">Regione</span>
+      <button class="lf-chip" data-region="all" aria-pressed="true" type="button">Tutte</button>
+      <button class="lf-chip" data-region="Lombardia" aria-pressed="false" type="button">Lombardia</button>
+      <button class="lf-chip" data-region="Piemonte" aria-pressed="false" type="button">Piemonte</button>
+      <button class="lf-chip" data-region="Liguria" aria-pressed="false" type="button">Liguria</button>
+    </div>
+
+    <div class="store-grid" id="storeGrid"></div>
+
+    <section class="loc-why">
+      <span class="eyebrow"><span class="dot"></span>Perché un solo brand</span>
+      <h2 class="h2" style="margin-top:14px;">Tredici ristoranti, <em>la stessa</em> esperienza</h2>
+      <div class="lw-grid reveal-stagger">
+        <div class="lw-card">
+          <span class="lw-num">01</span>
+          <span class="lw-h">Un account, ovunque</span>
+          <span class="lw-p">Un solo account Harù valido in tutti i ristoranti: stesso indirizzo, stessi dati, nessuna nuova registrazione quando cambi locale.</span>
+        </div>
+        <div class="lw-card">
+          <span class="lw-num">02</span>
+          <span class="lw-h">Un unico menu</span>
+          <span class="lw-p">Gli stessi piatti, le stesse ricette, gli stessi standard di qualità, dal Lago di Como alla Valtellina fino alla Liguria.</span>
+        </div>
+        <div class="lw-card">
+          <span class="lw-num">03</span>
+          <span class="lw-h">Membership valida in tutti i locali</span>
+          <span class="lw-p">I punti che accumuli ordinando valgono in ogni ristorante Harù: un solo programma fedeltà, con premi e vantaggi sempre con te.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="loc-reviews">
+      <div class="lr-head">
+        <span class="eyebrow"><span class="dot"></span>Recensioni dei clienti</span>
+        <h2 class="h2" style="margin-top:14px;">Le voci dal tavolo</h2>
+      </div>
+      <div class="review-grid">
+        <div class="review-card">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">Pesce freschissimo e porzioni generose. Siamo venuti apposta da Sondrio: in Valtellina questo è il punto di riferimento per il sushi. Servizio attento e ambiente curato.</p>
+          <div class="rv-who"><span class="rv-ava">花</span><div><div class="rv-name">Elena R.</div><div class="rv-src">Google · Berbenno di Valtellina</div></div></div>
+        </div>
+        <div class="review-card">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text">Lo storico Harù di Mozzate non delude mai. Gli uramaki sono impeccabili e finalmente con l'ordine online si prenota diretto: arriva caldo e puntuale. Qualità costante da anni.</p>
+          <div class="rv-who"><span class="rv-ava">海</span><div><div class="rv-name">Marco B.</div><div class="rv-src">Google · Mozzate</div></div></div>
+        </div>
+        <div class="review-card">
+          <div class="rv-stars">★★★★☆</div>
+          <p class="rv-text">Torno da quello di Oggiono ogni volta che posso. Ingredienti di prima qualità e personale cordiale. Poter ordinare direttamente senza app di terzi è comodissimo.</p>
+          <div class="rv-who"><span class="rv-ava">月</span><div><div class="rv-name">Giulia P.</div><div class="rv-src">Google · Oggiono</div></div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <span class="eyebrow"><span class="dot"></span>Un solo Harù</span>
+  <h2 class="h1">Tutti i locali, <em>la stessa</em> esperienza.</h2>
+  <p class="lede" style="margin:0 auto 28px;text-align:center;">Lo stesso menu, la stessa App, lo stesso ordine diretto — qualunque ristorante Harù tu scelga.</p>
+  <div class="actions">
+    <a class="btn btn-primary" href="haru-order.html">Ordina ora</a>
+    <a class="btn btn-ghost" href="haru-menu.html">Sfoglia il menu</a>
+  </div>
+</section>
+
+<footer class="footer"><div class="footer-grid">
+  <div class="footer-brand"><img src="assets/img/site/logo-white.png" alt="Harù" style="height:46px;width:auto;margin-bottom:16px" /><p>Sushi e cucina asiatica dal 2014. 13 ristoranti in Lombardia, Piemonte, Liguria e Torino. Un solo brand, una sola App, il tuo ordine diretto.</p></div>
+  <div class="footer-col"><h5>Ordina</h5><ul><li><a href="haru-menu.html">Menu completo</a></li><li><a href="haru-order.html">Ordina online</a></li><li><a href="haru-locali.html">I nostri locali</a></li><li><a href="haru-app.html">App &amp; membership</a></li></ul></div>
+  <div class="footer-col"><h5>Brand</h5><ul><li><a href="haru-index.html">Chi siamo</a></li><li><a href="haru-owners.html">Per i proprietari</a></li></ul></div>
+  <div class="footer-col"><h5>Contatti</h5><p>info@haru.it<br/>13 ristoranti nel Nord Italia<br/>Lun–Dom · pranzo e cena</p></div>
+</div><div class="footer-bottom"><span>© 2026 Harù · Demo dimostrativa · HOTATE S.A.S. / YE SONDRIO S.R.L.</span><div class="socials"><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">TikTok</a></div></div></footer>
+
+<script src="assets/data.js"></script><script src="assets/main.js"></script>
+<script>
+(function () {
+  var SEDI = window.HARU_SEDI || [];
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&amp;/g, '&').replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function telDigits(t) { return String(t || '').replace(/[^0-9+]/g, ''); }
+
+  // map a province code to its region
+  var REGION_BY_PROV = {
+    CO: 'Lombardia', MI: 'Lombardia', SO: 'Lombardia', BS: 'Lombardia',
+    BG: 'Lombardia', LC: 'Lombardia',
+    NO: 'Piemonte', TO: 'Piemonte',
+    SV: 'Liguria'
+  };
+  function regionOf(prov) { return REGION_BY_PROV[String(prov || '').toUpperCase()] || ''; }
+
+  var grid = document.getElementById('storeGrid');
+  var frag = document.createDocumentFragment();
+
+  SEDI.forEach(function (s) {
+    var live = !!s.live;
+    var region = regionOf(s.prov);
+    var card = document.createElement('div');
+    card.className = 'store-card' + (live ? '' : ' is-soon');
+    card.setAttribute('data-region', region);
+    card.setAttribute('data-prov', String(s.prov || ''));
+
+    var badge = live
+      ? '<span class="tag-status open sc-badge">Ordina online attivo</span>'
+      : '<span class="tag-status soon sc-badge">In arrivo sul nuovo sistema</span>';
+
+    var orderBtn = '<a class="a-order" href="locali/' + s.key + '/">Scopri</a>';
+
+    card.innerHTML =
+      '<div class="sc-media">' +
+        badge +
+        '<span class="sc-prov">' + esc(s.prov) + '</span>' +
+        '<img loading="lazy" src="' + esc(s.img) + '" alt="Harù ' + esc(s.city) + '" />' +
+      '</div>' +
+      '<div class="sc-body">' +
+        '<div class="sc-city">' + esc(s.city) + '</div>' +
+        '<div class="sc-addr">' + esc(s.addr) + '</div>' +
+        '<div class="sc-rating"><span class="stars">★★★★★</span> Google ★ 4,4</div>' +
+        '<a class="sc-tel" href="tel:' + telDigits(s.tel) + '">' + esc(s.tel) + '</a>' +
+        '<div class="sc-actions">' +
+          orderBtn +
+          '<a class="a-map" href="' + esc(s.map) + '" target="_blank" rel="noopener"><span class="pin"></span>Apri nella mappa</a>' +
+        '</div>' +
+      '</div>';
+
+    frag.appendChild(card);
+  });
+
+  grid.appendChild(frag);
+
+  // region filter
+  var filter = document.getElementById('locFilter');
+  if (filter) {
+    var chips = filter.querySelectorAll('.lf-chip');
+    var cards = grid.querySelectorAll('.store-card');
+
+    // annotate each chip with a live count
+    chips.forEach(function (chip) {
+      var r = chip.getAttribute('data-region');
+      var n = r === 'all'
+        ? cards.length
+        : SEDI.filter(function (s) { return regionOf(s.prov) === r; }).length;
+      var nEl = document.createElement('span');
+      nEl.className = 'lf-n';
+      nEl.textContent = n;
+      chip.appendChild(nEl);
+    });
+
+    filter.addEventListener('click', function (ev) {
+      var chip = ev.target.closest('.lf-chip');
+      if (!chip) return;
+      var region = chip.getAttribute('data-region');
+      chips.forEach(function (c) {
+        c.setAttribute('aria-pressed', c === chip ? 'true' : 'false');
+      });
+      cards.forEach(function (card) {
+        var show = region === 'all' || card.getAttribute('data-region') === region;
+        card.classList.toggle('is-hidden', !show);
+      });
+    });
+  }
+})();
+</script>
+</body></html>

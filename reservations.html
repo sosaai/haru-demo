@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reservations · SHUN — Sushi & Omakase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600&family=Geist+Mono:wght@400;500&family=Noto+Sans+JP:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<div class="nav-shell">
+  <nav class="nav">
+    <a href="index.html" class="brand"><span class="mark">旬</span> SHUN</a>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="omakase.html">Omakase</a>
+      <a href="chef.html">Chef</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="private-events.html">Private</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="reservations.html" class="cta-mini">Reserve</a>
+    <button class="menu-toggle" aria-label="Menu"><span></span></button>
+  </nav>
+</div>
+<div class="mobile-menu">
+  <a href="index.html">Home</a><a href="menu.html">Menu</a><a href="omakase.html">Omakase</a>
+  <a href="chef.html">Chef</a><a href="gallery.html">Gallery</a><a href="private-events.html">Private events</a>
+  <a href="contact.html">Contact</a><a href="reservations.html">Reserve a table</a>
+</div>
+
+<header class="page-head">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="index.html">Home</a><span class="sep">/</span><span>Reservations</span></div>
+      <h1 class="h1">Reserve a seat<br/>at the counter. <em>予約</em></h1>
+    </div>
+    <div class="meta">
+      <span>Bookings open · 30 days ahead</span>
+      <span>09:00 Milan time daily</span>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top: 60px;">
+  <div class="wrap">
+    <div class="reservation-layout">
+
+      <!-- FORM -->
+      <div class="form-card reveal">
+        <h2 class="h3 form-title">Tell us when you'd like to come.</h2>
+        <p class="form-sub">A reply from Carla will reach your inbox within twelve hours. Reservations are confirmed only after our message.</p>
+
+        <form>
+          <div class="form-row">
+            <div class="field">
+              <label for="firstname">First name</label>
+              <input id="firstname" type="text" required placeholder="Samuele" />
+            </div>
+            <div class="field">
+              <label for="lastname">Last name</label>
+              <input id="lastname" type="text" required placeholder="Rossi" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" required placeholder="you@email.com" />
+            </div>
+            <div class="field">
+              <label for="phone">Mobile</label>
+              <input id="phone" type="tel" required placeholder="+39 ••• ••• ••••" />
+            </div>
+          </div>
+
+          <div class="form-row triple">
+            <div class="field">
+              <label for="date">Date</label>
+              <input id="date" type="date" required />
+            </div>
+            <div class="field">
+              <label for="time">Seating</label>
+              <select id="time" required>
+                <option value="19:00">19:00 · first seating</option>
+                <option value="21:30">21:30 · second seating</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="guests">Guests</label>
+              <select id="guests" required>
+                <option>1 guest</option>
+                <option selected>2 guests</option>
+                <option>3 guests</option>
+                <option>4 guests</option>
+                <option>5 guests</option>
+                <option>6 guests</option>
+                <option>7 guests · request</option>
+                <option>8 guests · whole counter</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row single">
+            <div class="field">
+              <label>Choose a rhythm</label>
+              <div class="chip-group">
+                <span class="chip">Tsuki · 12 courses · €95</span>
+                <span class="chip selected">Hoshi · 16 courses · €145</span>
+                <span class="chip">Tenku · 20 courses · €220 (Sat only)</span>
+                <span class="chip">À la carte (no omakase)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row single">
+            <div class="field">
+              <label>Occasion (optional)</label>
+              <div class="chip-group">
+                <span class="chip">Birthday</span>
+                <span class="chip">Anniversary</span>
+                <span class="chip">Business</span>
+                <span class="chip">Celebration</span>
+                <span class="chip selected">Just dinner</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row single">
+            <div class="field">
+              <label for="allergies">Allergies & dietary notes</label>
+              <input id="allergies" type="text" placeholder="e.g. shellfish, no raw, pescatarian, gluten-free…" />
+            </div>
+          </div>
+
+          <div class="form-row single">
+            <div class="field">
+              <label for="notes">Anything else we should know?</label>
+              <textarea id="notes" placeholder="Special requests, sake pairing, seat preferences. Optional."></textarea>
+            </div>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn btn-primary">
+              Request reservation
+              <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </button>
+            <small>A €50 per-guest deposit is held on confirmation; charged only for no-shows. Cancellations free up to 48h before.</small>
+          </div>
+        </form>
+      </div>
+
+      <!-- ASIDE -->
+      <aside class="reservation-aside">
+        <div class="aside-block">
+          <h4>Address</h4>
+          <p>Via Solferino, 14<br/>20121 Milano, Brera</p>
+        </div>
+        <div class="aside-block">
+          <h4>Telephone</h4>
+          <p><a href="tel:+390212345678" style="border-bottom: 1px solid var(--border-strong); padding-bottom: 2px;">+39 02 1234 5678</a></p>
+          <p style="font-size: 13px; color: var(--fg-muted); margin-top: 8px;">For same-day requests, please call Carla after 14:00.</p>
+        </div>
+        <div class="aside-block">
+          <h4>Service</h4>
+          <div class="hours-row"><span>Tuesday — Friday</span><strong>19:00 · 21:30</strong></div>
+          <div class="hours-row"><span>Saturday</span><strong>19:00 · 21:30</strong></div>
+          <div class="hours-row"><span>Sunday — Monday</span><strong>Closed</strong></div>
+          <div class="hours-row"><span>Tenku (chef's table)</span><strong>Saturday · 19:00</strong></div>
+        </div>
+        <div class="aside-block">
+          <h4>Children & accessibility</h4>
+          <p style="font-size: 14px; color: var(--fg-muted); line-height: 1.55;">
+            We welcome guests from age 10. The counter is at standing height with high stools — let us know if you would prefer a table seat (a few are available on request).
+          </p>
+        </div>
+        <div class="aside-block">
+          <h4>Private bookings</h4>
+          <p style="font-size: 14px; color: var(--fg-muted); line-height: 1.55;">
+            For full-counter buyouts and private rooms, see our <a href="private-events.html" style="color: var(--accent-2);">private events page</a>.
+          </p>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section>
+  <div class="wrap">
+    <div class="testimonial reveal">
+      <blockquote>
+        Carla writes back personally within the hour. Every reservation feels expected, not granted.
+      </blockquote>
+      <cite>Guest review · Resy <span class="src">· 4.9 / 5 · 1,284 reviews</span></cite>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background: var(--bg-2);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>QUESTIONS WE ARE OFTEN ASKED</span>
+        <h2 class="h2" style="margin-top: 20px;">Good to know.</h2>
+      </div>
+    </div>
+
+    <div class="menu-items reveal" style="max-width: 940px; margin: 0 auto;">
+      <div class="menu-item" style="grid-template-columns: 60px 1fr;">
+        <span class="num">Q · 01</span>
+        <div class="body">
+          <div class="name">Can I order à la carte?</div>
+          <p class="desc">Yes — Tuesday to Friday at the first seating only. Saturday and the second seating are omakase only.</p>
+        </div>
+      </div>
+      <div class="menu-item" style="grid-template-columns: 60px 1fr;">
+        <span class="num">Q · 02</span>
+        <div class="body">
+          <div class="name">How far in advance should I book?</div>
+          <p class="desc">Reservations open thirty days in advance, 09:00 Milan time. The Hoshi counter is typically full within four days; Tenku (Saturdays) within the first hour.</p>
+        </div>
+      </div>
+      <div class="menu-item" style="grid-template-columns: 60px 1fr;">
+        <span class="num">Q · 03</span>
+        <div class="body">
+          <div class="name">Do you accept walk-ins?</div>
+          <p class="desc">Rarely — only if a guest is delayed by more than 20 minutes. It is worth calling at 19:15.</p>
+        </div>
+      </div>
+      <div class="menu-item" style="grid-template-columns: 60px 1fr;">
+        <span class="num">Q · 04</span>
+        <div class="body">
+          <div class="name">Can you accommodate allergies and dietary restrictions?</div>
+          <p class="desc">Most — we ask for at least 48 hours' notice. Shellfish, sesame, and gluten can be removed in full. We do not currently offer a vegetarian omakase.</p>
+        </div>
+      </div>
+      <div class="menu-item" style="grid-template-columns: 60px 1fr;">
+        <span class="num">Q · 05</span>
+        <div class="body">
+          <div class="name">Is there a dress code?</div>
+          <p class="desc">No code, only a polite request — no strong perfume or cologne, so the fish has space to speak.</p>
+        </div>
+      </div>
+      <div class="menu-item" style="grid-template-columns: 60px 1fr;">
+        <span class="num">Q · 06</span>
+        <div class="body">
+          <div class="name">Can I take photographs?</div>
+          <p class="desc">Yes, of your pieces. Please ask the chef before photographing him at work — he will usually nod.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="brand-large"><span class="jp">旬</span>SHUN</div><p>Edomae sushi & omakase. Via Solferino 14, Brera, Milano.</p></div>
+    <div class="footer-col"><h5>Navigate</h5><ul><li><a href="menu.html">Menu</a></li><li><a href="omakase.html">Omakase</a></li><li><a href="chef.html">The chef</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="private-events.html">Private events</a></li></ul></div>
+    <div class="footer-col"><h5>Visit</h5><ul><li><p>Via Solferino 14<br/>Brera, 20121 Milano</p></li><li><a href="tel:+390212345678">+39 02 1234 5678</a></li><li><a href="mailto:ciao@shun.it">ciao@shun.it</a></li></ul></div>
+    <div class="footer-col"><h5>Hours</h5><ul><li><p>Tue — Sat<br/>19:00 · 22:30</p></li><li><p>Sun & Mon<br/>Closed</p></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 SHUN · Sushi & Omakase</span>
+    <div class="socials"><a href="#">Instagram</a><a href="#">The Fork</a><a href="#">Resy</a></div>
+    <span>P.IVA 09876543210</span>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

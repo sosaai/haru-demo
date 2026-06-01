@@ -1,0 +1,6 @@
+.vercel
+.DS_Store
+**/.DS_Store
+node_modules
+# PDF source binaries (~144MB build artifacts) — extracted .txt kept for build-menus.js
+data/pdf/*.pdf

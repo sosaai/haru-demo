@@ -1,0 +1,447 @@
+<!doctype html><html lang="it"><head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Harù Leini — Sushi e cucina asiatica · TO</title>
+<meta name="description" content="Harù Leini (TO): indirizzo Via Torino, 65 10040 Leini (Torino), telefono, mappa, i piatti più richiesti del locale e l'ordine online. Sushi giapponese e cucina asiatica in Piemonte." />
+<meta property="og:type" content="restaurant" />
+<meta property="og:site_name" content="Harù" />
+<meta property="og:locale" content="it_IT" />
+<meta property="og:title" content="Harù Leini · Sushi e cucina asiatica" />
+<meta property="og:description" content="Ristorante di Leini (TO): indirizzo, mappa, i piatti più richiesti del locale e l'ordine online. Ordina diretto dal locale, prezzi del ristorante, −10% sul primo ordine." />
+<meta property="og:image" content="https://haru-sushi-cn.vercel.app/assets/img/og/sede-leini.png" />
+<meta property="og:url" content="https://haru-sushi-cn.vercel.app/locali/leini/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Harù Leini · Sushi e cucina asiatica" />
+<meta name="twitter:image" content="https://haru-sushi-cn.vercel.app/assets/img/og/sede-leini.png" />
+<link rel="icon" href="../../assets/img/site/favicon.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600&family=Geist+Mono:wght@400;500&family=Noto+Sans+JP:wght@200;300;400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css" /><link rel="stylesheet" href="../../assets/haru.css" />
+<style>
+.sede-hero .hero-inner { gap: 22px; }
+.sede-hero .eyebrow { margin-bottom: 18px; display:inline-block; }
+.sede-hero .addr-line { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--fg-muted); margin-top: 8px; display:flex; gap:10px; flex-wrap:wrap; }
+.sede-hero .hero-actions { margin-top: 26px; }
+.sede-info { display:grid; grid-template-columns: repeat(4,1fr); border-top:1px solid var(--border); }
+@media (max-width:880px){ .sede-info { grid-template-columns: repeat(2,1fr); } }
+.sede-info .si { padding:30px 26px 26px; border-right:1px solid var(--border); display:flex; flex-direction:column; gap:8px; }
+.sede-info .si:last-child{ border-right:none; }
+@media (max-width:880px){ .sede-info .si:nth-child(2){border-right:none;} .sede-info .si:nth-child(-n+2){border-bottom:1px solid var(--border);} }
+.sede-info .si .k { font-family:var(--font-mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--fg-muted); }
+.sede-info .si .v { font-size:16px; color:var(--fg); font-weight:400; line-height:1.5; }
+.sede-info .si a.v:hover{ color:var(--accent-2); }
+.menu-note { font-size:13px; color:var(--fg-dim); margin-top:18px; font-family:var(--font-mono); letter-spacing:0.04em; }
+.sede-gallery { display:grid; grid-template-columns: repeat(4,1fr); gap:4px; }
+@media (max-width:680px){ .sede-gallery { grid-template-columns: repeat(2,1fr); } }
+.sede-gallery .g { aspect-ratio:1; overflow:hidden; background:var(--bg-3); }
+.sede-gallery .g img { width:100%; height:100%; object-fit:cover; transition:transform 1s var(--ease); }
+.sede-gallery .g:hover img { transform:scale(1.06); }
+.other-sedi { display:flex; flex-wrap:wrap; gap:8px; }
+.other-sedi a { padding:11px 18px; border:1px solid var(--border-strong); border-radius:100px; font-size:14px; color:var(--fg); transition:all .3s var(--ease); }
+.other-sedi a:hover { border-color:var(--border-gold); background:rgba(255,255,255,0.04); color:var(--accent-2); }
+.sede-menu { display:grid; gap:clamp(26px,4vw,42px); }
+.sm-cat { border-top:1px solid var(--border); padding-top:22px; }
+.sm-cat-h { font-size:clamp(20px,2.4vw,28px); font-weight:300; letter-spacing:-0.02em; margin-bottom:14px; display:flex; align-items:baseline; gap:12px; }
+.sm-cat-h .sm-ct { font-family:var(--font-mono); font-size:12px; color:var(--fg-dim); letter-spacing:0.1em; }
+.sm-row { display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:baseline; padding:11px 0; border-top:1px solid var(--border); }
+.sm-row:first-of-type{ border-top:none; }
+.sm-code { font-family:var(--font-mono); font-size:11px; color:var(--fg-dim); }
+.sm-name { font-size:15px; color:var(--fg); }
+.sm-name .sm-desc { display:block; font-size:12.5px; color:var(--fg-muted); margin-top:2px; line-height:1.45; }
+.sm-name .sm-al { display:block; font-family:var(--font-mono); font-size:10px; color:var(--fg-dim); text-transform:uppercase; margin-top:3px; letter-spacing:0.06em; }
+.sm-price { font-family:var(--font-mono); font-size:14px; color:var(--fg); white-space:nowrap; }
+.sm-fallback { border:1px solid var(--border-gold); background:var(--haru-green-soft); border-radius:14px; padding:28px 30px; }
+.sm-fallback p { color:var(--fg-muted); font-size:15px; line-height:1.65; }
+.sede-pay { display:flex; flex-wrap:wrap; gap:10px; }
+.sede-pay .pm { display:inline-flex; align-items:center; gap:9px; padding:15px 22px; border:1px solid var(--border-strong); border-radius:100px; background:var(--bg-2); font-size:14.5px; font-weight:400; color:var(--fg); transition:all .3s var(--ease); box-shadow:0 8px 24px -18px rgba(0,0,0,.8); }
+.sede-pay .pm:hover { border-color:var(--border-gold); transform:translateY(-2px); color:var(--accent-2); }
+.sede-pay .pm svg { width:22px; height:22px; flex-shrink:0; }
+
+/* status badge variants */
+.tag-status.open { color:var(--accent-2); }
+.tag-status.soon { color:var(--fg-dim); }
+
+/* live / soon banner */
+.order-state { display:flex; align-items:flex-start; gap:18px; padding:24px 26px; border:1px solid var(--border-strong); border-radius:14px; background:var(--bg-2); margin-top:26px; }
+.order-state.is-soon { border-color:var(--border); background:var(--bg-3); }
+.order-state .os-dot { width:9px; height:9px; border-radius:100px; margin-top:7px; flex-shrink:0; background:var(--accent-2); box-shadow:0 0 0 4px rgba(122,179,143,0.16); }
+.order-state.is-soon .os-dot { background:var(--fg-dim); box-shadow:none; }
+.order-state .os-title { font-size:16px; color:var(--fg); font-weight:500; }
+.order-state .os-sub { font-size:13.5px; color:var(--fg-muted); margin-top:6px; line-height:1.6; }
+.order-state .os-sub a { color:var(--accent-2); }
+
+/* hours / delivery info cards */
+.sede-hours { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:8px; }
+@media (max-width:760px){ .sede-hours { grid-template-columns:1fr; } }
+.sede-hours .hc { padding:24px 24px 22px; border:1px solid var(--border); border-radius:14px; background:var(--bg-2); display:flex; flex-direction:column; gap:9px; }
+.sede-hours .hc .hk { font-family:var(--font-mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--fg-muted); }
+.sede-hours .hc .hv { font-size:20px; color:var(--fg); font-weight:300; line-height:1.3; }
+.sede-hours .hc .hv em { font-style:normal; color:var(--accent-2); }
+.sede-hours .hc .hd { font-size:13px; color:var(--fg-dim); line-height:1.6; }
+
+/* map block */
+.sede-map { display:grid; grid-template-columns:1.45fr 1fr; gap:0; border:1px solid var(--border); border-radius:16px; overflow:hidden; background:var(--bg-2); }
+@media (max-width:880px){ .sede-map { grid-template-columns:1fr; } }
+.sede-map .map-frame { position:relative; min-height:340px; background:var(--bg-3); }
+.sede-map .map-frame iframe { position:absolute; inset:0; width:100%; height:100%; border:0; filter:grayscale(0.35) contrast(1.05); }
+.sede-map .map-side { padding:34px 32px; display:flex; flex-direction:column; gap:16px; justify-content:center; }
+.sede-map .map-side .ms-k { font-family:var(--font-mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--fg-muted); }
+.sede-map .map-side .ms-addr { font-size:19px; color:var(--fg); font-weight:300; line-height:1.4; }
+.sede-map .map-side .ms-row { font-size:14px; color:var(--fg-muted); line-height:1.6; }
+.sede-map .map-side .ms-row a { color:var(--accent-2); }
+.sede-map .map-side .ms-actions { margin-top:8px; display:flex; flex-wrap:wrap; gap:10px; }
+
+/* combo / set highlight */
+.sede-combo { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:34px; }
+@media (max-width:760px){ .sede-combo { grid-template-columns:1fr; } }
+.sede-combo .cc { display:block; padding:26px 24px; border:1px solid var(--border-strong); border-radius:14px; background:linear-gradient(160deg,var(--bg-2),var(--bg-3)); transition:all .3s var(--ease); }
+.sede-combo .cc:hover { border-color:var(--border-gold); transform:translateY(-3px); }
+.sede-combo .cc .cc-tag { font-family:var(--font-mono); font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent-2); }
+.sede-combo .cc .cc-name { font-size:19px; color:var(--fg); font-weight:400; margin:12px 0 8px; }
+.sede-combo .cc .cc-desc { font-size:13.5px; color:var(--fg-muted); line-height:1.65; }
+.sede-combo .cc .cc-foot { margin-top:16px; display:flex; align-items:baseline; justify-content:space-between; }
+.sede-combo .cc .cc-price { font-family:var(--font-mono); font-size:16px; color:var(--fg); }
+.sede-combo .cc .cc-go { font-size:12.5px; color:var(--accent-2); }
+
+/* sticky mobile order bar */
+.sticky-order { position:fixed; left:0; right:0; bottom:0; z-index:90; transform:translateY(120%); transition:transform .4s var(--ease); padding:12px 16px calc(12px + env(safe-area-inset-bottom)); background:rgba(12,12,13,0.86); backdrop-filter:blur(14px); border-top:1px solid var(--border-strong); display:flex; align-items:center; gap:14px; }
+.sticky-order.show { transform:translateY(0); }
+.sticky-order .so-info { flex:1; min-width:0; }
+.sticky-order .so-info .so-t { font-size:14px; color:var(--fg); font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sticky-order .so-info .so-s { font-size:11.5px; color:var(--fg-muted); margin-top:2px; }
+.sticky-order .btn { flex-shrink:0; padding:13px 22px; }
+@media (min-width:861px){ .sticky-order { display:none; } }</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Harù Leini","servesCuisine":["Giapponese","Sushi","Cucina asiatica"],"priceRange":"€€","telephone":"+393336843365","url":"../../locali/leini/","image":"../../assets/img/sedi/leini.jpg","address":{"@type":"PostalAddress","streetAddress":"Via Torino, 65 10040 Leini (Torino)","addressLocality":"Leini","addressRegion":"TO","addressCountry":"IT"},"geo":{"@type":"GeoCoordinates","name":"Harù Leini"},"hasMap":"https://www.google.com/maps/search/?api=1&query=Haru+Leini","openingHours":"Mo-Su 11:30-14:30,18:30-22:30","acceptsReservations":false,"potentialAction":{"@type":"OrderAction","target":"../../haru-order.html?zone=Leini","deliveryMethod":["http://purl.org/goodrelations/v1#DeliveryModePickUp","http://purl.org/goodrelations/v1#DeliveryModeOwnFleet"]},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.4","reviewCount":"380"},"areaServed":"Piemonte","hasMenu":"../../haru-menu.html"}</script>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <span><strong>Ordina diretto su harù.it</strong> &nbsp;·&nbsp; <span class="pill-0">−10% sul primo ordine</span> &nbsp;·&nbsp; Prezzi del ristorante, nessun sovrapprezzo</span>
+  <div class="tb-right"><span>13 ristoranti · LO · PI · LI · TO</span><span>★ 4,4 / 5 su Google</span></div>
+</div></div>
+<div class="nav-shell"><nav class="nav">
+  <a href="../../haru-index.html" class="brand"><span class="mark">春</span> Harù</a>
+  <div class="links">
+    <a href="../../haru-index.html">Home</a>
+    <a href="../../haru-menu.html">Menu</a>
+    <a href="../../haru-order.html">Ordina</a>
+    <a href="../../haru-locali.html" class="active">Locali</a>
+    <a href="../../haru-app.html">App</a>
+    <a href="../../haru-owners.html" class="owners">Per i proprietari</a>
+  </div>
+  <a href="../../haru-order.html" class="cta-mini">Ordina ora</a>
+  <button class="menu-toggle" aria-label="Menu"><span></span></button>
+</nav></div>
+<div class="mobile-menu">
+  <a href="../../haru-index.html">Home</a><a href="../../haru-menu.html">Menu</a><a href="../../haru-order.html">Ordina</a><a href="../../haru-locali.html">Locali</a><a href="../../haru-app.html">App</a><a href="../../haru-owners.html">Per i proprietari</a>
+</div>
+
+<!-- HERO -->
+<header class="hero sede-hero">
+  <div class="hero-bg"><img src="../../assets/img/sedi/leini.jpg" alt="Ristorante Harù Leini" /></div>
+  <div class="hero-inner">
+    <span class="eyebrow"><span class="dot"></span>Ristorante · TO · Piemonte</span>
+    <h1 class="display"><span class="kanji" style="color:var(--accent-2)">春</span> Harù<br/>Leini</h1>
+    <div><span class="tag-status soon">In arrivo sul nuovo sistema</span></div>
+    <div class="addr-line"><span>Via Torino, 65 10040 Leini (Torino)</span><span>·</span><span>★ 4,4 su Google</span></div>
+    <div class="hero-actions">
+      <a href="tel:+393336843365" class="btn btn-primary">Prenota per telefono<svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      <a href="../../haru-menu.html" class="btn btn-ghost">Vedi il menu</a>
+    </div>
+  </div>
+</header>
+
+<!-- INFO -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sede-info reveal">
+      <div class="si"><span class="k">Indirizzo</span><a class="v" href="https://www.google.com/maps/search/?api=1&amp;query=Haru+Leini" target="_blank" rel="noopener">Via Torino, 65 10040 Leini (Torino)</a></div>
+      <div class="si"><span class="k">Telefono</span><a class="v" href="tel:+393336843365">+393336843365</a></div>
+      <div class="si"><span class="k">Orari</span><span class="v">Lun–Dom<br/>pranzo e cena</span></div>
+      <div class="si"><span class="k">Stato</span><span class="v">In arrivo · ora prenoti per telefono</span></div>
+    </div>
+    <div class="order-state is-soon reveal">
+        <span class="os-dot"></span>
+        <div>
+          <div class="os-title">Ristorante di Leini · Ordine online in arrivo</div>
+          <div class="os-sub">Questo ristorante sta attivando il nuovo sistema di ordine online: restate sintonizzati. Nel frattempo puoi <a href="tel:+393336843365">chiamare il +393336843365</a> per prenotare o ordinare d'asporto.</div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<!-- HOURS & DELIVERY -->
+<section style="background:var(--bg-2)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Orari e ritiro</span>
+        <h2 class="h2" style="margin-top:18px;">Orari<br/>e modalità di ritiro.</h2>
+      </div>
+      <p class="lede">Aperti tutta la settimana, da lunedì a domenica, con servizio a pranzo e a cena. L'ordine online sta per arrivare; per ora puoi prenotare il ritiro per telefono.</p>
+    </div>
+    <div class="sede-hours reveal-stagger">
+      <div class="hc"><span class="hk">Orari</span><span class="hv">Lun–Dom</span><span class="hd">Pranzo e cena · aperti tutta la settimana<br/>Gli orari precisi fanno fede quelli del locale</span></div>
+      <div class="hc"><span class="hk">Ritiro</span><span class="hv"><em>−30%</em></span><span class="hd">Ordina online e ritira in negozio<br/>Sconto del 30% sul prezzo del locale</span></div>
+      <div class="hc"><span class="hk">Consegna</span><span class="hv"><em>−20%</em></span><span class="hd">Consegna a domicilio, ordine minimo €25<br/>Sconto del 20% sul prezzo del locale</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP / HOW TO GET THERE -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Come arrivare</span>
+        <h2 class="h2" style="margin-top:18px;">Ristorante di Leini<br/>indirizzo e mappa.</h2>
+      </div>
+      <p class="lede">Trova la posizione e il percorso di Harù Leini sulla mappa e organizza la tua visita o il ritiro.</p>
+    </div>
+    <div class="sede-map reveal">
+      <div class="map-frame">
+        <iframe title="Mappa Harù Leini" src="https://www.google.com/maps?q=Haru%20Leini&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+      <div class="map-side">
+        <span class="ms-k">Indirizzo</span>
+        <div class="ms-addr">Via Torino, 65 10040 Leini (Torino)</div>
+        <div class="ms-row">TO · Piemonte</div>
+        <div class="ms-row">Telefono <a href="tel:+393336843365">+393336843365</a></div>
+        <div class="ms-actions">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Haru+Leini" target="_blank" rel="noopener" class="btn btn-primary">Apri nella mappa</a>
+          <a href="tel:+393336843365" class="btn btn-ghost">Chiama il locale</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU HIGHLIGHTS -->
+<section style="background:var(--bg-2)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>I più richiesti del locale</span>
+        <h2 class="h2" style="margin-top:18px;">Le specialità<br/>di Leini.</h2>
+      </div>
+      <p class="lede">Pesce del giorno, preparato al momento. Ecco i piatti più richiesti del locale; per il resto, dai un'occhiata al menu completo.</p>
+    </div>
+    <div class="sede-combo reveal-stagger">
+      <a class="cc" href="../../haru-order.html?zone=Leini">
+        <span class="cc-tag">Menu del locale</span>
+        <div class="cc-name">Misto sushi per due · Leini</div>
+        <div class="cc-desc">Il classico mix di uramaki, nigiri e sashimi, con pesce fresco di giornata: perfetto da condividere in due.</div>
+        <div class="cc-foot"><span class="cc-price">Per due</span><span class="cc-go">Ordina online →</span></div>
+      </a>
+      <a class="cc" href="../../haru-order.html?zone=Leini">
+        <span class="cc-tag">Abbinamento consigliato</span>
+        <div class="cc-name">Sashimi + temaki</div>
+        <div class="cc-desc">Sashimi selezionato con temaki preparati al momento: freschezza e gusto insieme, la scelta leggera preferita dai clienti abituali.</div>
+        <div class="cc-foot"><span class="cc-price">Per una persona</span><span class="cc-go">Ordina online →</span></div>
+      </a>
+      <a class="cc" href="../../haru-order.html?zone=Leini">
+        <span class="cc-tag">Da condividere in famiglia</span>
+        <div class="cc-name">Grande misto per la famiglia</div>
+        <div class="cc-desc">Una ricca varietà di sushi e cucina asiatica tutta in una volta, con porzioni abbondanti: condividere in famiglia conviene di più.</div>
+        <div class="cc-foot"><span class="cc-price">Per più persone</span><span class="cc-go">Ordina online →</span></div>
+      </a>
+    </div>
+    <div class="signature-grid reveal-stagger">
+      <a class="signature-card" href="../../haru-order.html?zone=Leini">
+        <img src="../../assets/img/products/156-Uramaki-Ebiten-soy.jpg" alt="Ebiten soy" loading="lazy" />
+        <div class="info">
+          <span class="num">01</span>
+          <div>
+            <div class="name"><span class="jp">Uramaki</span>Ebiten soy<span class="price">€ 12,00</span></div>
+          </div>
+        </div>
+      </a><a class="signature-card" href="../../haru-order.html?zone=Leini">
+        <img src="../../assets/img/products/90-Sushi-sake.jpg" alt="Sushi sake" loading="lazy" />
+        <div class="info">
+          <span class="num">02</span>
+          <div>
+            <div class="name"><span class="jp">Nigiri</span>Sushi sake<span class="price">€ 10,00</span></div>
+          </div>
+        </div>
+      </a><a class="signature-card" href="../../haru-order.html?zone=Leini">
+        <img src="../../assets/img/products/70-Poke-ebi.jpg" alt="Poke ebi" loading="lazy" />
+        <div class="info">
+          <span class="num">03</span>
+          <div>
+            <div class="name"><span class="jp">Chirashi e Cake</span>Poke ebi<span class="price">€ 12,00</span></div>
+          </div>
+        </div>
+      </a><a class="signature-card" href="../../haru-order.html?zone=Leini">
+        <img src="../../assets/img/products/95-Sashimi-royale.jpg" alt="Sashimi royale" loading="lazy" />
+        <div class="info">
+          <span class="num">04</span>
+          <div>
+            <div class="name"><span class="jp">Sashimi</span>Sashimi royale<span class="price">€ 14,00</span></div>
+          </div>
+        </div>
+      </a><a class="signature-card" href="../../haru-order.html?zone=Leini">
+        <img src="../../assets/img/products/113-Temaki-spicy-maguro.jpg" alt="Temaki spicy maguro" loading="lazy" />
+        <div class="info">
+          <span class="num">05</span>
+          <div>
+            <div class="name"><span class="jp">Temaki</span>Temaki spicy maguro<span class="price">€ 6,00</span></div>
+          </div>
+        </div>
+      </a><a class="signature-card" href="../../haru-order.html?zone=Leini">
+        <img src="../../assets/img/products/52-Cono-special-maguro.jpg" alt="Cono special maguro" loading="lazy" />
+        <div class="info">
+          <span class="num">06</span>
+          <div>
+            <div class="name"><span class="jp">Tartare</span>Cono special maguro<span class="price">€ 6,00</span></div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <p class="menu-note">* I più richiesti — qui sotto il menu completo del locale.</p>
+  </div>
+</section>
+
+<!-- FULL PER-SEDE MENU (real catalogue from the restaurant's own shop) -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><span class="eyebrow"><span class="dot"></span>Il menu</span>
+      <h2 class="h2" style="margin-top:18px;">Il menu di<br/>Leini.</h2></div>
+      <p class="lede" id="sedeMenuLede">Il menu completo del ristorante Harù di Leini. Prezzi e disponibilità possono variare da sede a sede.</p>
+    </div>
+    <div id="sedeMenu" class="sede-menu" data-key="leini" data-tel="+393336843365"></div>
+  </div>
+</section>
+
+<!-- PAYMENTS -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Pagamenti</span>
+        <h2 class="h2" style="margin-top:18px;">Paga<br/>come preferisci.</h2>
+      </div>
+      <p class="lede">Satispay, Apple Pay, Google Pay, carta, buoni pasto oppure in contanti al ritiro. Tocca un metodo qualsiasi per ordinare dal ristorante di Leini.</p>
+    </div>
+    <div class="sede-pay reveal">
+      <a class="pm" href="../../haru-order.html?zone=Leini"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#f94d00" d="M4 12l8-8 8 8-8 8z"/></svg> Satispay</a><a class="pm" href="../../haru-order.html?zone=Leini"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.5-.2-2.8.8-3.6.8-.7 0-1.9-.8-3.1-.8-1.6 0-3 .9-3.9 2.4-1.6 2.9-.4 7.1 1.2 9.5.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3.1-.7 1.4 0 1.8.7 3.1.7 1.3 0 2.1-1.1 2.9-2.3.6-.9.9-1.7.9-1.8 0 0-1.7-.7-1.7-2.6z"/></svg> Apple Pay</a><a class="pm" href="../../haru-order.html?zone=Leini"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="#4285f4" stroke-width="2"/><path fill="#4285f4" d="M12 11v2h3a3 3 0 11-1-2.7"/></svg> Google Pay</a><a class="pm" href="../../haru-order.html?zone=Leini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2" stroke-width="1.6"/><rect x="2" y="8" width="20" height="3" fill="currentColor" stroke="none"/></svg> Carta</a><a class="pm" href="../../haru-order.html?zone=Leini"><svg viewBox="0 0 24 24" fill="none" stroke="#3a7d5c" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2" stroke-width="1.6"/><line x1="9" y1="6" x2="9" y2="18" stroke-dasharray="2 2"/></svg> Buoni pasto</a><a class="pm" href="../../haru-order.html?zone=Leini"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke-width="1.6"/><text x="12" y="16" font-size="11" text-anchor="middle" fill="currentColor" stroke="none">€</text></svg> Contanti</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT THE AREA -->
+<section style="background:var(--bg-2)">
+  <div class="wrap">
+    <div class="split">
+      <div class="media"><img src="../../assets/img/site/ingredienti.jpg" alt="Ingredienti Harù" loading="lazy" /></div>
+      <div class="content">
+        <span class="eyebrow"><span class="dot"></span>Su questo ristorante</span>
+        <h2 class="h2" style="margin:18px 0 22px;">A Leini,<br/>un ristorante vero.</h2>
+        <p class="lede">Ogni Harù è un ristorante vero, con la propria cucina e il proprio team. Quello di Leini non fa eccezione: stessa qualità, stessa cura, per portare sushi fresco e cucina asiatica sulla tua tavola, partendo dai clienti della Piemonte.</p>
+        <div class="hero-actions" style="margin-top:26px;">
+          <a href="../../haru-order.html?zone=Leini" class="btn btn-primary">Ordina da questo ristorante</a>
+          <a href="tel:+393336843365" class="btn btn-ghost">Chiama il locale</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section style="padding-top:clamp(40px,5vw,80px)">
+  <div class="wrap">
+    <div class="sede-gallery reveal">
+      <div class="g"><img src="../../assets/img/sedi/leini.jpg" alt="Harù Leini" loading="lazy" /></div>
+      <div class="g"><img src="../../assets/img/site/hero-sushi.jpg" alt="Misto di sushi" loading="lazy" /></div>
+      <div class="g"><img src="../../assets/img/site/ampia-scelta.jpg" alt="Ampia scelta" loading="lazy" /></div>
+      <div class="g"><img src="../../assets/img/site/sushi-2.jpg" alt="Sushi" loading="lazy" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section style="background:var(--bg-2)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Le voci dei clienti</span>
+        <h2 class="h2" style="margin-top:18px;">Le recensioni<br/>da Leini.</h2>
+      </div>
+      <p class="lede">Cibo e brand sono molto amati: il vero collo di bottiglia è il digitale, non la cucina.</p>
+    </div>
+    <div class="review-grid reveal-stagger">
+      <div class="review-card">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">Il sushi di questo Harù di Leini è freschissimo, porzioni generose e impiattamento curato. Anche da asporto arriva impeccabile: ci torneremo di sicuro.</p>
+        <div class="rv-who"><span class="rv-ava">春</span><div><div class="rv-name">Marco R.</div><div class="rv-src">Recensione Google · Leini</div></div></div>
+      </div><div class="review-card">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">Uramaki e sashimi davvero ottimi, la qualità del pesce si sente. Servizio veloce e prezzi onesti.</p>
+        <div class="rv-who"><span class="rv-ava">春</span><div><div class="rv-name">Giulia B.</div><div class="rv-src">Recensione Google · Leini</div></div></div>
+      </div><div class="review-card">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">È da sempre il giapponese preferito di tutta la nostra famiglia a Leini. Ordinare è comodissimo e con i punti si ottengono anche piatti gratis: un bel pensiero.</p>
+        <div class="rv-who"><span class="rv-ava">春</span><div><div class="rv-name">Davide T.</div><div class="rv-src">Recensione Google · Leini</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OTHER LOCATIONS -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Altri ristoranti</span>
+        <h2 class="h2" style="margin-top:18px;">13 ristoranti,<br/>un solo brand.</h2>
+      </div>
+      <p class="lede">In Piemonte e non solo, c'è sempre un Harù vicino a te.</p>
+    </div>
+    <div class="other-sedi reveal">
+      <a href="../mozzate/">Harù Mozzate <span style="color:var(--fg-dim)">CO</span></a><a href="../milano-sempione/">Harù Milano Corso Sempione <span style="color:var(--fg-dim)">MI</span></a><a href="../baggio/">Harù Milano Baggio <span style="color:var(--fg-dim)">MI</span></a><a href="../oggiono/">Harù Oggiono <span style="color:var(--fg-dim)">LC</span></a><a href="../valtellina/">Harù Berbenno di Valtellina <span style="color:var(--fg-dim)">SO</span></a><a href="../opera/">Harù Opera <span style="color:var(--fg-dim)">MI</span></a>
+      <a href="../../haru-locali.html" style="border-color:var(--border-gold);color:var(--accent-2)">Vedi tutti i 13 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <span class="eyebrow"><span class="dot"></span>A Leini</span>
+  <h2 class="h1">Voglia di sushi a Leini?<br/>Ordina <em>diretto</em>.</h2>
+  <p class="lede" style="margin:0 auto;">Prezzi del ristorante, nessun sovrapprezzo e −10% sul primo ordine. Ordina diretto e tieni per te sconti e punti.</p>
+  <div class="actions">
+    <a href="../../haru-order.html?zone=Leini" class="btn btn-primary">Ordina da questo ristorante<svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    <a href="../../haru-app.html" class="btn btn-ghost">Scarica l'App</a>
+  </div>
+</section>
+
+
+<footer class="footer"><div class="footer-grid">
+  <div class="footer-brand"><img src="../../assets/img/site/logo-white.png" alt="Harù" style="height:46px;width:auto;margin-bottom:16px" /><p>Sushi e cucina asiatica dal 2014. 13 ristoranti tra Lombardia, Piemonte, Liguria e Torino. Un solo brand, una sola App, il tuo ordine diretto.</p></div>
+  <div class="footer-col"><h5>Ordina</h5><ul><li><a href="../../haru-menu.html">Menu completo</a></li><li><a href="../../haru-order.html">Ordina online</a></li><li><a href="../../haru-locali.html">I nostri locali</a></li><li><a href="../../haru-app.html">App &amp; fidelity</a></li></ul></div>
+  <div class="footer-col"><h5>Brand</h5><ul><li><a href="../../haru-index.html">Chi siamo</a></li><li><a href="../../haru-owners.html">Per i proprietari</a></li></ul></div>
+  <div class="footer-col"><h5>Contatti</h5><p>info@haru.it<br/>13 ristoranti nel Nord Italia<br/>Lun–Dom · pranzo e cena</p></div>
+</div><div class="footer-bottom"><span>© 2026 Harù · Demo dimostrativa · HOTATE S.A.S. / YE SONDRIO S.R.L.</span><div class="socials"><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">TikTok</a></div></div></footer>
+
+<!-- STICKY MOBILE ORDER BAR -->
+<div class="sticky-order" id="stickyOrder">
+  <div class="so-info">
+    <div class="so-t">Harù Leini</div>
+    <div class="so-s">Ordine in arrivo · ora prenoti per telefono</div>
+  </div>
+  <a href="tel:+393336843365" class="btn btn-primary">Prenota per telefono</a>
+</div>
+<script>
+(function(){
+  var bar=document.getElementById('stickyOrder');
+  if(!bar) return;
+  var onScroll=function(){
+    if(window.scrollY>600){ bar.classList.add('show'); }
+    else { bar.classList.remove('show'); }
+  };
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+</script>
+
+<script src="../../assets/data.js"></script><script>window.HARU_SEDE_MENUS={"leini":[{"category":"Chirashi e Cake","items":[{"code":"211","name":"Poke mix","desc":"Riso bianco con tartare di salmone, mango, avocado, edamame, wakame con salsa teriyaki e mandorle","allergeni":"glutine, pesce, soia, frutta a guscio","price":""},{"code":"212","name":"Poke ebi","desc":"Riso bianco con tempura di gamberi, tartare di salmone, avocado, mango e salsa teriyaki","allergeni":"glutine, crostacei, pesce, soia, sesamo","price":""}]},{"category":"Antipasti","items":[{"code":"16","name":"Involtini primavera","desc":"Involtini ripieni di verdure","allergeni":"glutine","price":""},{"code":"17","name":"Takoyaki","desc":"Polpette di farina con polpo","allergeni":"glutine, molluschi","price":""},{"code":"19","name":"Bocconcini di pollo","desc":"","allergeni":"glutine","price":""},{"code":"20","name":"Samurai stick","desc":"Gamberi avvolti da pasta sfoglia","allergeni":"glutine, crostacei","price":""},{"code":"26","name":"Chele di granchio","desc":"","allergeni":"glutine, crostacei","price":""},{"code":"28","name":"Cotoletta di pollo","desc":"Pollo fritto impanato","allergeni":"glutine, uova","price":""},{"code":"27","name":"Patatine fritte","desc":"","allergeni":"glutine","price":""},{"code":"29","name":"Pane fritto","desc":"Pane cinese fritto","allergeni":"glutine, latte","price":""},{"code":"30","name":"Fiori di zucca","desc":"Fiori di zucca fritti ripieni di gamberi","allergeni":"glutine, crostacei","price":""},{"code":"31","name":"Nuvole di drago","desc":"Chips di gamberi","allergeni":"crostacei","price":""},{"code":"32","name":"Calamari fritti","desc":"Anelli di calamari impanati e fritti","allergeni":"glutine, molluschi","price":""},{"code":"35","name":"Zuppa di pesce","desc":"Zuppa di frutti di mare con uova, surimi e gamberi","allergeni":"crostacei, uova, pesce, molluschi","price":""},{"code":"36","name":"Zuppa pollo e mais","desc":"Pollo, mais e uova","allergeni":"uova","price":""},{"code":"43","name":"Edamame","desc":"Fagioli di soia lessati","allergeni":"soia","price":""}]},{"category":"Dim Sum","items":[{"code":"02","name":"Ravioli di carne","desc":"Ravioli di maiale zenzero e cipolla al vapore","allergeni":"glutine","price":""},{"code":"04","name":"Ravioli di verdure","desc":"Ravioli di verdure al vapore","allergeni":"glutine","price":""},{"code":"05","name":"Ravioli di carne alla griglia","desc":"Ravioli di maiale alla griglia, zenzero e cipolla","allergeni":"glutine","price":""},{"code":"07","name":"Ebi cristallo","desc":"Ravioli cristallini ripieni di gambero","allergeni":"glutine, crostacei","price":""},{"code":"09","name":"Ravioli di merluzzo","desc":"Ravioli al nero di seppia con merluzzo","allergeni":"glutine, pesce, molluschi","price":""},{"code":"11","name":"Pane cinese","desc":"Pane cinese al vapore (2 pz.)","allergeni":"glutine, latte","price":""},{"code":"12","name":"Sweet bunny","desc":"Pane cinese con crema all'uovo (2 pz.)","allergeni":"glutine, uova","price":""},{"code":"10","name":"Ravioli di manzo","desc":"Ravioli di manzo","allergeni":"glutine","price":""},{"code":"25","name":"Gambero kataifi","desc":"Gamberone avvolto in pasta kataifi fritto","allergeni":"glutine, crostacei","price":""}]},{"category":"Fritti","items":[{"code":"18","name":"Involtino filippino","desc":"Involtino di carne e verdure","allergeni":"glutine","price":""},{"code":"21","name":"Crocchette di patate","desc":"","allergeni":"glutine","price":""},{"code":"22","name":"Polpette di gamberi con","desc":"mandorle","allergeni":"glutine, crostacei, frutta a guscio","price":""},{"code":"33","name":"Alette di pollo","desc":"","allergeni":"glutine","price":""}]},{"category":"Zuppe","items":[{"code":"34","name":"Zuppa di miso","desc":"Zuppa di miso con alghe, toufu","allergeni":"soia","price":""}]},{"category":"Insalate","items":[{"code":"40","name":"Insalata di gamberi","desc":"Insalata con gamberetti, sesamo e salsa","allergeni":"glutine, crostacei, soia, sesamo","price":""},{"code":"45","name":"Salmone salad","desc":"Insalata con salmone crudo, sesamo e salsa","allergeni":"glutine, pesce, sesamo","price":""}]},{"category":"Salad","items":[{"code":"41","name":"Goma wakame","desc":"Insalata di alghe giapponesi piccanti","allergeni":"sesamo","price":""},{"code":"42","name":"Cocktail di gamberi","desc":"Gamberi con salsa cocktail","allergeni":"crostacei, uova","price":""},{"code":"44","name":"Tagliata di manzo","desc":"Tagliata di manzo e rucola 47 Polpo e rucola Insalata con polpo e rucola","allergeni":"molluschi","price":""}]},{"category":"Verdure","items":[{"code":"92","name":"Verdure cinesi","desc":"","allergeni":"soia","price":""}]},{"category":"Griglia","items":[{"code":"56","name":"Gamberoni alla griglia","desc":"Gamberoni alla griglia con salsa teriyaki","allergeni":"glutine, crostacei, soia","price":""},{"code":"57","name":"Capesante fly","desc":"Capesante saltate con pangrattato (1 pz.)","allergeni":"glutine, molluschi","price":""},{"code":"77","name":"Spaghetti ai frutti di mare","desc":"","allergeni":"glutine, crostacei, molluschi","price":""},{"code":"78","name":"Spaghetti al pomodoro","desc":"","allergeni":"glutine","price":""},{"code":"79","name":"Spaghetti alla carbonara","desc":"","allergeni":"glutine, uova","price":""},{"code":"84","name":"Gamberi con patate e curry","desc":"Gamberi saltati con patate e curry","allergeni":"crostacei, soia","price":""},{"code":"95","name":"Wok ciuffi di calamari","desc":"Scodella sul fuoco con calamari piccanti, peperoni e cetriolo","allergeni":"glutine, soia, molluschi","price":""},{"code":"94","name":"Wok manzo","desc":"Scodella sul fuoco con manzo piccante, peperoni e cetriolo","allergeni":"glutine, soia","price":""},{"code":"98","name":"Wok cavolfiore","desc":"Scodella sul fuoco con cavolfiore e verdure","allergeni":"glutine, soia","price":""},{"code":"96","name":"Wok gamberi","desc":"Scodella sul fuoco con gamberi piccanti, peperoni e cetriolo","allergeni":"glutine, crostacei, soia","price":""},{"code":"100","name":"Nigiri sake (1 pz.)","desc":"Riso con sopra salmone","allergeni":"pesce","price":""},{"code":"101","name":"Nigiri suzuki (1 pz.)","desc":"Riso con sopra branzino","allergeni":"pesce","price":""},{"code":"102","name":"Nigiri ebi (1 pz.)","desc":"Riso con sopra gambero cotto","allergeni":"crostacei","price":""},{"code":"104","name":"Nigiri polpo (1 pz.)","desc":"Riso con sopra polpo","allergeni":"molluschi","price":""},{"code":"103","name":"Nigiri granchio (1 pz.)","desc":"Riso con sopra surimi di granchio","allergeni":"crostacei","price":""},{"code":"105","name":"Nigiri salmone","desc":"scottato (1 pz.) Riso con sopra salmone scottato, salsa teriyaki","allergeni":"glutine, pesce, soia","price":""},{"code":"100","name":"101","desc":"102 103 104 105 108 Sushi box (1 pz.) Salmone, avocado e salsa teriyaki","allergeni":"glutine, pesce, soia","price":""}]},{"category":"Teppanyaki","items":[{"code":"50","name":"Spiedini di gamberi","desc":"Spiedini di gamberi con salsa teriyaki e sesamo","allergeni":"glutine, crostacei, soia, sesamo","price":""},{"code":"52","name":"Spiedini di seppie","desc":"Spiedini di seppie con salsa teriyaki e sesamo","allergeni":"glutine, soia, sesamo, molluschi","price":""},{"code":"51","name":"Yakitori","desc":"Spiedini di pollo con salsa teriyaki e sesamo","allergeni":"glutine, soia, sesamo","price":""},{"code":"53","name":"Spiedini di manzo","desc":"Spiedini di manzo con salsa teriyaki e sesamo","allergeni":"glutine, soia, sesamo","price":""},{"code":"54","name":"Salmone alla griglia","desc":"Salmone alla griglia con salsa teriyaki e sesamo","allergeni":"glutine, pesce, soia, sesamo","price":""},{"code":"55","name":"Branzino alla griglia","desc":"Branzino alla griglia con salsa teriyaki e sesamo","allergeni":"glutine, pesce, soia, sesamo","price":""},{"code":"58","name":"Sake tataki","desc":"Salmone scottato con crosta di sesamo e salsa teriyaki","allergeni":"glutine, pesce, soia, sesamo","price":""},{"code":"59","name":"Maguro tataki","desc":"Tonno scottato con crosta di sesamo e salsa teriyaki","allergeni":"glutine, pesce, soia, sesamo","price":""}]},{"category":"Agemono","items":[{"code":"23","name":"Tempura ebi","desc":"Tempura di gamberi","allergeni":"glutine, crostacei","price":""},{"code":"24","name":"Yasai tempura","desc":"Tempura di verdure","allergeni":"glutine","price":""}]},{"category":"Tartare","items":[{"code":"205","name":"Tartare mix","desc":"Tonno, salmone, branzino e avocado con salsa ponzu e sesamo","allergeni":"glutine, pesce, soia, sesamo","price":""},{"code":"225","name":"Temaki cheese","desc":"Cono di alga con riso, surimi, avocado, cetriolo, salmone, philadelphia e cipolla fritta","allergeni":"glutine, crostacei, pesce, latte","price":""},{"code":"222","name":"Temaki tekka avocado","desc":"Cono di alga con riso, tonno e avocado","allergeni":"pesce","price":""},{"code":"223","name":"Temaki spicy tekka","desc":"Cono di alga con riso, tonno con salsa piccante","allergeni":"pesce","price":""},{"code":"220","name":"221","desc":"222 223 224 225 228 Temaki vegetariano Cono di sfoglia di soia con avocado, insalata, cetriolo","allergeni":"soia","price":""}]},{"category":"Usuzukuri","items":[{"code":"116","name":"Carpaccio di salmone","desc":"Carpaccio di salmone in salsa ponzu e sesamo","allergeni":"glutine, pesce, soia, sesamo","price":""},{"code":"117","name":"Carpaccio di tonno","desc":"Carpaccio di tonno in salsa ponzu e sesamo","allergeni":"glutine, pesce, soia, sesamo","price":""},{"code":"118","name":"Carpaccio di branzino","desc":"Carpaccio di branzino in salsa ponzu e sesamo","allergeni":"glutine, pesce, soia, sesamo","price":""}]},{"category":"Nigiri","items":[{"code":"109","name":"Nigiri mix scottato","desc":"Riso con sopra salmone, tonno, branzino con salsa teriyaki","allergeni":"glutine, pesce, soia","price":""},{"code":"107","name":"Nigiri unagi (1 pz.)","desc":"Riso con sopra anguilla, salsa teriyaki e sesamo","allergeni":"glutine, soia, pesce, sesamo","price":""},{"code":"106","name":"Nigiri maguro (1 pz.)","desc":"Riso con sopra tonno","allergeni":"pesce","price":""},{"code":"106","name":"107","desc":"108 Ordinabile 1 porzione a persona 110 Sushi mix 4 nigiri, 4 uramaki, 4 hosomaki, 4 sashimi, 1 gambero rosso","allergeni":"crostacei, pesce","price":""},{"code":"111","name":"Scampo esotic","desc":"Scampo marinato con salsa passion fruit","allergeni":"crostacei","price":""},{"code":"115","name":"Sashimi misto deluxe","desc":"Sashimi di salmone, tonno, branzino e gambero rosso","allergeni":"crostacei, pesce","price":""}]},{"category":"Gunkan","items":[{"code":"187","name":"Gunkan salmone","desc":"Bignè di riso avvolto da salmone con sopra tartare di salmone piccante","allergeni":"pesce","price":""},{"code":"196","name":"Gunkan ikura","desc":"Bigné di riso avvolto da salmone con sopra uova di pesce","allergeni":"pesce","price":""},{"code":"194","name":"Gunkan spicy salmon","desc":"Bignè di riso con alga esterna con sopra tartare di salmone piccante","allergeni":"pesce","price":""},{"code":"215","name":"Chirashi sake","desc":"Letto di riso con sopra fette di salmone e sesamo","allergeni":"pesce, sesamo","price":""},{"code":"217","name":"Chirashi unagi","desc":"Letto di riso con sopra fette di anguilla, salsa teriyaki e sesamo","allergeni":"glutine, pesce, soia, sesamo","price":""},{"code":"216","name":"Chirashi tekka","desc":"Letto di riso con sopra fette di tonno e sesamo","allergeni":"pesce, sesamo","price":""}]},{"category":"Uramaki","items":[{"code":"130","name":"Salmon philadelphia","desc":"Salmone, philadelphia e sesamo","allergeni":"pesce, latte, sesamo","price":""},{"code":"131","name":"Orange roll","desc":"Salmone tritato spicy, cetriolo, con salsa spicy, sesamo e maionese","allergeni":"uova, pesce, sesamo","price":""},{"code":"132","name":"Spicy salmon","desc":"Salmone tritato piccante, cetriolo, maionese piccante e sesamo","allergeni":"uova, pesce, sesamo","price":""},{"code":"133","name":"Miura","desc":"Salmone cotto, philadelphia, salsa teriyaki e sesamo","allergeni":"glutine, pesce, soia, latte, sesamo","price":""},{"code":"134","name":"Salmone scottato roll","desc":"Tempura di salmone con sopra salmone scottato e salsa teriyaki","allergeni":"glutine, pesce, soia","price":""},{"code":"135","name":"Pistacchio","desc":"Salmone, philadelphia, con sopra fette di salmone scottato, salsa teriyaki e granella di pistacchio","allergeni":"glutine, pesce, soia, latte, frutta a guscio","price":""},{"code":"136","name":"Samba","desc":"Avocado, philadelphia, con sopra tartare di salmone, salsa mango e mandorle","allergeni":"pesce, latte, frutta a guscio","price":""},{"code":"137","name":"Triple roll","desc":"Salmone avocado ricoperto di pesce misto tartare di salmone e pasta kataifi","allergeni":"glutine, pesce","price":""},{"code":"139","name":"Capesante roll","desc":"Gambero fritto con sopra fette di capasanta scottate, tobiko e maionese, salsa teriyaki","allergeni":"glutine, crostacei, uova, soia, molluschi","price":""},{"code":"140","name":"Haru roll","desc":"Salmone cotto, philadelphia con sopra pesce misto scottato e salsa teriyaki","allergeni":"glutine, pesce, soia, latte","price":""},{"code":"141","name":"Maki fritto (6 pz.)","desc":"Salmone, surimi, cetriolo, philadelphia e salsa teriyaki","allergeni":"glutine, crostacei, pesce, soia, latte","price":""},{"code":"142","name":"Tonno avocado","desc":"Tonno, avocado e sesamo","allergeni":"pesce, sesamo","price":""},{"code":"143","name":"Vulcan roll","desc":"Gambero fritto con sopra tobiko ricoperto di salsa spicy flambé","allergeni":"glutine, crostacei, pesce","price":""},{"code":"144","name":"Rucola roll","desc":"Tonno, philadelphia, pomodoro e salsa alla rucola, sesamo","allergeni":"pesce, latte, sesamo","price":""},{"code":"145","name":"Maki speciale","desc":"Fiori di zucca, gamberi e pasta kataifi, sesamo","allergeni":"glutine, crostacei, sesamo","price":""},{"code":"146","name":"Tiger roll","desc":"Gambero in tempura, avocado con sopra fette di salmone e salsa teriyaki","allergeni":"glutine, crostacei, pesce, soia","price":""},{"code":"147","name":"Ebi flowers","desc":"Tempura di gambero, tartare di salmone, fiori di zucca in tempura, salsa teriyaki e sesamo","allergeni":"glutine, crostacei, pesce, soia, sesamo","price":""},{"code":"148","name":"Phoenix roll","desc":"Gambero fritto con sopra fette di salmone e tonno con maionese piccante e sesamo","allergeni":"glutine, crostacei, uova, pesce, sesamo","price":""},{"code":"149","name":"Tempura maki","desc":"Tempura di gambero, insalata, maionese, pasta kataifi, salsa teriyaki e sesamo","allergeni":"glutine, crostacei, uova, soia, sesamo","price":""},{"code":"151","name":"Angel roll","desc":"Gambero cotto, avocado, philadelphia, con sopra salmone scottato e salsa agropiccante","allergeni":"crostacei, pesce, latte","price":""},{"code":"150","name":"Dragon roll","desc":"Tempura di gambero, maionese, avocado e salsa teriyaki","allergeni":"glutine, crostacei, uova, soia","price":""},{"code":"152","name":"Rainbow roll","desc":"Gambero cotto, avocado con sopra fette di pesce misto e avocado","allergeni":"crostacei, pesce","price":""},{"code":"155","name":"Crabs roll","desc":"Cetriolo, polpa di granchio e salsa rucola, sesamo","allergeni":"crostacei, sesamo","price":""},{"code":"156","name":"California light","desc":"Surimi, avocado, cetriolo, cipolla fritta e sesamo","allergeni":"glutine, crostacei, sesamo","price":""},{"code":"157","name":"Uramaki Vegetariano","desc":"Avocado, cetrioli, insalata e sesamo","allergeni":"sesamo","price":""},{"code":"164","name":"Futo fruit","desc":"Avocado, mango, ananas, philadelphia con sfoglia di soia","allergeni":"soia, latte","price":""},{"code":"165","name":"Futo cotto","desc":"Tempura di gambero e salmone con salsa teriyaki","allergeni":"glutine, crostacei, pesce, soia","price":""},{"code":"166","name":"Black out","desc":"Roll di riso venere con salmone, mango, sesamo, ricoperto di mandorle","allergeni":"pesce, frutta a guscio, sesamo","price":""},{"code":"167","name":"Black miura","desc":"Roll di riso venere con salmone cotto, philadelphia, sesamo ricoperto di kataifi e salsa teriyaki","allergeni":"glutine, pesce, soia, latte, sesamo","price":""},{"code":"168","name":"Crunch roll","desc":"Roll di riso venere con gambero fritto, avocado, ricoperto di mandorle, sesamo e salsa teriyaki","allergeni":"glutine, crostacei, soia, frutta a guscio, sesamo","price":""},{"code":"169","name":"Black dragon","desc":"Roll di riso venere con gambero fritto, con sopra avocado, kataifi e salsa teriyaki","allergeni":"glutine, crostacei, soia","price":""},{"code":"170","name":"Salmon flambé","desc":"Roll di riso venere con salmone, avocado, con sopra fette di salmone scottato e maionese piccante","allergeni":"uova, pesce","price":""},{"code":"178","name":"Hosso fritto cheese (8 pz.)","desc":"Hosomaki al salmone impanato fritto con sopra philadelphia, mango e salsa teriyaki","allergeni":"glutine, uova, pesce, soia, latte","price":""},{"code":"179","name":"Hosomaki fritto fragola (8 pz.)","desc":"Hosomaki al salmone impanato fritto con sopra philadelphia, fragola e salsa teriyaki","allergeni":"glutine, uova, pesce, soia, latte","price":""},{"code":"191","name":"Gunkan tonno","desc":"Bignè di riso avvolto da tonno con sopra tartare di tonno piccante","allergeni":"pesce","price":""},{"code":"190","name":"Gunkan zucchine ebi","desc":"Bignè di riso avvolto da zucchina con sopra tartare di gamberi cotti, tobiko e maionese","allergeni":"crostacei, uova, pesce","price":""},{"code":"189","name":"Gunkan cheese","desc":"Bigné di riso avvolto da salmone con sopra philadelphia","allergeni":"pesce, latte","price":""}]},{"category":"Hosomaki","items":[{"code":"171","name":"Hosomaki sake","desc":"Salmone","allergeni":"pesce","price":""},{"code":"172","name":"Hosomaki tekka","desc":"Tonno","allergeni":"pesce","price":""},{"code":"173","name":"Hosomaki ebi","desc":"Gambero cotto","allergeni":"crostacei","price":""},{"code":"174","name":"Hosomaki avocado","desc":"Avocado Hosomaki Hosomaki (6 pz.) 175 Hosomaki kappa Cetriolo 177 Hosomaki fritto mango (8 pz.) Hosomaki al salmone impanato fritto con sopra philadel","allergeni":"glutine, uova, pesce, soia, latte","price":""},{"code":"181","name":"Fresh cheese","desc":"Roll senza alghe con philadelphia, salmone e pasta kataifi","allergeni":"glutine, pesce, latte","price":""},{"code":"192","name":"Gunkan miura","desc":"Bignè di riso con alga esterna con sopra salmone cotto","allergeni":"glutine, pesce, soia","price":""},{"code":"187","name":"189","desc":"190 196 194 191 192 Tartare Tartare 204 Tartare salmone Salmone con salsa ponzu e sesamo","allergeni":"glutine, pesce, soia, sesamo","price":""},{"code":"206","name":"Tartare fruit","desc":"Ananas, salmone, mango con salsa ponzu e sesamo","allergeni":"glutine, pesce, soia, sesamo","price":""},{"code":"208","name":"Tartare special","desc":"Salmone, tonno, branzino, gambero rosso con salsa ponzu e sesamo","allergeni":"glutine, crostacei, pesce, soia, sesamo","price":""}]},{"category":"Temaki","items":[{"code":"220","name":"Temaki ebiten","desc":"Cono di alga con riso, tempura di gambero e salsa teriyaki","allergeni":"glutine, crostacei, soia","price":""},{"code":"221","name":"Temaki sake avocado","desc":"Cono di alga con riso, salmone e avocado","allergeni":"pesce","price":""},{"code":"224","name":"Temaki California","desc":"Cono di alga con riso, surimi, avocado, cetriolo, tobiko, maionese","allergeni":"glutine, crostacei, uova, pesce, soia","price":""},{"code":"229","name":"Temaki spicy salmon","desc":"Cono di sfoglia di soia con salmone, salsa piccante, pasta kataifi","allergeni":"glutine, pesce, soia","price":""}]},{"category":"Sashimi","items":[{"code":"112","name":"Sashimi sake","desc":"Salmone","allergeni":"pesce","price":""},{"code":"114","name":"Sashimi mix","desc":"Salmone, tonno e branzino","allergeni":"pesce","price":""},{"code":"119","name":"Carpaccio di","desc":"salmone scottato Carpaccio di salmone scottato con salsa ponzu e sesamo","allergeni":"glutine, pesce, soia, sesamo","price":""},{"code":"122","name":"Carpaccio misto speciale","desc":"Carpaccio di salmone, tonno, branzino, gambero rosso e scampi con salsa ponzu","allergeni":"glutine, crostacei, pesce, soia, sesamo","price":""},{"code":"120","name":"Carpaccio di","desc":"tonno scottato Carpaccio di tonno scottato con salsa ponzu e sesamo","allergeni":"glutine, pesce, soia, sesamo","price":""},{"code":"121","name":"Carpaccio di","desc":"branzino scottato Carpaccio di branzino scottato con salsa ponzu e sesamo","allergeni":"glutine, pesce, soia, sesamo","price":""},{"code":"129","name":"Salmone avocado","desc":"Salmone, avocado e sesamo","allergeni":"pesce, sesamo","price":""},{"code":"138","name":"Mango roll","desc":"Salmone, mango, pasta di tempura e salsa mango","allergeni":"glutine, pesce","price":""}]},{"category":"Chirashi","items":[{"code":"226","name":"227","desc":"228 229 Ordinabile 1 porzione a persona Sfiziosità Sfiziosità 230 Millefoglie salmone Sfoglia croccante con salmone, philadelphia con salsa agrodolce","allergeni":"glutine, pesce, latte","price":""},{"code":"232","name":"Involtino salmon mango","desc":"Carpaccio di salmone avvolto da mango e salsa yuzu","allergeni":"pesce, soia","price":""}]},{"category":"Poke","items":[{"code":"227","name":"Temaki fruit","desc":"Cono di sfoglia di soia con avocado, mango, ananas, philadelphia e fragola","allergeni":"soia, latte","price":""},{"code":"226","name":"Temaki dragon","desc":"Cono di sfoglia di soia con salmone fritto, anguilla, salsa teriyaki, sesamo","allergeni":"glutine, pesce, soia, sesamo","price":""}]},{"category":"Primi piatti","items":[{"code":"65","name":"Riso cantonese","desc":"Riso saltato con prosciutto cotto, piselli e uova","allergeni":"uova, soia","price":""},{"code":"66","name":"Riso gamberi","desc":"Riso saltato con gamberi, verdure e uova","allergeni":"crostacei, uova, soia","price":""},{"code":"68","name":"Riso al curry","desc":"Riso saltato con curry, verdure e uova","allergeni":"uova","price":""},{"code":"67","name":"Riso venere","desc":"Riso venere saltato con gamberi, verdure e uova","allergeni":"crostacei, uova, soia","price":""},{"code":"69","name":"Riso pollo","desc":"Riso saltato con pollo, verdure e uova","allergeni":"uova, soia","price":""},{"code":"70","name":"Riso frutti di mare","desc":"Riso saltato con gamberi, surimi, calamari e uova","allergeni":"crostacei, uova, pesce, soia, molluschi","price":""},{"code":"71","name":"Gnocchi di riso","desc":"Gnocchi di riso con gamberi e verdure","allergeni":"glutine, crostacei","price":""},{"code":"72","name":"Spaghetti di riso con gamberi","desc":"Spaghetti di riso saltati con gamberi, verdure e uova","allergeni":"glutine, crostacei, uova, soia","price":""},{"code":"73","name":"Spaghetti di soia con gamberi","desc":"Spaghetti di soia saltati con gamberi e verdure","allergeni":"glutine, crostacei, soia","price":""},{"code":"74","name":"Yaki udon con gamberi","desc":"Pasta giapponese saltata con gamberi, verdure, salsa e uova","allergeni":"glutine, crostacei, uova, soia","price":""},{"code":"76","name":"Ramen","desc":"Spaghetti giapponesi con uova, verdure, alghe e gamberi","allergeni":"glutine, crostacei, uova","price":""},{"code":"75","name":"Spaghetti di soba con gamberi","desc":"Pasta di grano saraceno con gamberi, verdure e uova","allergeni":"crostacei, uova","price":""}]},{"category":"Secondi piatti","items":[{"code":"80","name":"Calamari piccanti","desc":"Calamari saltati con peperoni, cipolla e salsa piccante","allergeni":"molluschi","price":""},{"code":"81","name":"Gamberi sale e pepe","desc":"Gamberi, peperoni e cipolla saltati con sale e pepe","allergeni":"crostacei, soia","price":""},{"code":"93","name":"Gamberi con verdure","desc":"Gamberi con verdure miste","allergeni":"crostacei, soia","price":""},{"code":"82","name":"Gamberi al limone","desc":"Gamberi saltati con salsa al limone","allergeni":"crostacei, soia","price":""},{"code":"83","name":"Gamberi piccanti","desc":"Gamberi saltati con peperoncini, peperoni, cipolla e salsa piccante","allergeni":"glutine, crostacei, soia","price":""},{"code":"85","name":"Pollo bambù e funghi","desc":"Pollo saltato con bambù e funghi","allergeni":"glutine, soia","price":""},{"code":"86","name":"Pollo piccante","desc":"Pollo saltato con cipolla, peperoni in salsa piccante","allergeni":"glutine, soia","price":""},{"code":"87","name":"Pollo con mandorle","desc":"Pollo saltato con bambù e mandorle","allergeni":"glutine, soia, frutta a guscio","price":""},{"code":"89","name":"Pollo al curry","desc":"Pollo saltato con patate e salsa al curry","allergeni":"soia","price":""},{"code":"90","name":"Manzo con bambù e funghi","desc":"Fettine di manzo saltato con bambù e funghi","allergeni":"glutine, soia","price":""},{"code":"91","name":"Manzo piccante","desc":"Fettine di manzo saltato con verdure e salsa piccante","allergeni":"glutine, soia","price":""}]},{"category":"Altro","items":[{"code":"03","name":"Ravioli di pollo e verdure","desc":"Ravioli ripieni di pollo e verdure","allergeni":"glutine, crostacei","price":""}]},{"category":"Sushi e Sashimi","items":[{"code":"113","name":"Sweet salmon","desc":"Salmone scottato con salsa yuzu e granella di pistacchio","allergeni":"pesce, soia, frutta a guscio","price":""},{"code":"123","name":"Sushi sake maki","desc":"4 nigiri salmone, 4 sashimi salmone, 4 uramaki salmone","allergeni":"crostacei, pesce, sesamo","price":""}]},{"category":"Haru style","items":[{"code":"125","name":"Tramezzino salmone","desc":"Tramezzino di riso con salmone, philadelphia e sesamo, ricoperto da pasta kataifi e salsa spicy maio","allergeni":"glutine, uova, pesce, soia, latte, sesamo","price":""},{"code":"126","name":"Tramezzino tonno","desc":"Tramezzino di riso con tonno, philadelphia e sesamo, ricoperto da pasta kataifi e salsa spicy maio","allergeni":"glutine, uova, pesce, soia, latte, sesamo","price":""},{"code":"127","name":"Tramezzino miura","desc":"Tramezzino di riso con salmone scottato, philadelphia e sesamo, ricoperto da pasta kataifi e salsa spicy maio","allergeni":"glutine, uova, pesce, soia, latte, sesamo","price":""}]},{"category":"Millefoglie","items":[{"code":"231","name":"Millefoglie tonno","desc":"Sfoglia croccante con tonno, philadelphia con salsa agrodolce","allergeni":"glutine, pesce, latte","price":""}]}]};</script><script src="../../assets/main.js"></script>
+</body></html>

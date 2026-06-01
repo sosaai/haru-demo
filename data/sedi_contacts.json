@@ -1,0 +1,196 @@
+{
+ "mozzate": {
+  "city": "Mozzate",
+  "prov": "CO",
+  "slug": "mozzate-como-ristorante-giapponese-asiatico-all-you-can-eat",
+  "tel": [
+   "+390331862001",
+   "0331862001"
+  ],
+  "addr": [],
+  "cap": [
+   "22076"
+  ]
+ },
+ "milano-sempione": {
+  "city": "Milano Corso Sempione",
+  "prov": "MI",
+  "slug": "milano-corso-sempione-ristorante-giapponese-asiatico-all-you-can-eat",
+  "tel": [
+   "+390236643790",
+   "+393519962960"
+  ],
+  "addr": [
+   "Corso Sempione, 33 20145 Milano "
+  ],
+  "cap": [
+   "20145"
+  ]
+ },
+ "baggio": {
+  "city": "Milano Baggio",
+  "prov": "MI",
+  "slug": "haru-milano-baggio",
+  "tel": [
+   "+393770813888",
+   "+390238234361"
+  ],
+  "addr": [
+   "Via Benozzo Gozzoli, 130 (Baggio) 20152 Milano "
+  ],
+  "cap": [
+   "20152"
+  ]
+ },
+ "oggiono": {
+  "city": "Oggiono",
+  "prov": "LC",
+  "slug": "oggiono-lecco",
+  "tel": [
+   "+390341575257",
+   "0341575257"
+  ],
+  "addr": [
+   "Via Papa Giovanni XXIII, 45 23848 Oggiono (Lecco) "
+  ],
+  "cap": [
+   "23848"
+  ]
+ },
+ "valtellina": {
+  "city": "Berbenno di Valtellina",
+  "prov": "SO",
+  "slug": "berbenno-di-valtellina-sondrio",
+  "tel": [
+   "+393665232602"
+  ],
+  "addr": [
+   "Via Europa snc (incrocio SS38) 23010 Berbenno di Valtellina (Sondrio) "
+  ],
+  "cap": [
+   "23010"
+  ]
+ },
+ "opera": {
+  "city": "Opera",
+  "prov": "MI",
+  "slug": "haru-opera",
+  "tel": [
+   "+393381147556",
+   "0240028565"
+  ],
+  "addr": [
+   "Viale Enrico Berlinguer 20090 Opera (MI) "
+  ],
+  "cap": [
+   "20090"
+  ]
+ },
+ "darfo": {
+  "city": "Darfo Boario Terme",
+  "prov": "BS",
+  "slug": "haru-darfo-boario-terme",
+  "tel": [
+   "0240028565",
+   "03641940609"
+  ],
+  "addr": [
+   "Via Cassiano Serventi, 2 25047 Darfo Boario Terme (BS) "
+  ],
+  "cap": [
+   "25047"
+  ]
+ },
+ "madone": {
+  "city": "Madone",
+  "prov": "BG",
+  "slug": "haru-madone",
+  "tel": [
+   "+393391983707",
+   "+39035237957"
+  ],
+  "addr": [
+   "Via Papa Giovanni XXIII, 1 24040 Madone (BG) ",
+   "Via PAPA GIOVANNI XXIII, 1 24040 Madone (BG) "
+  ],
+  "cap": [
+   "24040"
+  ]
+ },
+ "romagnano": {
+  "city": "Romagnano Sesia",
+  "prov": "NO",
+  "slug": "haru-romagnano-sesia",
+  "tel": [
+   "+393445258904",
+   "+3901631900220"
+  ],
+  "addr": [
+   "Via Novara, 422 28078 Romagnano Sesia (NO) "
+  ],
+  "cap": [
+   "28078"
+  ]
+ },
+ "como": {
+  "city": "Como",
+  "prov": "CO",
+  "slug": "haru-como",
+  "tel": [
+   "+393514946210",
+   "+390312241641"
+  ],
+  "addr": [
+   "Via Antonio Giussani &#8220;Coop&#8221; 22100 COMO "
+  ],
+  "cap": [
+   "22100"
+  ]
+ },
+ "abbiategrasso": {
+  "city": "Abbiategrasso",
+  "prov": "MI",
+  "slug": "haru-abbiategrasso",
+  "tel": [
+   "+393663417671",
+   "+390222473912"
+  ],
+  "addr": [
+   "Via Achille Grandi, snc 20081 ABBIATEGRASSO (MI) ",
+   "Via Achille Grandi, 49 20081 ABBIATEGRASSO (MI) "
+  ],
+  "cap": [
+   "20081"
+  ]
+ },
+ "leini": {
+  "city": "Leini",
+  "prov": "TO",
+  "slug": "leini-torino",
+  "tel": [
+   "+393336843365",
+   "3336843365"
+  ],
+  "addr": [
+   "Via Torino, 65 10040 Leini (Torino) "
+  ],
+  "cap": [
+   "10040"
+  ]
+ },
+ "cairo": {
+  "city": "Cairo Montenotte",
+  "prov": "SV",
+  "slug": "cairo-montenotte-savona-ristorante-giapponese-asiatico-all-you-can-eat",
+  "tel": [
+   "+390192212353",
+   "+390122212399"
+  ],
+  "addr": [
+   "Via Brigate Partigiane 13/E 17014 Cairo Montenotte (Savona) "
+  ],
+  "cap": [
+   "17014"
+  ]
+ }
+}

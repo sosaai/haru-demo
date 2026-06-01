@@ -1,0 +1,22 @@
+# Netlify config — static site (no build step)
+[build]
+  publish = "."
+
+# Root serves the homepage (our home is haru-index.html, not index.html)
+[[redirects]]
+  from = "/"
+  to = "/haru-index.html"
+  status = 200
+
+# /locali/<key>/ and /presentazione/ are served natively from their index.html.
+# Pretty URLs (no trailing slash) are handled by Netlify automatically.
+
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"

@@ -1,0 +1,447 @@
+<!doctype html><html lang="it"><head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Harù Mozzate — Sushi e cucina asiatica · CO</title>
+<meta name="description" content="Harù Mozzate (CO): indirizzo Mozzate (CO), telefono, mappa, i piatti più richiesti del locale e l'ordine online. Sushi giapponese e cucina asiatica in Lombardia." />
+<meta property="og:type" content="restaurant" />
+<meta property="og:site_name" content="Harù" />
+<meta property="og:locale" content="it_IT" />
+<meta property="og:title" content="Harù Mozzate · Sushi e cucina asiatica" />
+<meta property="og:description" content="Ristorante di Mozzate (CO): indirizzo, mappa, i piatti più richiesti del locale e l'ordine online. Ordina diretto dal locale, prezzi del ristorante, −10% sul primo ordine." />
+<meta property="og:image" content="https://haru-sushi-cn.vercel.app/assets/img/og/sede-mozzate.png" />
+<meta property="og:url" content="https://haru-sushi-cn.vercel.app/locali/mozzate/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Harù Mozzate · Sushi e cucina asiatica" />
+<meta name="twitter:image" content="https://haru-sushi-cn.vercel.app/assets/img/og/sede-mozzate.png" />
+<link rel="icon" href="../../assets/img/site/favicon.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600&family=Geist+Mono:wght@400;500&family=Noto+Sans+JP:wght@200;300;400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/styles.css" /><link rel="stylesheet" href="../../assets/haru.css" />
+<style>
+.sede-hero .hero-inner { gap: 22px; }
+.sede-hero .eyebrow { margin-bottom: 18px; display:inline-block; }
+.sede-hero .addr-line { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--fg-muted); margin-top: 8px; display:flex; gap:10px; flex-wrap:wrap; }
+.sede-hero .hero-actions { margin-top: 26px; }
+.sede-info { display:grid; grid-template-columns: repeat(4,1fr); border-top:1px solid var(--border); }
+@media (max-width:880px){ .sede-info { grid-template-columns: repeat(2,1fr); } }
+.sede-info .si { padding:30px 26px 26px; border-right:1px solid var(--border); display:flex; flex-direction:column; gap:8px; }
+.sede-info .si:last-child{ border-right:none; }
+@media (max-width:880px){ .sede-info .si:nth-child(2){border-right:none;} .sede-info .si:nth-child(-n+2){border-bottom:1px solid var(--border);} }
+.sede-info .si .k { font-family:var(--font-mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--fg-muted); }
+.sede-info .si .v { font-size:16px; color:var(--fg); font-weight:400; line-height:1.5; }
+.sede-info .si a.v:hover{ color:var(--accent-2); }
+.menu-note { font-size:13px; color:var(--fg-dim); margin-top:18px; font-family:var(--font-mono); letter-spacing:0.04em; }
+.sede-gallery { display:grid; grid-template-columns: repeat(4,1fr); gap:4px; }
+@media (max-width:680px){ .sede-gallery { grid-template-columns: repeat(2,1fr); } }
+.sede-gallery .g { aspect-ratio:1; overflow:hidden; background:var(--bg-3); }
+.sede-gallery .g img { width:100%; height:100%; object-fit:cover; transition:transform 1s var(--ease); }
+.sede-gallery .g:hover img { transform:scale(1.06); }
+.other-sedi { display:flex; flex-wrap:wrap; gap:8px; }
+.other-sedi a { padding:11px 18px; border:1px solid var(--border-strong); border-radius:100px; font-size:14px; color:var(--fg); transition:all .3s var(--ease); }
+.other-sedi a:hover { border-color:var(--border-gold); background:rgba(255,255,255,0.04); color:var(--accent-2); }
+.sede-menu { display:grid; gap:clamp(26px,4vw,42px); }
+.sm-cat { border-top:1px solid var(--border); padding-top:22px; }
+.sm-cat-h { font-size:clamp(20px,2.4vw,28px); font-weight:300; letter-spacing:-0.02em; margin-bottom:14px; display:flex; align-items:baseline; gap:12px; }
+.sm-cat-h .sm-ct { font-family:var(--font-mono); font-size:12px; color:var(--fg-dim); letter-spacing:0.1em; }
+.sm-row { display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:baseline; padding:11px 0; border-top:1px solid var(--border); }
+.sm-row:first-of-type{ border-top:none; }
+.sm-code { font-family:var(--font-mono); font-size:11px; color:var(--fg-dim); }
+.sm-name { font-size:15px; color:var(--fg); }
+.sm-name .sm-desc { display:block; font-size:12.5px; color:var(--fg-muted); margin-top:2px; line-height:1.45; }
+.sm-name .sm-al { display:block; font-family:var(--font-mono); font-size:10px; color:var(--fg-dim); text-transform:uppercase; margin-top:3px; letter-spacing:0.06em; }
+.sm-price { font-family:var(--font-mono); font-size:14px; color:var(--fg); white-space:nowrap; }
+.sm-fallback { border:1px solid var(--border-gold); background:var(--haru-green-soft); border-radius:14px; padding:28px 30px; }
+.sm-fallback p { color:var(--fg-muted); font-size:15px; line-height:1.65; }
+.sede-pay { display:flex; flex-wrap:wrap; gap:10px; }
+.sede-pay .pm { display:inline-flex; align-items:center; gap:9px; padding:15px 22px; border:1px solid var(--border-strong); border-radius:100px; background:var(--bg-2); font-size:14.5px; font-weight:400; color:var(--fg); transition:all .3s var(--ease); box-shadow:0 8px 24px -18px rgba(0,0,0,.8); }
+.sede-pay .pm:hover { border-color:var(--border-gold); transform:translateY(-2px); color:var(--accent-2); }
+.sede-pay .pm svg { width:22px; height:22px; flex-shrink:0; }
+
+/* status badge variants */
+.tag-status.open { color:var(--accent-2); }
+.tag-status.soon { color:var(--fg-dim); }
+
+/* live / soon banner */
+.order-state { display:flex; align-items:flex-start; gap:18px; padding:24px 26px; border:1px solid var(--border-strong); border-radius:14px; background:var(--bg-2); margin-top:26px; }
+.order-state.is-soon { border-color:var(--border); background:var(--bg-3); }
+.order-state .os-dot { width:9px; height:9px; border-radius:100px; margin-top:7px; flex-shrink:0; background:var(--accent-2); box-shadow:0 0 0 4px rgba(122,179,143,0.16); }
+.order-state.is-soon .os-dot { background:var(--fg-dim); box-shadow:none; }
+.order-state .os-title { font-size:16px; color:var(--fg); font-weight:500; }
+.order-state .os-sub { font-size:13.5px; color:var(--fg-muted); margin-top:6px; line-height:1.6; }
+.order-state .os-sub a { color:var(--accent-2); }
+
+/* hours / delivery info cards */
+.sede-hours { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:8px; }
+@media (max-width:760px){ .sede-hours { grid-template-columns:1fr; } }
+.sede-hours .hc { padding:24px 24px 22px; border:1px solid var(--border); border-radius:14px; background:var(--bg-2); display:flex; flex-direction:column; gap:9px; }
+.sede-hours .hc .hk { font-family:var(--font-mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--fg-muted); }
+.sede-hours .hc .hv { font-size:20px; color:var(--fg); font-weight:300; line-height:1.3; }
+.sede-hours .hc .hv em { font-style:normal; color:var(--accent-2); }
+.sede-hours .hc .hd { font-size:13px; color:var(--fg-dim); line-height:1.6; }
+
+/* map block */
+.sede-map { display:grid; grid-template-columns:1.45fr 1fr; gap:0; border:1px solid var(--border); border-radius:16px; overflow:hidden; background:var(--bg-2); }
+@media (max-width:880px){ .sede-map { grid-template-columns:1fr; } }
+.sede-map .map-frame { position:relative; min-height:340px; background:var(--bg-3); }
+.sede-map .map-frame iframe { position:absolute; inset:0; width:100%; height:100%; border:0; filter:grayscale(0.35) contrast(1.05); }
+.sede-map .map-side { padding:34px 32px; display:flex; flex-direction:column; gap:16px; justify-content:center; }
+.sede-map .map-side .ms-k { font-family:var(--font-mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--fg-muted); }
+.sede-map .map-side .ms-addr { font-size:19px; color:var(--fg); font-weight:300; line-height:1.4; }
+.sede-map .map-side .ms-row { font-size:14px; color:var(--fg-muted); line-height:1.6; }
+.sede-map .map-side .ms-row a { color:var(--accent-2); }
+.sede-map .map-side .ms-actions { margin-top:8px; display:flex; flex-wrap:wrap; gap:10px; }
+
+/* combo / set highlight */
+.sede-combo { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:34px; }
+@media (max-width:760px){ .sede-combo { grid-template-columns:1fr; } }
+.sede-combo .cc { display:block; padding:26px 24px; border:1px solid var(--border-strong); border-radius:14px; background:linear-gradient(160deg,var(--bg-2),var(--bg-3)); transition:all .3s var(--ease); }
+.sede-combo .cc:hover { border-color:var(--border-gold); transform:translateY(-3px); }
+.sede-combo .cc .cc-tag { font-family:var(--font-mono); font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent-2); }
+.sede-combo .cc .cc-name { font-size:19px; color:var(--fg); font-weight:400; margin:12px 0 8px; }
+.sede-combo .cc .cc-desc { font-size:13.5px; color:var(--fg-muted); line-height:1.65; }
+.sede-combo .cc .cc-foot { margin-top:16px; display:flex; align-items:baseline; justify-content:space-between; }
+.sede-combo .cc .cc-price { font-family:var(--font-mono); font-size:16px; color:var(--fg); }
+.sede-combo .cc .cc-go { font-size:12.5px; color:var(--accent-2); }
+
+/* sticky mobile order bar */
+.sticky-order { position:fixed; left:0; right:0; bottom:0; z-index:90; transform:translateY(120%); transition:transform .4s var(--ease); padding:12px 16px calc(12px + env(safe-area-inset-bottom)); background:rgba(12,12,13,0.86); backdrop-filter:blur(14px); border-top:1px solid var(--border-strong); display:flex; align-items:center; gap:14px; }
+.sticky-order.show { transform:translateY(0); }
+.sticky-order .so-info { flex:1; min-width:0; }
+.sticky-order .so-info .so-t { font-size:14px; color:var(--fg); font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sticky-order .so-info .so-s { font-size:11.5px; color:var(--fg-muted); margin-top:2px; }
+.sticky-order .btn { flex-shrink:0; padding:13px 22px; }
+@media (min-width:861px){ .sticky-order { display:none; } }</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Harù Mozzate","servesCuisine":["Giapponese","Sushi","Cucina asiatica"],"priceRange":"€€","telephone":"+390331862001","url":"../../locali/mozzate/","image":"../../assets/img/sedi/mozzate.jpg","address":{"@type":"PostalAddress","streetAddress":"Mozzate (CO)","addressLocality":"Mozzate","addressRegion":"CO","addressCountry":"IT"},"geo":{"@type":"GeoCoordinates","name":"Harù Mozzate"},"hasMap":"https://www.google.com/maps/search/?api=1&query=Haru+Mozzate","openingHours":"Mo-Su 11:30-14:30,18:30-22:30","acceptsReservations":true,"potentialAction":{"@type":"OrderAction","target":"../../haru-order.html?zone=Mozzate","deliveryMethod":["http://purl.org/goodrelations/v1#DeliveryModePickUp","http://purl.org/goodrelations/v1#DeliveryModeOwnFleet"]},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.4","reviewCount":"380"},"areaServed":"Lombardia","hasMenu":"../../haru-menu.html"}</script>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <span><strong>Ordina diretto su harù.it</strong> &nbsp;·&nbsp; <span class="pill-0">−10% sul primo ordine</span> &nbsp;·&nbsp; Prezzi del ristorante, nessun sovrapprezzo</span>
+  <div class="tb-right"><span>13 ristoranti · LO · PI · LI · TO</span><span>★ 4,4 / 5 su Google</span></div>
+</div></div>
+<div class="nav-shell"><nav class="nav">
+  <a href="../../haru-index.html" class="brand"><span class="mark">春</span> Harù</a>
+  <div class="links">
+    <a href="../../haru-index.html">Home</a>
+    <a href="../../haru-menu.html">Menu</a>
+    <a href="../../haru-order.html">Ordina</a>
+    <a href="../../haru-locali.html" class="active">Locali</a>
+    <a href="../../haru-app.html">App</a>
+    <a href="../../haru-owners.html" class="owners">Per i proprietari</a>
+  </div>
+  <a href="../../haru-order.html" class="cta-mini">Ordina ora</a>
+  <button class="menu-toggle" aria-label="Menu"><span></span></button>
+</nav></div>
+<div class="mobile-menu">
+  <a href="../../haru-index.html">Home</a><a href="../../haru-menu.html">Menu</a><a href="../../haru-order.html">Ordina</a><a href="../../haru-locali.html">Locali</a><a href="../../haru-app.html">App</a><a href="../../haru-owners.html">Per i proprietari</a>
+</div>
+
+<!-- HERO -->
+<header class="hero sede-hero">
+  <div class="hero-bg"><img src="../../assets/img/sedi/mozzate.jpg" alt="Ristorante Harù Mozzate" /></div>
+  <div class="hero-inner">
+    <span class="eyebrow"><span class="dot"></span>Ristorante · CO · Lombardia</span>
+    <h1 class="display"><span class="kanji" style="color:var(--accent-2)">春</span> Harù<br/>Mozzate</h1>
+    <div><span class="tag-status open">Ordina online attivo</span></div>
+    <div class="addr-line"><span>Mozzate (CO)</span><span>·</span><span>★ 4,4 su Google</span></div>
+    <div class="hero-actions">
+      <a href="../../haru-order.html?zone=Mozzate" class="btn btn-primary">Ordina da questo ristorante<svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Haru+Mozzate" target="_blank" rel="noopener" class="btn btn-ghost">Vedi mappa</a>
+    </div>
+  </div>
+</header>
+
+<!-- INFO -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sede-info reveal">
+      <div class="si"><span class="k">Indirizzo</span><a class="v" href="https://www.google.com/maps/search/?api=1&amp;query=Haru+Mozzate" target="_blank" rel="noopener">Mozzate (CO)</a></div>
+      <div class="si"><span class="k">Telefono</span><a class="v" href="tel:+390331862001">+390331862001</a></div>
+      <div class="si"><span class="k">Orari</span><span class="v">Lun–Dom<br/>pranzo e cena</span></div>
+      <div class="si"><span class="k">Stato</span><span class="v">Ordina online attivo</span></div>
+    </div>
+    <div class="order-state reveal">
+        <span class="os-dot"></span>
+        <div>
+          <div class="os-title">Ristorante di Mozzate · Ordina online attivo</div>
+          <div class="os-sub">Ordina subito da questo ristorante su harù.it: ritiro −30%, consegna −20% (ordine minimo €25). Prezzi del ristorante, nessun sovrapprezzo. <a href="../../haru-order.html?zone=Mozzate">Ordina ora →</a></div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<!-- HOURS & DELIVERY -->
+<section style="background:var(--bg-2)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Orari e ritiro</span>
+        <h2 class="h2" style="margin-top:18px;">Orari<br/>e modalità di ritiro.</h2>
+      </div>
+      <p class="lede">Aperti tutta la settimana, da lunedì a domenica, con servizio a pranzo e a cena. Disponibili ritiro e consegna: prima ordini, più risparmi.</p>
+    </div>
+    <div class="sede-hours reveal-stagger">
+      <div class="hc"><span class="hk">Orari</span><span class="hv">Lun–Dom</span><span class="hd">Pranzo e cena · aperti tutta la settimana<br/>Gli orari precisi fanno fede quelli del locale</span></div>
+      <div class="hc"><span class="hk">Ritiro</span><span class="hv"><em>−30%</em></span><span class="hd">Ordina online e ritira in negozio<br/>Sconto del 30% sul prezzo del locale</span></div>
+      <div class="hc"><span class="hk">Consegna</span><span class="hv"><em>−20%</em></span><span class="hd">Consegna a domicilio, ordine minimo €25<br/>Sconto del 20% sul prezzo del locale</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP / HOW TO GET THERE -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Come arrivare</span>
+        <h2 class="h2" style="margin-top:18px;">Ristorante di Mozzate<br/>indirizzo e mappa.</h2>
+      </div>
+      <p class="lede">Trova la posizione e il percorso di Harù Mozzate sulla mappa e organizza la tua visita o il ritiro.</p>
+    </div>
+    <div class="sede-map reveal">
+      <div class="map-frame">
+        <iframe title="Mappa Harù Mozzate" src="https://www.google.com/maps?q=Haru%20Mozzate&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+      <div class="map-side">
+        <span class="ms-k">Indirizzo</span>
+        <div class="ms-addr">Mozzate (CO)</div>
+        <div class="ms-row">CO · Lombardia</div>
+        <div class="ms-row">Telefono <a href="tel:+390331862001">+390331862001</a></div>
+        <div class="ms-actions">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Haru+Mozzate" target="_blank" rel="noopener" class="btn btn-primary">Apri nella mappa</a>
+          <a href="tel:+390331862001" class="btn btn-ghost">Chiama il locale</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU HIGHLIGHTS -->
+<section style="background:var(--bg-2)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>I più richiesti del locale</span>
+        <h2 class="h2" style="margin-top:18px;">Le specialità<br/>di Mozzate.</h2>
+      </div>
+      <p class="lede">Pesce del giorno, preparato al momento. Ecco i piatti più richiesti del locale; per il resto, dai un'occhiata al menu completo.</p>
+    </div>
+    <div class="sede-combo reveal-stagger">
+      <a class="cc" href="../../haru-order.html?zone=Mozzate">
+        <span class="cc-tag">Menu del locale</span>
+        <div class="cc-name">Misto sushi per due · Mozzate</div>
+        <div class="cc-desc">Il classico mix di uramaki, nigiri e sashimi, con pesce fresco di giornata: perfetto da condividere in due.</div>
+        <div class="cc-foot"><span class="cc-price">Per due</span><span class="cc-go">Ordina online →</span></div>
+      </a>
+      <a class="cc" href="../../haru-order.html?zone=Mozzate">
+        <span class="cc-tag">Abbinamento consigliato</span>
+        <div class="cc-name">Sashimi + temaki</div>
+        <div class="cc-desc">Sashimi selezionato con temaki preparati al momento: freschezza e gusto insieme, la scelta leggera preferita dai clienti abituali.</div>
+        <div class="cc-foot"><span class="cc-price">Per una persona</span><span class="cc-go">Ordina online →</span></div>
+      </a>
+      <a class="cc" href="../../haru-order.html?zone=Mozzate">
+        <span class="cc-tag">Da condividere in famiglia</span>
+        <div class="cc-name">Grande misto per la famiglia</div>
+        <div class="cc-desc">Una ricca varietà di sushi e cucina asiatica tutta in una volta, con porzioni abbondanti: condividere in famiglia conviene di più.</div>
+        <div class="cc-foot"><span class="cc-price">Per più persone</span><span class="cc-go">Ordina online →</span></div>
+      </a>
+    </div>
+    <div class="signature-grid reveal-stagger">
+      <a class="signature-card" href="../../haru-order.html?zone=Mozzate">
+        <img src="../../assets/img/products/156-Uramaki-Ebiten-soy.jpg" alt="Ebiten soy" loading="lazy" />
+        <div class="info">
+          <span class="num">01</span>
+          <div>
+            <div class="name"><span class="jp">Uramaki</span>Ebiten soy<span class="price">€ 12,00</span></div>
+          </div>
+        </div>
+      </a><a class="signature-card" href="../../haru-order.html?zone=Mozzate">
+        <img src="../../assets/img/products/90-Sushi-sake.jpg" alt="Sushi sake" loading="lazy" />
+        <div class="info">
+          <span class="num">02</span>
+          <div>
+            <div class="name"><span class="jp">Nigiri</span>Sushi sake<span class="price">€ 10,00</span></div>
+          </div>
+        </div>
+      </a><a class="signature-card" href="../../haru-order.html?zone=Mozzate">
+        <img src="../../assets/img/products/70-Poke-ebi.jpg" alt="Poke ebi" loading="lazy" />
+        <div class="info">
+          <span class="num">03</span>
+          <div>
+            <div class="name"><span class="jp">Chirashi e Cake</span>Poke ebi<span class="price">€ 12,00</span></div>
+          </div>
+        </div>
+      </a><a class="signature-card" href="../../haru-order.html?zone=Mozzate">
+        <img src="../../assets/img/products/95-Sashimi-royale.jpg" alt="Sashimi royale" loading="lazy" />
+        <div class="info">
+          <span class="num">04</span>
+          <div>
+            <div class="name"><span class="jp">Sashimi</span>Sashimi royale<span class="price">€ 14,00</span></div>
+          </div>
+        </div>
+      </a><a class="signature-card" href="../../haru-order.html?zone=Mozzate">
+        <img src="../../assets/img/products/113-Temaki-spicy-maguro.jpg" alt="Temaki spicy maguro" loading="lazy" />
+        <div class="info">
+          <span class="num">05</span>
+          <div>
+            <div class="name"><span class="jp">Temaki</span>Temaki spicy maguro<span class="price">€ 6,00</span></div>
+          </div>
+        </div>
+      </a><a class="signature-card" href="../../haru-order.html?zone=Mozzate">
+        <img src="../../assets/img/products/52-Cono-special-maguro.jpg" alt="Cono special maguro" loading="lazy" />
+        <div class="info">
+          <span class="num">06</span>
+          <div>
+            <div class="name"><span class="jp">Tartare</span>Cono special maguro<span class="price">€ 6,00</span></div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <p class="menu-note">* I più richiesti — qui sotto il menu completo del locale.</p>
+  </div>
+</section>
+
+<!-- FULL PER-SEDE MENU (real catalogue from the restaurant's own shop) -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div><span class="eyebrow"><span class="dot"></span>Il menu</span>
+      <h2 class="h2" style="margin-top:18px;">Il menu di<br/>Mozzate.</h2></div>
+      <p class="lede" id="sedeMenuLede">Il menu completo del ristorante Harù di Mozzate. Prezzi e disponibilità possono variare da sede a sede.</p>
+    </div>
+    <div id="sedeMenu" class="sede-menu" data-key="mozzate" data-tel="+390331862001"></div>
+  </div>
+</section>
+
+<!-- PAYMENTS -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Pagamenti</span>
+        <h2 class="h2" style="margin-top:18px;">Paga<br/>come preferisci.</h2>
+      </div>
+      <p class="lede">Satispay, Apple Pay, Google Pay, carta, buoni pasto oppure in contanti al ritiro. Tocca un metodo qualsiasi per ordinare dal ristorante di Mozzate.</p>
+    </div>
+    <div class="sede-pay reveal">
+      <a class="pm" href="../../haru-order.html?zone=Mozzate"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#f94d00" d="M4 12l8-8 8 8-8 8z"/></svg> Satispay</a><a class="pm" href="../../haru-order.html?zone=Mozzate"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.5-.2-2.8.8-3.6.8-.7 0-1.9-.8-3.1-.8-1.6 0-3 .9-3.9 2.4-1.6 2.9-.4 7.1 1.2 9.5.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3.1-.7 1.4 0 1.8.7 3.1.7 1.3 0 2.1-1.1 2.9-2.3.6-.9.9-1.7.9-1.8 0 0-1.7-.7-1.7-2.6z"/></svg> Apple Pay</a><a class="pm" href="../../haru-order.html?zone=Mozzate"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="#4285f4" stroke-width="2"/><path fill="#4285f4" d="M12 11v2h3a3 3 0 11-1-2.7"/></svg> Google Pay</a><a class="pm" href="../../haru-order.html?zone=Mozzate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2" stroke-width="1.6"/><rect x="2" y="8" width="20" height="3" fill="currentColor" stroke="none"/></svg> Carta</a><a class="pm" href="../../haru-order.html?zone=Mozzate"><svg viewBox="0 0 24 24" fill="none" stroke="#3a7d5c" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2" stroke-width="1.6"/><line x1="9" y1="6" x2="9" y2="18" stroke-dasharray="2 2"/></svg> Buoni pasto</a><a class="pm" href="../../haru-order.html?zone=Mozzate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke-width="1.6"/><text x="12" y="16" font-size="11" text-anchor="middle" fill="currentColor" stroke="none">€</text></svg> Contanti</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT THE AREA -->
+<section style="background:var(--bg-2)">
+  <div class="wrap">
+    <div class="split">
+      <div class="media"><img src="../../assets/img/site/ingredienti.jpg" alt="Ingredienti Harù" loading="lazy" /></div>
+      <div class="content">
+        <span class="eyebrow"><span class="dot"></span>Su questo ristorante</span>
+        <h2 class="h2" style="margin:18px 0 22px;">A Mozzate,<br/>un ristorante vero.</h2>
+        <p class="lede">Ogni Harù è un ristorante vero, con la propria cucina e il proprio team. Quello di Mozzate non fa eccezione: stessa qualità, stessa cura, per portare sushi fresco e cucina asiatica sulla tua tavola, partendo dai clienti della Lombardia.</p>
+        <div class="hero-actions" style="margin-top:26px;">
+          <a href="../../haru-order.html?zone=Mozzate" class="btn btn-primary">Ordina da questo ristorante</a>
+          <a href="tel:+390331862001" class="btn btn-ghost">Chiama il locale</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section style="padding-top:clamp(40px,5vw,80px)">
+  <div class="wrap">
+    <div class="sede-gallery reveal">
+      <div class="g"><img src="../../assets/img/sedi/mozzate.jpg" alt="Harù Mozzate" loading="lazy" /></div>
+      <div class="g"><img src="../../assets/img/site/hero-sushi.jpg" alt="Misto di sushi" loading="lazy" /></div>
+      <div class="g"><img src="../../assets/img/site/ampia-scelta.jpg" alt="Ampia scelta" loading="lazy" /></div>
+      <div class="g"><img src="../../assets/img/site/sushi-2.jpg" alt="Sushi" loading="lazy" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section style="background:var(--bg-2)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Le voci dei clienti</span>
+        <h2 class="h2" style="margin-top:18px;">Le recensioni<br/>da Mozzate.</h2>
+      </div>
+      <p class="lede">Cibo e brand sono molto amati: il vero collo di bottiglia è il digitale, non la cucina.</p>
+    </div>
+    <div class="review-grid reveal-stagger">
+      <div class="review-card">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">Il sushi di questo Harù di Mozzate è freschissimo, porzioni generose e impiattamento curato. Anche da asporto arriva impeccabile: ci torneremo di sicuro.</p>
+        <div class="rv-who"><span class="rv-ava">春</span><div><div class="rv-name">Marco R.</div><div class="rv-src">Recensione Google · Mozzate</div></div></div>
+      </div><div class="review-card">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">Uramaki e sashimi davvero ottimi, la qualità del pesce si sente. Servizio veloce e prezzi onesti.</p>
+        <div class="rv-who"><span class="rv-ava">春</span><div><div class="rv-name">Giulia B.</div><div class="rv-src">Recensione Google · Mozzate</div></div></div>
+      </div><div class="review-card">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">È da sempre il giapponese preferito di tutta la nostra famiglia a Mozzate. Ordinare è comodissimo e con i punti si ottengono anche piatti gratis: un bel pensiero.</p>
+        <div class="rv-who"><span class="rv-ava">春</span><div><div class="rv-name">Davide T.</div><div class="rv-src">Recensione Google · Mozzate</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OTHER LOCATIONS -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Altri ristoranti</span>
+        <h2 class="h2" style="margin-top:18px;">13 ristoranti,<br/>un solo brand.</h2>
+      </div>
+      <p class="lede">In Lombardia e non solo, c'è sempre un Harù vicino a te.</p>
+    </div>
+    <div class="other-sedi reveal">
+      <a href="../milano-sempione/">Harù Milano Corso Sempione <span style="color:var(--fg-dim)">MI</span></a><a href="../baggio/">Harù Milano Baggio <span style="color:var(--fg-dim)">MI</span></a><a href="../oggiono/">Harù Oggiono <span style="color:var(--fg-dim)">LC</span></a><a href="../valtellina/">Harù Berbenno di Valtellina <span style="color:var(--fg-dim)">SO</span></a><a href="../opera/">Harù Opera <span style="color:var(--fg-dim)">MI</span></a><a href="../darfo/">Harù Darfo Boario Terme <span style="color:var(--fg-dim)">BS</span></a>
+      <a href="../../haru-locali.html" style="border-color:var(--border-gold);color:var(--accent-2)">Vedi tutti i 13 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <span class="eyebrow"><span class="dot"></span>A Mozzate</span>
+  <h2 class="h1">Voglia di sushi a Mozzate?<br/>Ordina <em>diretto</em>.</h2>
+  <p class="lede" style="margin:0 auto;">Prezzi del ristorante, nessun sovrapprezzo e −10% sul primo ordine. Ordina diretto e tieni per te sconti e punti.</p>
+  <div class="actions">
+    <a href="../../haru-order.html?zone=Mozzate" class="btn btn-primary">Ordina da questo ristorante<svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    <a href="../../haru-app.html" class="btn btn-ghost">Scarica l'App</a>
+  </div>
+</section>
+
+
+<footer class="footer"><div class="footer-grid">
+  <div class="footer-brand"><img src="../../assets/img/site/logo-white.png" alt="Harù" style="height:46px;width:auto;margin-bottom:16px" /><p>Sushi e cucina asiatica dal 2014. 13 ristoranti tra Lombardia, Piemonte, Liguria e Torino. Un solo brand, una sola App, il tuo ordine diretto.</p></div>
+  <div class="footer-col"><h5>Ordina</h5><ul><li><a href="../../haru-menu.html">Menu completo</a></li><li><a href="../../haru-order.html">Ordina online</a></li><li><a href="../../haru-locali.html">I nostri locali</a></li><li><a href="../../haru-app.html">App &amp; fidelity</a></li></ul></div>
+  <div class="footer-col"><h5>Brand</h5><ul><li><a href="../../haru-index.html">Chi siamo</a></li><li><a href="../../haru-owners.html">Per i proprietari</a></li></ul></div>
+  <div class="footer-col"><h5>Contatti</h5><p>info@haru.it<br/>13 ristoranti nel Nord Italia<br/>Lun–Dom · pranzo e cena</p></div>
+</div><div class="footer-bottom"><span>© 2026 Harù · Demo dimostrativa · HOTATE S.A.S. / YE SONDRIO S.R.L.</span><div class="socials"><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">TikTok</a></div></div></footer>
+
+<!-- STICKY MOBILE ORDER BAR -->
+<div class="sticky-order" id="stickyOrder">
+  <div class="so-info">
+    <div class="so-t">Harù Mozzate</div>
+    <div class="so-s">Ordina online attivo · ritiro −30%</div>
+  </div>
+  <a href="../../haru-order.html?zone=Mozzate" class="btn btn-primary">Ordina ora</a>
+</div>
+<script>
+(function(){
+  var bar=document.getElementById('stickyOrder');
+  if(!bar) return;
+  var onScroll=function(){
+    if(window.scrollY>600){ bar.classList.add('show'); }
+    else { bar.classList.remove('show'); }
+  };
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
+</script>
+
+<script src="../../assets/data.js"></script><script>window.HARU_SEDE_MENUS={"mozzate":[{"category":"Chirashi e Cake","items":[{"code":"113","name":"Poke veggy","desc":"Riso bianco con pomodoro, pezzi di fiore di zucca, patate dolci, carote fritte, avocado con sopra scaglie di mandorle e salsa teriyaki","allergeni":"glutine, soia, frutta a guscio","price":"€ 12,00","eur":12},{"code":"114","name":"Poke ebi","desc":"Riso bianco con tempura di gamberi, tartare di salmone, avocado, mango, salsa teriyaki, kataifi e sesamo","allergeni":"glutine, crostacei, pesce, soia, sesamo","price":"€ 12,00","eur":12},{"code":"112","name":"Black cake","desc":"Tortino di riso venere con sopra tartare di salmone, avocado, kataifi con salsa mango","allergeni":"glutine, pesce","price":"€ 11,00","eur":11},{"code":"111","name":"Salmon cake","desc":"Tortino di riso con sopra tartare di salmone, avocado, tobiko e sesamo","allergeni":"pesce, sesamo","price":"€ 10,00","eur":10},{"code":"110","name":"Chirashi mix","desc":"Letto di riso con sopra sashimi misto e sesamo","allergeni":"pesce, sesamo","price":"€ 10,00","eur":10},{"code":"109","name":"Unagi don","desc":"Letto di riso con sopra fette di anguilla, salsa teriyaki e sesamo","allergeni":"glutine, pesce, soia, sesamo","price":"€ 12,00","eur":12},{"code":"108","name":"Sake don","desc":"Letto di riso con sopra fette di salmone e sesamo","allergeni":"pesce, sesamo","price":"€ 10,00","eur":10}]},{"category":"Nigiri","items":[{"code":"153","name":"Nigiri flambé miso","desc":"Nigiri salmone scottato con salsa miso, chips e teriyaki","allergeni":"glutine, pesce, soia","price":"€ 4,00","eur":4},{"code":"152","name":"Nigiri tropical flambé","desc":"Nigiri salmone scottato con salsa mango, polvere di mandorle e teriyaki","allergeni":"glutine, pesce, soia, frutta a guscio","price":"€ 4,00","eur":4},{"code":"151","name":"Nigiri cheese fire","desc":"Riso con sopra salmone scottato, formaggio, kataifi e salsa teriyaki","allergeni":"glutine, pesce, soia, lattosio, sesamo","price":"€ 4,00","eur":4},{"code":"157","name":"Nigiri salmone rucola","desc":"Nigiri salmone scottato con salsa rucola e chips con salsa teriyaki","allergeni":"glutine, pesce, soia","price":"€ 4,00","eur":4},{"code":"159","name":"Sushi sake","desc":"8 pezzi di nigiri al salmone","allergeni":"pesce","price":"€ 10,00","eur":10},{"code":"158","name":"Nigiri mix flambé","desc":"Riso con sopra salmone, tonno, ricciola e branzino scottato con salsa teriyaki, maionese spicy e polvere di sesamo (piccante)","allergeni":"glutine, uova, pesce, soia, sesamo","price":"€ 9,00","eur":9},{"code":"156","name":"Nigiri sake scottato","desc":"Riso con sopra salmone scottato, salsa teriyaki, maionese spicy e polvere di sesamo (piccante)","allergeni":"glutine, uova, pesce, soia, sesamo","price":"€ 4,00","eur":4},{"code":"155","name":"Nigiri ebi fly","desc":"Riso con sopra gambero impanato, salsa teriyaki, maionese spicy e polvere di sesamo (piccante)","allergeni":"glutine, crostacei, uova. soia, sesamo","price":"€ 4,00","eur":4},{"code":"154","name":"Nigiri unagi","desc":"Riso con sopra anguilla, salsa teriyaki e sesamo","allergeni":"pesce, soia, sesamo","price":"€ 5,00","eur":5},{"code":"150","name":"Nigiri tako","desc":"Riso con sopra polpo","allergeni":"molluschi","price":"€ 3,50","eur":3.5},{"code":"149","name":"Nigiri ebi","desc":"Riso con sopra gambero cotto","allergeni":"crostacei","price":"€ 3,00","eur":3},{"code":"148","name":"Nigiri amaebi","desc":"Riso con sopra gambero crudo","allergeni":"crostacei","price":"€ 4,50","eur":4.5},{"code":"147","name":"Nigiri Mazara","desc":"Riso con sopra gambero rosso di Mazara del Vallo","allergeni":"crostacei","price":"€ 5,00","eur":5},{"code":"146","name":"Nigiri hamachi","desc":"Riso con sopra ricciola","allergeni":"pesce","price":"€ 4,00","eur":4},{"code":"145","name":"Nigiri suzuki","desc":"Riso con sopra branzino","allergeni":"pesce","price":"€ 3,00","eur":3},{"code":"144","name":"Nigiri maguro","desc":"Riso con sopra tonno","allergeni":"pesce","price":"€ 4,00","eur":4},{"code":"143","name":"Nigiri sake","desc":"Riso con sopra salmone","allergeni":"pesce","price":"€ 3,00","eur":3}]},{"category":"Gunkan","items":[{"code":"80","name":"Gunkan crispy","desc":"Bignè di riso avvolto da salmone con sopra philadelphia, salsa teriyaki e chips","allergeni":"pesce, lattosio","price":"€ 6,00","eur":6},{"code":"91","name":"Gunkan soy spicy tuna","desc":"Bignè di riso avvolto da sfoglia di soia con sopra tartare di tonno piccante e mandorla (piccante)","allergeni":"pesce, soia, frutta a guscio, sesamo","price":"€ 8,00","eur":8},{"code":"90","name":"Gunkan soy spicy salmon","desc":"Bignè di riso avvolto da sfoglia di soia con sopra tartare di salmone piccante e mandorla (piccante)","allergeni":"pesce, soia, frutta a guscio, sesamo","price":"€ 7,00","eur":7},{"code":"89","name":"Gunkan amaebi","desc":"Bigné di riso avvolto da pesce bianco con sopra tartare di gamberone","allergeni":"crostacei, pesce","price":"€ 8,00","eur":8},{"code":"88","name":"Gunkan flambé","desc":"Bignè di riso avvolto da salmone scottato con sopra maionese piccante, tobiko e salsa teriyaki (piccante)","allergeni":"uova, pesce, soia","price":"€ 6,00","eur":6},{"code":"87","name":"Gunkan ikura","desc":"Bigné di riso avvolto da salmone con sopra uova di pesce","allergeni":"pesce","price":"€ 8,00","eur":8},{"code":"86","name":"Gunkan zucchine mango","desc":"Bigné di riso avvolto da zucchina con sopra philadelphia e mango","allergeni":"lattosio","price":"€ 6,00","eur":6},{"code":"85","name":"Gunkan zucchine","desc":"Bignè di riso avvolto da zucchina con sopra tartare di gamberi cotti, tobiko e maionese","allergeni":"crostacei, uova, pesce","price":"€ 6,00","eur":6},{"code":"84","name":"Gunkan scottato","desc":"Bignè di riso avvolto da salmone scottato con sopra philadelphia, granella di pistacchio e salsa teriyaki","allergeni":"glutine, pesce, soia, lattosio, frutta a guscio","price":"€ 6,00","eur":6},{"code":"83","name":"Gunkan phila","desc":"Bigné di riso avvolto da salmone con sopra philadelphia","allergeni":"pesce, philadelphia","price":"€ 6,00","eur":6},{"code":"82","name":"Gunkan tuna","desc":"Bignè di riso avvolto da tonno con sopra tartare di tonno piccante (piccante)","allergeni":"pesce","price":"€ 7,00","eur":7},{"code":"81","name":"Gunkan salmone","desc":"Bignè di riso avvolto da salmone con sopra tartare di salmone piccante (piccante)","allergeni":"pesce","price":"€ 6,00","eur":6}]},{"category":"Uramaki","items":[{"code":"242","name":"Salmon sandwich","desc":"Tramezzino ripieno di salmone, avocado e philadelphia con pasta kataifi e teriyaki","allergeni":"glutine, pesce, soia, lattosio","price":"€ 8,00","eur":8},{"code":"241","name":"Scampi roll","desc":"Branzino fritto con sopra fiore di zucca fritto, scampi e salsa teriyaki","allergeni":"glutine, crostacei, pesce, soia","price":"€ 14,00","eur":14},{"code":"240","name":"Soia roll","desc":"Alga di soia, gamberi in tempura con sopra philadelphia e zucchina fritta e salsa teriyaki","allergeni":"glutine, crostacei, soia, lattosio, sesamo","price":"€ 10,00","eur":10},{"code":"239","name":"Bufala roll","desc":"Salmone, avocado, e sopra bufala, pezzi di salmone e pomodoro","allergeni":"glutine, pesce, soia, lattosio","price":"€ 14,00","eur":14},{"code":"238","name":"Salmon fiori roll","desc":"Gamberi cotti e fiori di zucca in tempura con sopra tartare di salmone, scaglie di mandorle e teriyaki","allergeni":"glutine, crostacei, pesce, soia, frutta a guscio","price":"€ 14,00","eur":14},{"code":"237","name":"Cheese roll","desc":"Salmone all&#8217;interno con riso e philadelphia","allergeni":"glutine, pesce, soia, lattosio","price":"€ 12,00","eur":12},{"code":"236","name":"Mazara roll","desc":"Avocado, salmone, con sopra gamberi rossi, philadelphia, ikura, con salsa mango","allergeni":"glutine, crostacei, pesce, soia, lattosio","price":"€ 16,00","eur":16},{"code":"234","name":"Spigola roll","desc":"Gambero in tempura con sopra branzino scottato, tobiko e teriyaki","allergeni":"glutine, crostacei, pesce, soia","price":"€ 14,00","eur":14},{"code":"233","name":"Domo roll","desc":"Avocado con sopra spicy salmon, mandorle e tobiko (piccante)","allergeni":"glutine, pesce, frutta a guscio","price":"€ 12,00","eur":12},{"code":"232","name":"Amaebi roll","desc":"Philadelphia e gamberi in tempura con sopra salmone scottato, gamberi rossi e salsa wasabi","allergeni":"glutine, crostacei, pesce, soia, lattosio","price":"€ 14,00","eur":14},{"code":"235","name":"Salmon roll","desc":"Salmone, avocado, philadelphia, con sopra salmone e pezzi di pomodoro","allergeni":"glutine, pesce, lattosio","price":"€ 12,00","eur":12},{"code":"229","name":"Angel roll","desc":"Gambero cotto, avocado con sopra salmone scottato, pistacchio e salsa agropiccante (piccante)","allergeni":"crostacei, pesce, frutta a guscio","price":"€ 12,00","eur":12},{"code":"228","name":"Salmon flambé","desc":"Roll di riso venere con salmone, avocado, con sopra fette di salmone scottato e maionese piccante (piccante)","allergeni":"uova, pesce","price":"€ 12,00","eur":12},{"code":"227","name":"Crunch roll","desc":"Roll di riso venere con gambero fritto, avocado, ricoperto di mandorle, sesamo e salsa teriyaki","allergeni":"glutine, crostacei, soia, frutta a guscio, sesamo","price":"€ 12,00","eur":12},{"code":"226","name":"Black miura","desc":"Roll di riso venere con salmone cotto, philadelphia, sesamo ricoperto di kataifi e salsa teriyaki","allergeni":"glutine, pesce, soia, lattosio, sesamo","price":"€ 10,00","eur":10},{"code":"225","name":"Black out","desc":"Roll di riso venere con salmone, mango, sesamo, ricoperto di mandorle","allergeni":"pesce, frutta a guscio, sesamo","price":"€ 12,00","eur":12},{"code":"224","name":"Futomaki sake","desc":"Salmone crudo, avocado, philadelphia e sesamo","allergeni":"pesce, lattosio, sesamo","price":"€ 8,00","eur":8},{"code":"223","name":"Futomaki miura","desc":"Salmone cotto, avocado, philadelphia, sesamo e salsa teriyaki","allergeni":"glutine, pesce, soia, lattosio, sesamo","price":"€ 8,00","eur":8},{"code":"230","name":"Vulcan roll","desc":"Gambero fritto con sopra tobiko ricoperto di salsa spicy flambé (piccante)","allergeni":"glutine, crostacei, pesce","price":"€ 14,00","eur":14},{"code":"222","name":"Chicken roll","desc":"Pollo fritto, insalata con sopra salmone scottato e spicy maio","allergeni":"glutine, uova, pesce, soia, sesamo","price":"€ 12,00","eur":12},{"code":"221","name":"Spicy tuna","desc":"Tonno tritato piccante, cetriolo, maionese piccante e sesamo (piccante)","allergeni":"uova, pesce, sesamo","price":"€ 12,00","eur":12},{"code":"220","name":"Spicy salmon","desc":"Salmone tritato piccante, cetriolo, maionese piccante e sesamo (piccante)","allergeni":"uova, pesce, sesamo","price":"€ 12,00","eur":12},{"code":"219","name":"Salmon philadelphia","desc":"Salmone, philadelphia e sesamo","allergeni":"pesce, lattosio, sesamo","price":"€ 10,00","eur":10},{"code":"218","name":"Salmon out","desc":"Salmone, avocado con sopra fette di salmone","allergeni":"pesce","price":"€ 10,00","eur":10},{"code":"217","name":"Ebiten","desc":"Gambero fritto, maionese, salsa teriyaki, kataifi e sesamo","allergeni":"glutine, crostacei, uova, soia, sesamo","price":"€ 10,00","eur":10},{"code":"216","name":"Miura","desc":"Salmone cotto, philadelphia, salsa teriyaki e sesamo","allergeni":"glutine, pesce, soia, lattosio, sesamo","price":"€ 10,00","eur":10},{"code":"215","name":"Veggy roll","desc":"Tempura mista vegetariana con salsa teriyaki","allergeni":"glutine, soia","price":"€ 10,00","eur":10},{"code":"214","name":"Tiger roll","desc":"Gambero in tempura, avocado con sopra fette di salmone e salsa teriyaki","allergeni":"glutine, crostacei, pesce, soia","price":"€ 12,00","eur":12},{"code":"213","name":"Samba","desc":"Avocado, philadelphia, con sopra tartare di salmone, salsa mango e mandorle","allergeni":"pesce, lattosio, frutta a guscio","price":"€ 12,00","eur":12},{"code":"212","name":"Pistacchio","desc":"Salmone, philadelphia, con sopra fette di salmone scottato, salsa teriyaki e granella di pistacchio","allergeni":"glutine, pesce, soia, lattosio, frutta a guscio","price":"€ 12,00","eur":12},{"code":"211","name":"Exotic roll","desc":"Gamberi in tempura e avocado con sopra tartare di salmone e salsa mango con scaglie di patate dolci","allergeni":"glutine, crostacei, pesce","price":"€ 12,00","eur":12},{"code":"210","name":"Triple roll","desc":"Salmone, avocado con sopra fette di pesce misto, salmone tritato, kataifi e salsa teriyaki","allergeni":"glutine, pesce, soia","price":"€ 12,00","eur":12},{"code":"209","name":"Dragon roll","desc":"Gamberone in tempura, con sopra fette di salmone scottato, salsa spicy, maionese, teriyaki e sesamo in polvere (piccante)","allergeni":"glutine, crostacei, uova, pesce, soia, sesamo","price":"€ 12,00","eur":12},{"code":"208","name":"Orange roll","desc":"Salmone tritato spicy, cetriolo, con salsa spicy, polvere di sesamo e maionese (piccante)","allergeni":"uova, pesce, soia","price":"€ 12,00","eur":12}]},{"category":"Hosomaki","items":[{"code":"182","name":"Hosomaki tempura ebi","desc":"Gambero in tempura e salsa teriyaki","allergeni":"glutine, crostacei, soia","price":"€ 5,00","eur":5},{"code":"181","name":"Hosomaki tonno cotto","desc":"Tonno cotto","allergeni":"pesce","price":"€ 6,00","eur":6},{"code":"180","name":"Hosomaki black mango","desc":"Riso venere e mango","allergeni":"","price":"€ 5,00","eur":5},{"code":"179","name":"Hosomaki unagi","desc":"Anguilla e salsa teriyaki","allergeni":"glutine, pesce, soia","price":"€ 6,00","eur":6},{"code":"178","name":"Hosomaki kappa","desc":"Cetriolo","allergeni":"","price":"€ 4,00","eur":4},{"code":"177","name":"Hosomaki avocado","desc":"Avocado","allergeni":"","price":"€ 5,00","eur":5},{"code":"176","name":"Hosomaki ebi","desc":"Gambero cotto","allergeni":"crostacei","price":"€ 5,00","eur":5},{"code":"175","name":"Hosomaki tekka","desc":"Tonno","allergeni":"pesce","price":"€ 5,00","eur":5},{"code":"174","name":"Hosomaki sake","desc":"Salmone","allergeni":"pesce","price":"€ 5,00","eur":5}]},{"category":"Sashimi","items":[{"code":"169","name":"Sashimi royale","desc":"10 pezzi di sashimi di salmone, tonno, branzino, ricciola con gambero rosso e scampi","allergeni":"crostacei, pesce","price":"€ 14,00","eur":14},{"code":"168","name":"Sashimi mix","desc":"Salmone, tonno e branzino","allergeni":"pesce","price":"€ 12,00","eur":12},{"code":"167","name":"Sashimi hamachi","desc":"Ricciola","allergeni":"pesce","price":"€ 11,00","eur":11},{"code":"166","name":"Sashimi maguro","desc":"Tonno","allergeni":"pesce","price":"€ 11,00","eur":11},{"code":"165","name":"Sashimi sake","desc":"Salmone","allergeni":"pesce","price":"€ 10,00","eur":10}]},{"category":"Usuzukuri","items":[{"code":"132","name":"Carpaccio salmone mango","desc":"Carpaccio di salmone con dentro mango e condito con salsa mango","allergeni":"pesce","price":"€ 6,00","eur":6},{"code":"131","name":"Salmon stick","desc":"Carpaccio di salmone con dentro gambero fritto, philadelphia e salsa agrodolce con patate dolci fritte sopra","allergeni":"glutine, crostacei, pesce, lattosio","price":"€ 6,00","eur":6},{"code":"130","name":"Oshizushi","desc":"Gambero rosso, burrata, salsa mango","allergeni":"glutine, crostacei","price":"€ 6,00","eur":6},{"code":"124","name":"Carpaccio di branzino scottato","desc":"Carpaccio di branzino scottato in salsa ponzu e sesamo","allergeni":"glutine, pesce, soia, sesamo","price":"€ 10,00","eur":10},{"code":"123","name":"Carpaccio di tonno scottato","desc":"Carpaccio di tonno scottato in salsa ponzu e sesamo","allergeni":"glutine, pesce, soia, sesamo","price":"€ 10,00","eur":10},{"code":"122","name":"Carpaccio di salmone scottato","desc":"Carpaccio di salmone scottato in salsa ponzu e sesamo","allergeni":"glutine, pesce, soia, sesamo","price":"€ 10,00","eur":10},{"code":"121","name":"Carpaccio misto","desc":"Carpaccio di salmone, tonno, branzino in salsa ponzu e sesamo","allergeni":"glutine, pesce, soia, sesamo","price":"€ 12,00","eur":12},{"code":"120","name":"Carpaccio di branzino","desc":"Carpaccio di branzino in salsa ponzu e sesamo","allergeni":"glutine, pesce, soia, sesamo","price":"€ 10,00","eur":10},{"code":"119","name":"Carpaccio di tonno","desc":"Carpaccio di tonno in salsa ponzu e sesamo","allergeni":"glutine, pesce, soia, sesamo","price":"€ 12,00","eur":12},{"code":"118","name":"Carpaccio di salmone","desc":"Carpaccio di salmone in salsa ponzu e sesamo","allergeni":"glutine, pesce, soia, sesamo","price":"€ 10,00","eur":10}]},{"category":"Tartare","items":[{"code":"68","name":"Tartare spicy tuna","desc":"Tartare di tonno tritato piccante in salsa ponzu","allergeni":"glutine, pesce, soia, sesamo","price":"€ 12,00","eur":12},{"code":"67","name":"Tartare spicy salmon","desc":"Tartare di salmone tritato piccante in salsa ponzu","allergeni":"glutine, pesce, soia, sesamo","price":"€ 11,00","eur":11},{"code":"66","name":"Tartare salmone","desc":"Tartare di salmone in salsa ponzu","allergeni":"glutine, pesce, soia, sesamo","price":"€ 11,00","eur":11},{"code":"65","name":"Tartare tuna","desc":"Tartare di tonno in salsa ponzu","allergeni":"glutine, pesce, soia, sesamo","price":"€ 12,00","eur":12},{"code":"64","name":"Tartare mix","desc":"Tartare di salmone, tonno, pesce bianco, avocado in salsa ponzu","allergeni":"glutine, pesce, soia, sesamo","price":"€ 13,00","eur":13}]},{"category":"Roll fritti","items":[{"code":"203","name":"Futomaki fritto","desc":"Roll di riso con pesce misto, surimi impanato fritto con sopra salsa teriyaki, salsa spicy, polvere di sesamo e maionese (piccante)","allergeni":"glutine, crostacei, uova, pesce, soia, sesamo","price":"€ 10,00","eur":10},{"code":"202","name":"Hosomaki fritto maguro","desc":"Hosomaki al salmone impanato fritto con sopra tonno tritato, salsa spicy, salsa teriyaki, polvere di sesamo e maionese (piccante)","allergeni":"glutine, uova, pesce, soia, sesamo","price":"€ 9,00","eur":9},{"code":"201","name":"Hosomaki fritto sake","desc":"Hosomaki al salmone impanato fritto con sopra salmone tritato, salsa spicy, salsa teriyaki, polvere di sesamo e maionese (piccante)","allergeni":"glutine, uova, pesce, soia, sesamo","price":"€ 8,00","eur":8},{"code":"200","name":"Hosomaki fritto mango","desc":"Hosomaki al salmone impanato fritto con sopra philadelphia, mango e salsa teriyaki","allergeni":"glutine, uova, pesce, soia, lattosio","price":"€ 8,00","eur":8},{"code":"199","name":"Hosomaki fritto fragola","desc":"Hosomaki al salmone impanato fritto con sopra philadelphia, fragola e salsa teriyaki","allergeni":"glutine, uova, pesce, soia, lattosio","price":"€ 8,00","eur":8}]},{"category":"Special cucina","items":[{"code":"339","name":"Piccola padella fai da te con frutti di mare","desc":"Frutti di mare piccanti con peperoni e cetriolo (piccante)","allergeni":"glutine, crostacei, soia, molluschi","price":"€ 12,00","eur":12},{"code":"338","name":"Piccola padella fai da te con gamberi","desc":"Gamberi piccanti con peperoni e cetriolo (piccante)","allergeni":"glutine, crostacei, soia","price":"€ 12,00","eur":12},{"code":"337","name":"Piccola padella fai da te con manzo","desc":"Manzo piccante con peperoni e cetriolo (piccante)","allergeni":"glutine, soia","price":"€ 12,00","eur":12},{"code":"336","name":"Gamberi spezie cinesi","desc":"Gamberi saltati con pangrattato, aglio","allergeni":"crostacei, soia","price":"€ 12,00","eur":12}]},{"category":"Piatti Speciali","items":[{"code":"","name":"S09 / Tartare di Mazara","desc":"Gamberi rossi, fiore di zucca, asparagi fritti, salsa passion, salsa mango e ikura","allergeni":"glutine, crostacei, pesce","price":"€ 10,00","eur":10},{"code":"","name":"S08 / Carpaccio spigola","desc":"Carpaccio di branzino, pomodorini con pepe, sale rosa e olio di oliva","allergeni":"pesce","price":"€ 10,00","eur":10},{"code":"","name":"S07 / Mix bufala","desc":"Mix di pesce con olio di oliva, pepe e sale rosa","allergeni":"pesce, lattosio","price":"€ 10,00","eur":10},{"code":"","name":"S12 / Trioggia","desc":"Pesce bianco con pomodorini, salsa mango e semi di chia","allergeni":"pesce","price":"€ 12,00","eur":12},{"code":"","name":"S11 / Carpaccio misto speciale","desc":"Carpaccio di salmone, tonno, branzino, gambero rosso e scampi con salsa ponzu","allergeni":"crostacei, pesce, soia, sesamo","price":"€ 14,00","eur":14},{"code":"","name":"S10 / Scampi esotic","desc":"Scampi marinati con salsa passion fruit","allergeni":"crostacei","price":"€ 10,00","eur":10},{"code":"","name":"S06 / Ceviche salmon","desc":"Carpaccio di salmone marinato, fiori di zucca con salsa passion fruit","allergeni":"pesce","price":"€ 10,00","eur":10},{"code":"","name":"S05 / Sashi Gourmet","desc":"Sashimi mix con salsa al cocco","allergeni":"pesce","price":"€ 10,00","eur":10},{"code":"","name":"S04 / Cozze fly","desc":"Cozze saltate con pangrattato","allergeni":"glutine, molluschi","price":"€ 10,00","eur":10},{"code":"","name":"S03 / Capesnte fly","desc":"Capesante saltate con pangrattato","allergeni":"glutine, molluschi","price":"€ 10,00","eur":10},{"code":"","name":"S02 / Sweet salmon","desc":"Salmone scottato con asparagi fritti e salsa miso","allergeni":"glutine, pesce, soia, frutta a guscio","price":"€ 10,00","eur":10},{"code":"","name":"S01 / Burrata Special","desc":"Burrata , salmone, teriyaki, avocado e semi d chia","allergeni":"pesce, soia, lattosio","price":"€ 10,00","eur":10}]},{"category":"Antipasti","items":[{"code":"20","name":"Tortino di zucca","desc":"Tortino di zucca","allergeni":"glutine","price":"€ 8,00","eur":8},{"code":"18","name":"Fagottini","desc":"Sfoglia ripiena di gamberi e verdure","allergeni":"glutine, crostacei","price":"€ 8,00","eur":8},{"code":"24","name":"Zuppa pollo e mais","desc":"Pollo, mais e uova","allergeni":"uova","price":"€ 4,00","eur":4},{"code":"23","name":"Zuppa di pesce","desc":"Zuppa di frutti di mare con uova, surimi e gamberi","allergeni":"crostacei, uova, pesce","price":"€ 4,00","eur":4},{"code":"22","name":"Zuppa pechinese","desc":"Zuppa agropiccante con tofu, uova, bambù e funghi shitake (piccante)","allergeni":"glutine, uova, soia","price":"€ 4,00","eur":4},{"code":"21","name":"Miso soup","desc":"Zuppa di miso con alghe, tofu e cipolline","allergeni":"soia","price":"€ 4,00","eur":4},{"code":"19","name":"Pane fritto","desc":"Pane cinese fritto","allergeni":"glutine, lattosio","price":"€ 5,00","eur":5},{"code":"17","name":"Cotoletta di pollo","desc":"Pollo fritto impanato","allergeni":"glutine, uova","price":"€ 10,00","eur":10},{"code":"16","name":"Ebi furai","desc":"Gamberone avvolto in pasta kataifi fritto","allergeni":"crostacei","price":"€ 8,00","eur":8},{"code":"15","name":"Chele di granchio","desc":"Chele di granchio","allergeni":"crostacei","price":"€ 6,00","eur":6},{"code":"14","name":"Calamari fritti","desc":"Anelli di calamari impanati e fritti","allergeni":"glutine, molluschi","price":"€ 10,00","eur":10},{"code":"13","name":"Fried chicken","desc":"Alette di pollo impanate piccanti","allergeni":"glutine, uova","price":"€ 7,00","eur":7},{"code":"12","name":"Polpette di gamberi con mandorle","desc":"Polpette di gamberi con mandorle","allergeni":"glutine, crostacei, frutta a guscio","price":"€ 7,00","eur":7},{"code":"11","name":"Gamberi impanati","desc":"Gamberi impanati","allergeni":"glutine, crostacei, uova","price":"€ 6,00","eur":6},{"code":"10","name":"Patatine fritte","desc":"Patatine fritte","allergeni":"","price":"€ 4,00","eur":4},{"code":"09","name":"Takoyaki","desc":"Polpette di farina con polpo","allergeni":"glutine, molluschi","price":"€ 7,00","eur":7},{"code":"08","name":"Bocconcini di pollo","desc":"Bocconcini di pollo","allergeni":"glutine","price":"€ 7,00","eur":7},{"code":"07","name":"Fiori di zucca","desc":"Fiori di zucca fritti ripieni di gamberi","allergeni":"glutine, crostacei","price":"€ 10,00","eur":10},{"code":"06","name":"Involtini di salmone","desc":"Involtini di salmone e cipolla","allergeni":"glutine, pesce","price":"€ 8,00","eur":8},{"code":"05","name":"Involtini vietnamiti","desc":"Involtini di carta di riso ripieni di carne","allergeni":"glutine","price":"€ 7,00","eur":7},{"code":"04","name":"Samurai stick","desc":"Involtini di gamberi","allergeni":"glutine, crostacei","price":"€ 9,00","eur":9},{"code":"03","name":"Involtini primavera","desc":"Involtini ripieni di verdure","allergeni":"glutine","price":"€ 5,00","eur":5},{"code":"02","name":"Edamame","desc":"Fagioli di soia lessati","allergeni":"soia","price":"€ 5,00","eur":5},{"code":"01","name":"Nuvole di drago","desc":"Chips di gamberi","allergeni":"crostacei","price":"€ 5,00","eur":5}]},{"category":"Dim Sum","items":[{"code":"56","name":"Maialino","desc":"Panino a forma di maialino","allergeni":"glutine, uova","price":"€ 8,00","eur":8},{"code":"55","name":"Bao","desc":"Ripieno di carne di maiale, zenzero, cipolla ed erba cipollina","allergeni":"glutine","price":"€ 8,00","eur":8},{"code":"54","name":"Ravioli di pollo","desc":"Ravioli di pollo al vapore","allergeni":"glutine","price":"€ 8,00","eur":8},{"code":"53","name":"XiaoLong Bao","desc":"Ripieno di carne di maiale, zenzero ed erba cipollina","allergeni":"glutine","price":"€ 6,00","eur":6},{"code":"59","name":"Bao cotoletta","desc":"Cotoletta di pollo, pomodori, insalata e maionese piccante (piccante)","allergeni":"glutine. crostacei, uova, lattosio","price":"€ 8,00","eur":8},{"code":"58","name":"Bao gamberi","desc":"Gamberi impanati, pomodori, insalata e maionese piccante (piccante)","allergeni":"glutine, crostacei, uova, lattosio","price":"€ 8,00","eur":8},{"code":"57","name":"Pane al vapore","desc":"Pane cinese al vapore (2 pz.)","allergeni":"glutine, lattosio","price":"€ 5,00","eur":5},{"code":"52","name":"Dim sum misti","desc":"Mix di ravioli (4 pz.)","allergeni":"glutine, crostacei, pesce","price":"€ 8,00","eur":8},{"code":"51","name":"Tara gyoza","desc":"Ravioli di merluzzo","allergeni":"glutine, pesce","price":"€ 8,00","eur":8},{"code":"50","name":"Manzo gyoza","desc":"Ravioli di manzo","allergeni":"glutine","price":"€ 8,00","eur":8},{"code":"49","name":"Calamari gyoza","desc":"Ravioli di calamari","allergeni":"glutine, molluschi","price":"€ 8,00","eur":8},{"code":"48","name":"Pollo gyoza","desc":"Ravioli di pollo alla griglia","allergeni":"glutine","price":"€ 6,00","eur":6},{"code":"47","name":"Ebi cristallo","desc":"Ravioli cristallini ripieni di gambero","allergeni":"glutine, crostacei","price":"€ 6,00","eur":6},{"code":"46","name":"Yasai gyoza","desc":"Ravioli di verdure al vapore","allergeni":"glutine","price":"€ 5,00","eur":5},{"code":"45","name":"Gyoza griglia","desc":"Ravioli di maiale alla griglia, zenzero e cipolla","allergeni":"glutine","price":"€ 5,00","eur":5},{"code":"44","name":"Gyoza","desc":"Ravioli di carne al vapore","allergeni":"glutine","price":"€ 5,00","eur":5},{"code":"43","name":"Shao mai","desc":"Ravioli ripieni di gamberi e carne","allergeni":"glutine, crostacei","price":"€ 5,00","eur":5}]},{"category":"Primi piatti","items":[{"code":"268","name":"Gnocchi con gamberi","desc":"Gnocchi al pomodoro con panna e gamberi","allergeni":"glutine, crostacei, lattosio","price":"€ 10,00","eur":10},{"code":"267","name":"Pad thai","desc":"Tagliatelle di riso saltate piccanti, con gamberi, germogli di soia, uova e mandorle (piccante)","allergeni":"glutine, crostacei, uova, soia, frutta a guscio","price":"€ 8,00","eur":8},{"code":"266","name":"Ramen","desc":"Spaghetti giapponesi con uova, verdure, alghe e gamberi","allergeni":"crostacei, uova","price":"€ 8,00","eur":8},{"code":"265","name":"Gnocchi di riso","desc":"Gnocchi di riso con gamberi e verdure","allergeni":"glutine, crostacei","price":"€ 7,00","eur":7},{"code":"264","name":"Yaki udon con gamberi","desc":"Pasta giapponese saltata con gamberi, verdure, salsa e uova","allergeni":"glutine, crostacei, uova, soia","price":"€ 7,00","eur":7},{"code":"263","name":"Yaki udon con verdure","desc":"Pasta giapponese saltata con salsa, verdure e uova","allergeni":"glutine, uova","price":"€ 6,00","eur":6},{"code":"262","name":"Spaghetti di soba con verdure","desc":"Pasta di grano saraceno con verdure e uova","allergeni":"uova","price":"€ 6,00","eur":6},{"code":"261","name":"Spaghetti di soba con gamberi","desc":"Pasta di grano saraceno con gamberi, verdure e uova","allergeni":"crostacei, uova","price":"€ 7,00","eur":7},{"code":"260","name":"Spaghetti di riso con verdure","desc":"Spaghetti di riso saltati con carote, zucchine, germogli di soia e uova","allergeni":"glutine, uova, soia","price":"€ 6,00","eur":6},{"code":"259","name":"Spaghetti di riso con gamberi","desc":"Spaghetti di riso saltati con gamberi, verdure e uova","allergeni":"glutine, crostacei, uova, soia","price":"€ 7,00","eur":7},{"code":"258","name":"Spaghetti di soia con verdure","desc":"Spaghetti di soia saltati con carote, zucchine e germogli di soia","allergeni":"glutine, soia","price":"€ 6,00","eur":6},{"code":"257","name":"Spaghetti di soia con carne","desc":"Spaghetti di soia saltati con carne in salsa piccante (piccante)","allergeni":"glutine, soia","price":"€ 7,00","eur":7},{"code":"256","name":"Spaghetti di soia con gamberi","desc":"Spaghetti di soia saltati con gamberi e verdure","allergeni":"glutine, crostacei, soia","price":"€ 7,00","eur":7},{"code":"255","name":"Curry don","desc":"Ciotola di riso con sopra pollo in salsa curry","allergeni":"","price":"€ 8,00","eur":8},{"code":"254","name":"Riso frutti di mare","desc":"Riso saltato con gamberi, surimi, calamari e uova","allergeni":"crostacei, uova, pesce, soia, molluschi","price":"€ 7,00","eur":7},{"code":"253","name":"Riso venere","desc":"Riso venere saltato con gamberi, verdure, piselli e uova","allergeni":"crostacei, uova, soia","price":"€ 7,00","eur":7},{"code":"252","name":"Riso pollo","desc":"Riso saltato con pollo, verdure e uova","allergeni":"uova, soia","price":"€ 6,00","eur":6},{"code":"251","name":"Riso thailandese","desc":"Riso saltato piccante con ananas, gamberi, piselli e uova (piccante)","allergeni":"glutine, crostacei, uova, soia","price":"€ 7,00","eur":7},{"code":"250","name":"Riso cantonese","desc":"Riso saltato con prosciutto cotto, piselli e uova","allergeni":"uova, soia","price":"€ 6,00","eur":6},{"code":"249","name":"Riso verdure","desc":"Riso saltato con verdure e uova","allergeni":"uova, soia","price":"€ 6,00","eur":6},{"code":"248","name":"Riso gamberi","desc":"Riso saltato con gamberi, verdure e uova","allergeni":"glutine, uova, soia","price":"€ 7,00","eur":7},{"code":"247","name":"Gohan","desc":"Roll bianco","allergeni":"sesamo","price":"€ 3,00","eur":3}]},{"category":"Secondi piatti","items":[{"code":"296","name":"Maiale agrodolce","desc":"Maiale fritto con salsa agrodolce","allergeni":"soia, sesamo","price":"€ 9,00","eur":9},{"code":"295","name":"Pollo al curry","desc":"Pollo saltato con patate e salsa al curry","allergeni":"soia","price":"€ 8,00","eur":8},{"code":"294","name":"Pollo thai","desc":"Pollo alla thailandese piccante con latte di cocco (piccante)","allergeni":"glutine, soia","price":"€ 10,00","eur":10},{"code":"293","name":"Pollo agrodolce","desc":"Pollo fritto con salsa agrodolce e ananas","allergeni":"soia, sesamo","price":"€ 8,00","eur":8},{"code":"292","name":"Pollo con mandorle","desc":"Pollo saltato con bambù e mandorle","allergeni":"glutine, soia, frutta a guscio","price":"€ 9,00","eur":9},{"code":"291","name":"Pollo piccante","desc":"Pollo saltato con cipolla, peperoni in salsa piccante (piccante)","allergeni":"glutine, soia","price":"€ 8,00","eur":8},{"code":"290","name":"Pollo bambù e funghi","desc":"Pollo saltato con bambù e funghi","allergeni":"glutine, soia","price":"€ 8,00","eur":8},{"code":"289","name":"Ika thai","desc":"Calamari alla thailandese piccanti con latte di cocco (piccante)","allergeni":"glutine, soia, molluschi","price":"€ 11,00","eur":11},{"code":"288","name":"Ika piccante","desc":"Calamari saltati con salsa piccante (piccante)","allergeni":"glutine, soia, molluschi","price":"€ 10,00","eur":10},{"code":"287","name":"Ika verdure","desc":"Calamari saltati con verdure miste","allergeni":"glutine, soia, molluschi","price":"€ 10,00","eur":10},{"code":"286","name":"Manzo thai","desc":"Manzo alla thailandese piccante con latte di cocco (piccante)","allergeni":"glutine, soia","price":"€ 10,00","eur":10},{"code":"285","name":"Manzo piccante","desc":"Fettine di manzo saltato con verdure e salsa piccante (piccante)","allergeni":"glutine, soia","price":"€ 9,00","eur":9},{"code":"284","name":"Manzo patate","desc":"Manzo saltato con patatine","allergeni":"glutine, soia","price":"€ 9,00","eur":9},{"code":"283","name":"Manzo cipolla","desc":"Fettine di manzo saltato con cipolla","allergeni":"glutine, soia","price":"€ 9,00","eur":9},{"code":"282","name":"Manzo con bambù e funghi","desc":"Fettine di manzo saltato con bambù e funghi","allergeni":"glutine, soia","price":"€ 9,00","eur":9},{"code":"281","name":"Manzo al pepe nero","desc":"Manzo al pepe nero","allergeni":"glutine, soia","price":"€ 9,00","eur":9},{"code":"280","name":"Gamberi thai","desc":"Gamberi alla thailandese piccanti con latte di cocco (piccante)","allergeni":"crostacei","price":"€ 10,00","eur":10},{"code":"278","name":"Gamberi agrodolce","desc":"Gamberi fritti con salsa agrodolce e ananas","allergeni":"crostacei, sesamo","price":"€ 9,00","eur":9},{"code":"277","name":"Gamberi sale e pepe","desc":"Gamberi saltati con sale e pepe","allergeni":"crostacei, soia","price":"€ 10,00","eur":10},{"code":"276","name":"Gamberi con verdure","desc":"Gamberi saltati con carote, zucchine e bambù","allergeni":"glutine, crostacei, soia","price":"€ 9,00","eur":9},{"code":"275","name":"Gamberi piccanti","desc":"Gamberi saltati con peperoncini e salsa piccante (piccante)","allergeni":"glutine, crostacei, soia","price":"€ 10,00","eur":10},{"code":"274","name":"Gamberi al limone","desc":"Gamberi saltati con salsa al limone","allergeni":"crostacei, soia","price":"€ 10,00","eur":10}]},{"category":"Salad","items":[{"code":"32","name":"Cocktail di gamberi","desc":"Gamberi con salsa rosa","allergeni":"crostacei, uova","price":"€ 6,00","eur":6},{"code":"39","name":"Pesce misto rucola","desc":"Pesce misto rucola","allergeni":"crostacei, pesce, molluschi","price":"€ 7,00","eur":7},{"code":"38","name":"Tagliata di manzo","desc":"Tagliata di manzo e rucola","allergeni":"","price":"€ 10,00","eur":10},{"code":"37","name":"Polpo e rucola","desc":"Insalata con polpo e rucola","allergeni":"molluschi","price":"€ 6,00","eur":6},{"code":"36","name":"Salmone salada","desc":"Insalata con salmone crudo, sesamo e salsa","allergeni":"glutine, pesce, sesamo","price":"€ 6,00","eur":6},{"code":"35","name":"Ebi salada","desc":"Insalata con gamberetti, sesamo e salsa","allergeni":"glutine, crostacei, sesamo","price":"€ 6,00","eur":6},{"code":"34","name":"Mango salada","desc":"Insalata con salmone, avocado, mango e salsa sesamo","allergeni":"glutine, pesce, sesamo","price":"€ 8,00","eur":8},{"code":"33","name":"Mix kaisen salada","desc":"Insalata con pesce misto, salsa e sesamo","allergeni":"glutine, pesce, sesamo","price":"€ 6,00","eur":6},{"code":"31","name":"Wakame","desc":"Insalata di alghe con salmone, sesamo e salsa ponzu","allergeni":"glutine, pece, soia, sesamo","price":"€ 6,00","eur":6},{"code":"30","name":"Goma wakame","desc":"Insalata di alghe giapponesi piccanti (piccante)","allergeni":"sesamo","price":"€ 4,00","eur":4}]},{"category":"Verdure","items":[{"code":"331","name":"Verdure miste","desc":"Verdure miste","allergeni":"soia","price":"€ 5,00","eur":5},{"code":"330","name":"Verdure cinesi","desc":"Verdure cinesi","allergeni":"soia","price":"€ 6,00","eur":6},{"code":"329","name":"Germogli di soia saltati","desc":"Germogli di soia saltati","allergeni":"soia","price":"€ 5,00","eur":5}]},{"category":"Agemono","items":[{"code":"306","name":"Fritto misto","desc":"Alici, gamberi, calamari","allergeni":"glutine, crostacei, pesce, molluschi","price":"€ 10,00","eur":10},{"code":"305","name":"Alici fritte","desc":"Alici fritte","allergeni":"glutine, pesce","price":"€ 8,00","eur":8},{"code":"304","name":"Tempura pesce misto","desc":"Tempura pesce misto","allergeni":"glutine, crostacei, pesce","price":"€ 11,00","eur":11},{"code":"301","name":"Tempura ebi","desc":"Tempura di gamberi","allergeni":"glutine, crostacei","price":"€ 7,00","eur":7},{"code":"303","name":"Tempura moriawase","desc":"Gamberi e verdure in tempura","allergeni":"glutine, crostacei","price":"€ 11,00","eur":11},{"code":"302","name":"Yasai tempura","desc":"Tempura di verdure","allergeni":"glutine","price":"€ 8,00","eur":8}]},{"category":"Teppanyaki","items":[{"code":"324","name":"Insalata belga alla griglia","desc":"Insalata belga alla griglia","allergeni":"","price":"€ 6,00","eur":6},{"code":"323","name":"Mix verdure alla piastra","desc":"Mix verdure alla piastra","allergeni":"","price":"€ 8,00","eur":8},{"code":"322","name":"Spiedini di agnello alla piastra","desc":"Spiedini di agnello alla piastra","allergeni":"","price":"€ 8,00","eur":8},{"code":"321","name":"Pesce spada alla griglia","desc":"Pesce spada alla griglia","allergeni":"pesce","price":"€ 10,00","eur":10},{"code":"320","name":"Maguro tataki","desc":"Tonno scottato con crosta di sesamo e salsa teriyaki","allergeni":"glutine, pesce, soia, sesamo","price":"€ 8,00","eur":8},{"code":"319","name":"Sake tataki","desc":"Salmone scottato con crosta di sesamo e salsa teriyaki","allergeni":"glutine, pesce, soia, sesamo","price":"€ 7,00","eur":7},{"code":"318","name":"Pesce misto alla griglia","desc":"Pesce misto alla griglia","allergeni":"crostacei, pesce, molluschi","price":"€ 12,00","eur":12},{"code":"317","name":"Gamberoni alla piastra","desc":"Gamberoni alla piastra","allergeni":"crostacei","price":"€ 10,00","eur":10},{"code":"316","name":"Branzino alla griglia","desc":"Branzino alla griglia","allergeni":"pesce","price":"€ 9,00","eur":9},{"code":"315","name":"Salmone alla griglia","desc":"Salmone alla griglia","allergeni":"pesce","price":"€ 9,00","eur":9},{"code":"314","name":"Yakitori","desc":"Spiedini di pollo con salsa","allergeni":"glutine, soia","price":"€ 6,00","eur":6},{"code":"313","name":"Spiedini di funghi","desc":"Spiedini di funghi","allergeni":"soia","price":"€ 5,00","eur":5},{"code":"312","name":"Spiedini di seppie","desc":"Spiedini di seppie","allergeni":"soia, molluschi","price":"€ 7,00","eur":7},{"code":"311","name":"Spiedini di gamberi","desc":"Spiedini di gamberi","allergeni":"crostacei, soia","price":"€ 8,00","eur":8}]},{"category":"Bevande","items":[{"code":"","name":"Sprite (33 cl)","desc":"Sprite (33 cl)","allergeni":"","price":"€ 3,00","eur":3},{"code":"","name":"Coca Zero (33 cl)","desc":"Coca Zero (33 cl)","allergeni":"","price":"€ 3,00","eur":3},{"code":"","name":"Coca Cola (33 cl)","desc":"Coca Cola (33 cl)","allergeni":"","price":"€ 3,00","eur":3},{"code":"","name":"The al limone (33 cl)","desc":"The al limone (33 cl)","allergeni":"","price":"€ 3,00","eur":3},{"code":"","name":"Fanta (33 cl)","desc":"Fanta (33 cl)","allergeni":"","price":"€ 3,00","eur":3},{"code":"","name":"The verde (33 cl)","desc":"The verde (33 cl)","allergeni":"","price":"€ 3,00","eur":3},{"code":"","name":"The alla pesca (33 cl)","desc":"The alla pesca (33 cl)","allergeni":"","price":"€ 3,00","eur":3}]},{"category":"Bollicine","items":[{"code":"","name":"Philipponat Brut Royal Reserve (75 cl)","desc":"Philipponat Brut Royal Reserve (75 cl) Regione: Champagne","allergeni":"","price":"€ 69,00","eur":69},{"code":"","name":"Bollinger Special Cuvée (75 cl)","desc":"Bollinger Special Cuvée (75 cl) Regione: Champagne","allergeni":"","price":"€ 79,00","eur":79},{"code":"","name":"Ca&#8217; del Bosco Cuvée Prestige (75 cl)","desc":"Ca&#8217; del Bosco Cuvée Prestige (75 cl) Regione: Lombardia","allergeni":"","price":"€ 46,00","eur":46},{"code":"","name":"Bellavista Alma Gran Cuvée (75 cl)","desc":"Bellavista Alma Gran Cuvée (75 cl) Regione: Franciacorta","allergeni":"","price":"€ 46,00","eur":46},{"code":"","name":"Ferrari Perlè Trento Doc (75 cl)","desc":"Ferrari Perlè Trento Doc (75 cl) Regione: Trentino","allergeni":"","price":"€ 45,00","eur":45},{"code":"","name":"Prosecco di Valdobbiadene docg (75 cl)","desc":"Prosecco di Valdobbiadene docg (75 cl) Regione: Veneto","allergeni":"","price":"€ 15,00","eur":15},{"code":"","name":"Spumante Brut Riserva 36 Metodo classico (75 cl)","desc":"Spumante Brut Riserva 36 Metodo classico (75 cl) Regione: Alto Adige","allergeni":"","price":"€ 39,00","eur":39}]},{"category":"Vini Bianchi","items":[{"code":"","name":"I Frati Lugana Doc (75 cl)","desc":"I Frati Lugana Doc (75 cl) Regione: Lombardia","allergeni":"","price":"€ 20,00","eur":20},{"code":"","name":"Arneis Roero Docg (75 cl)","desc":"Arneis Roero Docg (75 cl) Regione: Piemonte","allergeni":"","price":"€ 15,00","eur":15},{"code":"","name":"Vie di Romans Chardonnay Doc (75 cl)","desc":"Vie di Romans Chardonnay Doc (75 cl) Regione: Friuli","allergeni":"","price":"€ 39,00","eur":39},{"code":"","name":"Pinot Grigio Colli Orientali Doc (75 cl)","desc":"Pinot Grigio Colli Orientali Doc (75 cl) Regione: Friuli","allergeni":"","price":"€ 32,00","eur":32},{"code":"","name":"Ribolla Gialla Collio Doc (75 cl)","desc":"Ribolla Gialla Collio Doc (75 cl) Regione: Friuli","allergeni":"","price":"€ 19,00","eur":19},{"code":"","name":"Muller Thurgau Doc Bio (75 cl)","desc":"Muller Thurgau Doc Bio (75 cl) Regione: Trentino","allergeni":"","price":"€ 15,00","eur":15},{"code":"","name":"Riesling Doc selezione (75 cl)","desc":"Riesling Doc selezione (75 cl) Regione: Alto Adige","allergeni":"","price":"€ 23,00","eur":23},{"code":"","name":"Gewurztraminer Doc (75 cl)","desc":"Gewurztraminer Doc (75 cl) Regione: Alto Adige","allergeni":"","price":"€ 20,00","eur":20},{"code":"","name":"Chardonnay Frizzante IGT (75 cl)","desc":"Chardonnay Frizzante IGT (75 cl) Regione: Piemonte","allergeni":"","price":"€ 13,00","eur":13},{"code":"","name":"Lintori Vermentino di Sardegna Doc (75 cl)","desc":"Lintori Vermentino di Sardegna Doc (75 cl) Regione: Sardegna","allergeni":"","price":"€ 25,00","eur":25},{"code":"","name":"Sur Sur Grillo Doc (75 cl)","desc":"Sur Sur Grillo Doc (75 cl) Regione: Sicilia","allergeni":"","price":"€ 20,00","eur":20},{"code":"","name":"Novaserra Greco di Tufo Docg (75 cl)","desc":"Novaserra Greco di Tufo Docg (75 cl) Regione: Campania","allergeni":"","price":"€ 22,00","eur":22},{"code":"","name":"Falanghina del Taburno Dop (75 cl)","desc":"Falanghina del Taburno Dop (75 cl) Regione: Campania","allergeni":"","price":"€ 17,00","eur":17},{"code":"","name":"Passerina Marche IGP Bio Vegano (75 cl)","desc":"Passerina Marche IGP Bio Vegano (75 cl) Regione: Marche","allergeni":"","price":"€ 14,00","eur":14},{"code":"","name":"Pinot Nero Bianco Frizzante Doc Bio (75 cl)","desc":"Pinot Nero Bianco Frizzante Doc Bio (75 cl) Regione: Lombardia","allergeni":"","price":"€ 14,00","eur":14}]},{"category":"Vini rossi","items":[{"code":"","name":"Del Re Irpinia Aglianico Doc (75 cl)","desc":"Del Re Irpinia Aglianico Doc (75 cl) Regione: Campania","allergeni":"","price":"€ 28,00","eur":28},{"code":"","name":"Tellus Syrah Igp (75 cl)","desc":"Tellus Syrah Igp (75 cl) Regione: Lazio","allergeni":"","price":"€ 20,00","eur":20},{"code":"","name":"Le Volte dell&#8217;Ornellaia Igp (75 cl)","desc":"Le Volte dell&#8217;Ornellaia Igp (75 cl) Regione: Toscana","allergeni":"","price":"€ 36,00","eur":36},{"code":"","name":"Morellino di Scansano Roggiano Docg (75 cl)","desc":"Morellino di Scansano Roggiano Docg (75 cl) Regione: Toscana","allergeni":"","price":"€ 16,00","eur":16},{"code":"","name":"La Monella Barbera del Monferrato Doc (75 cl)","desc":"La Monella Barbera del Monferrato Doc (75 cl) Regione: Piemonte","allergeni":"","price":"€ 19,00","eur":19},{"code":"","name":"Nebbiolo Langhe Doc (75 cl)","desc":"Nebbiolo Langhe Doc (75 cl) Regione: Piemonte","allergeni":"","price":"€ 18,00","eur":18},{"code":"","name":"Vertigo Igt (75 cl)","desc":"Vertigo Igt (75 cl) Regione: Friuli","allergeni":"","price":"€ 23,00","eur":23},{"code":"","name":"Merlot Doc (75 cl)","desc":"Merlot Doc (75 cl) Regione: Friuli","allergeni":"","price":"€ 15,00","eur":15}]},{"category":"Vini Rosé","items":[{"code":"","name":"Scalabrone Rosato Doc (75 cl)","desc":"Scalabrone Rosato Doc (75 cl) Regione: Toscana","allergeni":"","price":"€ 28,00","eur":28},{"code":"","name":"Contadi Rosé Brut Docg (75 cl)","desc":"Contadi Rosé Brut Docg (75 cl) Regione: Lombardia","allergeni":"","price":"€ 38,00","eur":38},{"code":"","name":"Lagrein Kretzer Rosato Doc (75 cl)","desc":"Lagrein Kretzer Rosato Doc (75 cl) Regione: Trentino","allergeni":"","price":"€ 15,00","eur":15}]},{"category":"Handroll","items":[{"code":"194","name":"Handroll fiori di zucca","desc":"Alga con riso, fiore di zucca fritta, zucchine e salsa teriyaki","allergeni":"glutine, soia, sesamo","price":"€ 6,00","eur":6},{"code":"193","name":"Handroll unagi","desc":"Alga con riso, anguilla fritta e insalata","allergeni":"glutine, pesce, soia, sesamo","price":"€ 6,00","eur":6},{"code":"192","name":"Handroll chicken","desc":"Alga con riso, pollo fritto, insalata e salsa teriyaki","allergeni":"glutine, soia, sesamo","price":"€ 6,00","eur":6},{"code":"191","name":"Handroll ebiten","desc":"Alga con riso, tempura di gambero, philadelphia e salsa teriyaki","allergeni":"glutine, crostacei, soia, lattosio, sesamo","price":"€ 5,00","eur":5},{"code":"190","name":"Handroll spicy maguro","desc":"Alga con riso, tonno piccante, spicy maio e sesamo","allergeni":"pesce, sesamo","price":"€ 6,00","eur":6},{"code":"189","name":"Handroll spicy salmon","desc":"Alga con riso, salmone piccante, spicy maio e sesamo","allergeni":"pesce, sesamo","price":"€ 6,00","eur":6},{"code":"188","name":"Handroll sake avocado","desc":"Alga con riso, salmone, avocado","allergeni":"pesce, sesamo","price":"€ 5,00","eur":5},{"code":"187","name":"Handroll miura","desc":"Alga con riso, salmone cotto, philadelphia e salsa teriyaki","allergeni":"glutine, pesce, soia, lattosio, sesamo","price":"€ 5,00","eur":5}]},{"category":"Sushi","items":[{"code":"170","name":"Sushi sahimi misto","desc":"12 nigiri, 16 uramaki, 6 hosomaki, 4 gunkan, sashimi misto, 1 scampo, 1 gambero rosso","allergeni":"glutine, crostacei, pesce, soia, sesamo","price":"€ 50,00","eur":50},{"code":"139","name":"Sushi mix","desc":"6 nigiri misti, 4 hosomaki, 4 uramaki","allergeni":"glutine, crostacei, pesce, soia, sesamo","price":"€ 16,00","eur":16},{"code":"138","name":"Sushi salmone misto","desc":"6 nigiri, 4 hosomaki, 4 uramaki","allergeni":"glutine, pesce, soia, lattosio, sesamo","price":"€ 16,00","eur":16}]},{"category":"Tacos","items":[{"code":"104","name":"Tacos maguro","desc":"Tacos con all&#8217;interno philadelphia, tonno, polvere di prezzemolo, salsa mango, avocado","allergeni":"glutine, pesce, lattosio","price":"€ 6,00","eur":6},{"code":"103","name":"Tacos zucca","desc":"Tacos con all&#8217;interno fiori di zucca, cetrioli fritti e salsa mango","allergeni":"glutine","price":"€ 6,00","eur":6},{"code":"102","name":"Tacos sake","desc":"Tacos con all&#8217;interno philadelphia, salmone, polvere di prezzemolo, salsa mango, arancia, teriyaki","allergeni":"glutine, pesce, soia, lattosio","price":"€ 6,00","eur":6}]},{"category":"Coni","items":[{"code":"75","name":"Crispy cono fiore di zucca","desc":"Sfoglia croccante con interno philadelphia, fiori di zucca, carote, salsa teriyaki","allergeni":"glutine, soia, lattosio","price":"€ 6,00","eur":6},{"code":"74","name":"Crispy cono sake","desc":"Sfoglia croccante all&#8217;interno spicy salmon, granelle di pistacchio e teriyaki (piccante)","allergeni":"glutine, pesce, soia, frutta a guscio","price":"€ 6,00","eur":6}]},{"category":"Mezze bottiglie (375 ml)","items":[{"code":"","name":"Morellino di Scansano Roggiano Docg (375 ml)","desc":"Morellino di Scansano Roggiano Docg (375 ml) &#8211; Vino Rosso Regione: Toscana","allergeni":"","price":"€ 10,00","eur":10},{"code":"","name":"Pinot Nero Doc (375 ml)","desc":"Pinot Nero Doc (375 ml) &#8211; Vino Rosso Regione: Friuli","allergeni":"","price":"€ 8,00","eur":8},{"code":"","name":"Falanghina del Taburno Dop (375 ml)","desc":"Falanghina del Taburno Dop (375 ml) &#8211; Vino Bianco Regione: Campania","allergeni":"","price":"€ 10,00","eur":10},{"code":"","name":"Ribolla Gialla Collio Doc (375 ml)","desc":"Ribolla Gialla Collio Doc (375 ml) &#8211; Vino Bianco Regione: Friuli","allergeni":"","price":"€ 10,00","eur":10},{"code":"","name":"Gewurtztraminer Trentino Doc (375 ml)","desc":"Gewurtztraminer Trentino Doc (375 ml) &#8211; Vino Bianco Regione: Trentino","allergeni":"","price":"€ 11,00","eur":11},{"code":"","name":"Ca&#8217; del Bosco Cuvée Prestige (375 ml)","desc":"Ca&#8217; del Bosco Cuvée Prestige (375 ml) &#8211; Bollicine Regione: Lombardia","allergeni":"","price":"€ 28,00","eur":28},{"code":"","name":"Bellavista Alma Gran Cuvée Docg (375 ml)","desc":"Bellavista Alma Gran Cuvée Docg (375 ml) &#8211; Bollicine Regione: Lombardia","allergeni":"","price":"€ 28,00","eur":28}]},{"category":"Millefoglie","items":[{"code":"097","name":"Millefoglie tonno","desc":"Sfoglia con tonno, philadelphia e salsa agrodolce","allergeni":"glutine, pesce, lattosio","price":"€ 12,00","eur":12},{"code":"096","name":"Millefoglie salmone","desc":"Sfoglia con salmone, philadelphia e salsa agrodolce","allergeni":"glutine, pesce, lattosio","price":"€ 10,00","eur":10}]}]};</script><script src="../../assets/main.js"></script>
+</body></html>

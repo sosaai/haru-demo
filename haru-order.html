@@ -1,0 +1,820 @@
+<!doctype html><html lang="it"><head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ordina online — Harù · Sushi e cucina asiatica</title>
+<meta name="description" content="Ordina online dal Harù più vicino a te: menu illustrato, carrello e pagamento con Satispay, Apple Pay, Google Pay e buoni pasto. Ritiro −30%, consegna −20%." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Harù" />
+<meta property="og:locale" content="it_IT" />
+<meta property="og:title" content="Ordina online — Harù · Sushi e cucina asiatica" />
+<meta property="og:description" content="Ordina online dal Harù più vicino a te: menu illustrato, carrello e pagamento con Satispay, Apple Pay, Google Pay e buoni pasto. Ritiro −30%, consegna −20%." />
+<meta property="og:image" content="https://haru-sushi-cn.vercel.app/assets/img/og/default.png" />
+<meta property="og:image:width" content="1200" /><meta property="og:image:height" content="800" />
+<meta property="og:url" content="https://haru-sushi-cn.vercel.app/haru-order.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Ordina online — Harù · Sushi e cucina asiatica" />
+<meta name="twitter:description" content="Ordina online dal Harù più vicino a te: menu illustrato, carrello e pagamento con Satispay, Apple Pay, Google Pay e buoni pasto. Ritiro −30%, consegna −20%." />
+<meta name="twitter:image" content="https://haru-sushi-cn.vercel.app/assets/img/og/default.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600&family=Geist+Mono:wght@400;500&family=Noto+Sans+JP:wght@200;300;400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css" /><link rel="stylesheet" href="assets/haru.css" />
+<link rel="icon" href="assets/img/site/favicon.jpg" />
+<script src="assets/data.js"></script>
+<style>
+/* page-specific only */
+.order-intro { display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: end; margin-bottom: 40px; }
+@media (max-width: 760px) { .order-intro { grid-template-columns: 1fr; } }
+.step-eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 14px; display: block; }
+.step-h { font-size: clamp(28px, 3.6vw, 44px); font-weight: 300; letter-spacing: -0.025em; }
+.step-h em { font-family: var(--font-jp); font-style: normal; color: var(--accent-2); }
+section.order-section { padding: clamp(48px, 6vw, 90px) 0; }
+
+.zone-banner { display: none; align-items: center; gap: 12px; padding: 16px 22px; margin-top: 26px; border: 1px solid var(--border-gold); background: var(--haru-green-soft); border-radius: var(--radius); font-size: 14px; color: var(--fg); }
+.zone-banner.show { display: flex; }
+.zone-banner .zb-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); flex-shrink: 0; }
+.zone-banner strong { color: var(--fg); }
+.zone-banner .zb-change { margin-left: auto; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-2); cursor: pointer; }
+.loc-thumb { width: 100%; height: 120px; object-fit: cover; border-radius: var(--radius); margin-bottom: 14px; display: block; }
+.loc-card.is-soon { cursor: default; opacity: 0.72; }
+.loc-card.is-soon:hover { transform: none; border-color: var(--border); background: var(--bg-3); }
+.loc-card.is-active { border-color: var(--accent-2); box-shadow: inset 0 0 0 1px var(--accent-2); background: var(--bg-4); }
+.loc-soon-note { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--warn); margin-top: 2px; }
+
+.deliv-bar { margin-top: 30px; display: none; }
+.deliv-bar.show { display: flex; }
+
+#menuArea { margin-top: 8px; opacity: 0.4; pointer-events: none; transition: opacity 0.5s var(--ease); position: relative; }
+body.zone-selected #menuArea { opacity: 1; pointer-events: auto; }
+.menu-locked-hint { position: absolute; inset: 0; z-index: 5; display: flex; align-items: center; justify-content: center; text-align: center; pointer-events: none; }
+.menu-locked-hint span { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-muted); background: rgba(10,10,10,0.7); border: 1px solid var(--border); padding: 14px 24px; border-radius: 100px; backdrop-filter: blur(4px); }
+body.zone-selected .menu-locked-hint { display: none; }
+
+.cart-fab { position: fixed; bottom: 26px; right: 26px; z-index: 120; display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 100px; background: var(--fg); color: var(--bg); font-size: 14px; font-weight: 500; box-shadow: 0 16px 44px rgba(0,0,0,0.5); transform: translateY(120px); transition: transform 0.4s var(--ease); cursor: pointer; }
+.cart-fab.show { transform: translateY(0); }
+.cart-fab .fab-count { background: var(--accent); color: #fff; font-family: var(--font-mono); font-size: 11px; min-width: 20px; height: 20px; border-radius: 100px; display: inline-flex; align-items: center; justify-content: center; padding: 0 6px; }
+
+.min-hint { font-size: 12.5px; color: var(--warn); font-family: var(--font-mono); letter-spacing: 0.04em; text-align: center; margin-bottom: 12px; display: none; }
+.min-hint.show { display: block; }
+.cart-foot .btn { width: 100%; justify-content: center; margin-top: 14px; }
+.cart-line.del { color: var(--ok); }
+.cart-line .v.struck { text-decoration: line-through; color: var(--fg-dim); }
+
+/* checkout panel inside drawer */
+.checkout-panel { display: none; flex-direction: column; gap: 16px; padding: 22px 28px 28px; border-top: 1px solid var(--border-strong); background: var(--bg-2); }
+.checkout-panel.show { display: flex; }
+.checkout-panel h4 { font-size: 17px; font-weight: 400; }
+.checkout-panel .co-sec { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-dim); display: flex; gap: 8px; align-items: center; }
+.checkout-panel .co-sec::before { content: ""; width: 12px; height: 12px; border-radius: 3px; border: 1px solid var(--ok); display: inline-block; }
+.pay-back { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-2); cursor: pointer; }
+.checkout-head { display: flex; align-items: center; justify-content: space-between; }
+
+/* success */
+.cart-success { display: none; flex-direction: column; align-items: center; text-align: center; gap: 14px; padding: 60px 32px; }
+.cart-success.show { display: flex; }
+.cart-success .cs-mark { width: 64px; height: 64px; border-radius: 50%; background: var(--ok-soft); border: 1px solid rgba(76,175,114,0.4); display: flex; align-items: center; justify-content: center; font-size: 28px; color: var(--ok); }
+.cart-success h3 { font-size: 24px; font-weight: 300; letter-spacing: -0.02em; }
+.cart-success .cs-jp { font-family: var(--font-jp); font-size: 14px; color: var(--accent-2); }
+.cart-success p { font-size: 14px; color: var(--fg-muted); line-height: 1.55; max-width: 30ch; }
+.cart-success .cs-save { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; color: var(--ok); border: 1px solid rgba(76,175,114,0.4); background: var(--ok-soft); padding: 10px 18px; border-radius: 100px; }
+.cart-success .cs-eta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-muted); }
+
+/* in-menu search */
+.menu-search { position: relative; margin-bottom: 18px; }
+.menu-search input { width: 100%; box-sizing: border-box; padding: 15px 18px 15px 46px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 100px; color: var(--fg); font-size: 15px; font-family: var(--font); transition: border-color 0.3s var(--ease); }
+.menu-search input:focus { outline: none; border-color: var(--accent-2); }
+.menu-search input::placeholder { color: var(--fg-dim); }
+.menu-search .ms-ic { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); width: 17px; height: 17px; opacity: 0.55; pointer-events: none; }
+.menu-search .ms-count { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-dim); pointer-events: none; }
+
+/* featured "più ordinati" rail */
+.featured-rail { margin: 4px 0 36px; }
+.featured-rail .fr-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 18px; }
+.featured-rail .fr-title { font-size: 22px; font-weight: 300; letter-spacing: -0.02em; }
+.featured-rail .fr-title em { font-family: var(--font-jp); font-style: normal; color: var(--accent-2); }
+.featured-rail .fr-sub { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-dim); }
+.featured-rail .rail { gap: 16px; }
+.featured-rail .rail .product-card { scroll-snap-align: start; }
+body:not(.zone-selected) .featured-rail { display: none; }
+
+/* payment logos: svg glyph + label */
+.pay-tile .pay-logo { gap: 8px; }
+.pay-tile .pay-logo span { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
+
+/* checkout reassurance row */
+.co-reassure { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-dim); }
+.co-reassure .cr-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--ok); }
+.co-reassure strong { color: var(--ok); font-weight: 500; }
+
+/* 3-step progress rail */
+.step-rail { display: flex; align-items: stretch; gap: 0; margin-top: 30px; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--bg-2); }
+.step-rail .sr-item { flex: 1; display: flex; align-items: center; gap: 12px; padding: 16px 20px; position: relative; transition: background 0.4s var(--ease); }
+.step-rail .sr-item + .sr-item { border-left: 1px solid var(--border); }
+.step-rail .sr-num { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--border-strong); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 12px; color: var(--fg-dim); transition: all 0.4s var(--ease); }
+.step-rail .sr-txt { display: flex; flex-direction: column; gap: 2px; }
+.step-rail .sr-t { font-size: 13.5px; color: var(--fg-muted); letter-spacing: -0.01em; }
+.step-rail .sr-s { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-dim); }
+.step-rail .sr-item.is-active { background: var(--haru-green-soft); }
+.step-rail .sr-item.is-active .sr-num { border-color: var(--accent-2); color: var(--accent-2); background: rgba(184,149,106,0.08); }
+.step-rail .sr-item.is-active .sr-t { color: var(--fg); }
+.step-rail .sr-item.is-done .sr-num { border-color: var(--ok); color: var(--ok); background: var(--ok-soft); }
+.step-rail .sr-item.is-done .sr-t { color: var(--fg); }
+@media (max-width: 680px) { .step-rail { flex-direction: column; } .step-rail .sr-item + .sr-item { border-left: none; border-top: 1px solid var(--border); } }
+
+/* pickup-incentive highlight inside the deliv bar */
+.deliv-chip.is-best { border-color: var(--border-gold); background: linear-gradient(180deg, var(--haru-green-soft), var(--bg-2)); }
+.deliv-chip.is-best .dc-v { color: var(--ok); }
+.deliv-chip .dc-flag { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ok); margin-top: 2px; }
+
+/* live discount strip under the menu header */
+.save-strip { display: none; align-items: center; gap: 12px; margin: 18px 0 4px; padding: 14px 20px; border: 1px solid var(--border-gold); background: linear-gradient(180deg, var(--haru-green-soft), transparent); border-radius: var(--radius); }
+body.zone-selected .save-strip { display: flex; }
+.save-strip .ss-pct { font-family: var(--font-mono); font-size: 13px; font-weight: 500; color: var(--ok); letter-spacing: 0.02em; flex-shrink: 0; }
+.save-strip .ss-txt { font-size: 13.5px; color: var(--fg-muted); line-height: 1.45; }
+.save-strip .ss-txt strong { color: var(--fg); font-weight: 500; }
+
+/* skeleton/loading shimmer for the menu grid */
+@keyframes haru-shimmer { 0% { background-position: -360px 0; } 100% { background-position: 360px 0; } }
+.menu-skeleton { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+@media (max-width: 980px) { .menu-skeleton { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .menu-skeleton { grid-template-columns: 1fr; } }
+.menu-skeleton .sk-card { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--bg-2); }
+.menu-skeleton .sk-media, .menu-skeleton .sk-line { background: linear-gradient(90deg, var(--bg-3) 0%, var(--bg-4) 50%, var(--bg-3) 100%); background-size: 720px 100%; animation: haru-shimmer 1.4s infinite linear; }
+.menu-skeleton .sk-media { height: 180px; }
+.menu-skeleton .sk-body { padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; }
+.menu-skeleton .sk-line { height: 13px; border-radius: 3px; }
+.menu-skeleton .sk-line.w70 { width: 70%; } .menu-skeleton .sk-line.w40 { width: 40%; }
+</style></head>
+<body>
+
+<div class="topbar"><div class="wrap"><span><strong>Ordina diretto su harù.it</strong> &nbsp;·&nbsp; <span class="pill-0">−10% sul primo ordine</span> &nbsp;·&nbsp; Prezzi del ristorante, nessun sovrapprezzo</span><div class="tb-right"><span>13 ristoranti · LO · PI · LI · TO</span><span>★ 4,4 / 5 su Google</span></div></div></div>
+<div class="nav-shell"><nav class="nav"><a href="haru-index.html" class="brand"><span class="mark">春</span> Harù</a><div class="links"><a href="haru-index.html">Home</a><a href="haru-menu.html">Menu</a><a href="haru-order.html" class="active">Ordina</a><a href="haru-locali.html">Locali</a><a href="haru-app.html">App</a><a href="haru-owners.html" class="owners">Per i proprietari</a></div><a href="#" class="cta-mini" id="navCart">Carrello · <span id="navCartCount">0</span></a><button class="menu-toggle" aria-label="Menu"><span></span></button></nav></div>
+<div class="mobile-menu"><a href="haru-index.html">Home</a><a href="haru-menu.html">Menu</a><a href="haru-order.html">Ordina</a><a href="haru-locali.html">Locali</a><a href="haru-app.html">App &amp; Loyalty</a><a href="haru-owners.html">Per i proprietari</a></div>
+
+<header class="page-head">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="haru-index.html">Home</a><span class="sep">/</span><span>Ordina</span></div>
+      <h1 class="h1">Ordina <em>online</em></h1>
+    </div>
+    <div class="meta">
+      <span>Pronto in media in 25–35 minuti</span>
+      <span>6 metodi di pagamento istantaneo</span>
+      <span>Zero commissioni · prezzi del ristorante</span>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="step-rail" id="stepRail">
+      <div class="sr-item is-active" data-step="zone"><span class="sr-num">1</span><span class="sr-txt"><span class="sr-t">Scegli il ristorante</span><span class="sr-s">Ritiro −30% / Consegna −20%</span></span></div>
+      <div class="sr-item" data-step="menu"><span class="sr-num">2</span><span class="sr-txt"><span class="sr-t">Scegli i piatti</span><span class="sr-s">291 piatti · foto e prezzi reali</span></span></div>
+      <div class="sr-item" data-step="pay"><span class="sr-num">3</span><span class="sr-txt"><span class="sr-t">Paga e ordina</span><span class="sr-s">6 pagamenti istantanei</span></span></div>
+    </div>
+  </div>
+</header>
+
+<!-- STEP 1 — ZONE ROUTER -->
+<section class="order-section">
+  <div class="wrap">
+    <div class="order-intro">
+      <div>
+        <span class="step-eyebrow">1 · Scegli il tuo Harù</span>
+        <h2 class="step-h">Da quale <em>ristorante</em></h2>
+        <p style="margin-top:14px;color:var(--fg-muted);font-size:15px;max-width:48ch;line-height:1.6;">Inserisci città o CAP e scegli il ristorante per sbloccare il menu. <strong style="color:var(--accent-2);font-weight:500;">Ritirando in negozio risparmi il 30%</strong>, con la consegna a domicilio il 20% — sempre al prezzo del ristorante, senza sovrapprezzi.</p>
+      </div>
+    </div>
+
+    <div class="zone-finder">
+      <div class="zone-search">
+        <div class="field" style="flex:2;">
+          <label for="zoneSearch">Città o CAP</label>
+          <input type="text" id="zoneSearch" placeholder="es. Mozzate, 22076…" autocomplete="off" />
+        </div>
+        <div class="field">
+          <label for="zoneMode">Ritiro o consegna</label>
+          <select id="zoneMode">
+            <option value="ritiro">Ritiro · −30%</option>
+            <option value="consegna">Consegna · −20%</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="zone-grid" id="zoneGrid"></div>
+
+      <div class="zone-banner" id="zoneBanner">
+        <span class="zb-dot"></span>
+        <span><strong id="zbName">—</strong> · <span id="zbMode">Ritiro</span> · pronto in 25–35 minuti</span>
+        <span class="zb-change" id="zbChange">Cambia ristorante</span>
+      </div>
+
+      <div class="deliv-bar" id="delivBar">
+        <div class="deliv-chip is-best"><span class="dc-v">−30<span class="unit">%</span></span><span class="dc-l">Ritiro in negozio</span><span class="dc-flag">★ Più conveniente</span></div>
+        <div class="deliv-chip"><span class="dc-v">−20<span class="unit">%</span></span><span class="dc-l">Consegna a domicilio</span></div>
+        <div class="deliv-chip"><span class="dc-v">€25</span><span class="dc-l">Ordine minimo · invece di €50</span></div>
+        <div class="deliv-chip"><span class="dc-v">25–35<span class="unit"> min</span></span><span class="dc-l">Tempo medio</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 2 — MENU -->
+<section class="order-section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="order-intro" id="menuAnchor">
+      <div>
+        <span class="step-eyebrow">2 · Componi il tuo ordine</span>
+        <h2 class="step-h">Scegli i <em>piatti</em></h2>
+        <p style="margin-top:14px;color:var(--fg-muted);font-size:15px;max-width:50ch;line-height:1.6;">291 piatti, con foto e prezzi reali. Non sai da dove iniziare? Dai un'occhiata ai <strong style="color:var(--accent-2);font-weight:500;">più ordinati</strong> qui sotto — i preferiti che i clienti riordinano più spesso.</p>
+      </div>
+    </div>
+
+    <!-- I PIÙ ORDINATI · featured rail -->
+    <section class="featured-rail" id="featuredRail" aria-label="Più ordinati">
+      <div class="fr-head">
+        <h3 class="fr-title">Più <em>ordinati</em></h3>
+        <span class="fr-sub">★ I più riordinati · sconto già applicato</span>
+      </div>
+      <div class="rail" id="featuredGrid"></div>
+    </section>
+
+    <div id="menuArea">
+      <div class="save-strip" id="saveStrip">
+        <span class="ss-pct" id="ssPct">Ritiro −30%</span>
+        <span class="ss-txt"><strong>Ogni piatto è già scontato in base alla modalità scelta.</strong> Vuoi risparmiare un altro 10%? Passa al «Ritiro» e ottieni uno sconto in più al checkout.</span>
+      </div>
+      <div class="menu-search">
+        <svg class="ms-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+        <input type="text" id="menuSearch" placeholder="Cerca un piatto, es. salmone, uramaki, poke…" autocomplete="off" aria-label="Cerca un piatto" />
+        <span class="ms-count" id="menuSearchCount"></span>
+      </div>
+      <div class="cat-tabs" id="catTabs"></div>
+      <div class="product-grid" id="productGrid"></div>
+      <div class="menu-locked-hint"><span>↑ Scegli prima il ristorante per sbloccare menu e sconti</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CART FAB -->
+<div class="cart-fab" id="cartFab">Vedi il carrello · Vai alla cassa <span class="fab-count" id="fabCount">0</span></div>
+
+<!-- STICKY MINI-CART BAR -->
+<div class="minicart-bar" id="miniCart">
+  <div class="mc-info">
+    <span class="mc-count" id="mcCount">0 articoli</span>
+    <span class="mc-total" id="mcTotal">€0,00</span>
+  </div>
+  <button class="mc-btn" id="mcBtn" type="button">Vai alla cassa →</button>
+</div>
+
+<!-- CART OVERLAY + DRAWER -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Il tuo ordine">
+  <div class="cart-head">
+    <h3>Il tuo ordine</h3>
+    <button class="close" id="cartClose" aria-label="Chiudi">×</button>
+  </div>
+  <div class="cart-zone"><span class="dot"></span><span id="cartZoneLabel">Scegli il ristorante</span></div>
+
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty" id="cartEmpty">Il carrello è ancora vuoto<br/><span style="font-size:12.5px;color:var(--fg-dim);">Inizia scegliendo qualche piatto tra i «più ordinati» — ordinando direttamente hai subito il ritiro −30% / la consegna −20%.</span></div>
+  </div>
+
+  <!-- success replaces the above when confirmed -->
+  <div class="cart-success" id="cartSuccess">
+    <div class="cs-mark">✓</div>
+    <h3>Ordine confermato</h3>
+    <div class="cs-jp">ありがとう · Grazie!</div>
+    <p id="csEta">Pronto tra circa 30 minuti.</p>
+    <div class="cs-save" id="csSave">Rispetto a Glovo hai risparmiato €0,00 di commissioni</div>
+    <div class="cs-eta">Numero ordine · HR-2026</div>
+    <p style="font-size:12.5px;color:var(--fg-muted);margin-top:4px;">Con questo ordine hai accumulato punti Harù Club · <a href="haru-app.html" style="color:var(--accent-2);">ogni 10 ordini un piatto in regalo →</a></p>
+  </div>
+
+  <div class="cart-foot" id="cartFoot">
+    <div class="cart-line">Subtotale <span class="v" id="lineSub">€0,00</span></div>
+    <div class="cart-line save">Ordinando direttamente risparmi le commissioni di piattaforma <span class="v"><span class="struck" id="lineFee">€0,00</span></span></div>
+    <div class="cart-line del" id="lineDelRow" style="display:none;">Sconto ritiro −30% <span class="v" id="lineDel">−€0,00</span></div>
+    <div class="cart-line total">Totale <span class="v" id="lineTotal">€0,00</span></div>
+    <div class="min-hint" id="minHint">Aggiungi ancora €0,00 per raggiungere l'ordine minimo di €25</div>
+    <button class="btn btn-primary" id="goCheckout">Vai alla cassa →</button>
+    <div class="co-reassure" style="justify-content:center;margin-top:12px;">
+      <span class="cr-dot"></span><span>Pronto in 25–35 minuti</span>
+      <span>· 6 metodi di pagamento ·</span>
+      <span>Nessun sovrapprezzo di piattaforma</span>
+    </div>
+  </div>
+
+  <!-- CHECKOUT PANEL -->
+  <div class="checkout-panel" id="checkoutPanel">
+    <div class="checkout-head">
+      <h4>Scegli il metodo di pagamento · ultimo passo</h4>
+      <span class="pay-back" id="payBack">← Torna al carrello</span>
+    </div>
+    <div class="pay-tiles" id="payTiles">
+      <div class="pay-tile" data-pay="satispay"><div class="pay-logo pl-satispay"><svg viewBox="0 0 24 24"><path fill="#f94d00" d="M4 12l8-8 8 8-8 8z"/></svg><span>Satispay</span></div><div class="pay-name">Satispay</div><div class="pay-sub">Pagamento con un tocco</div><div class="pay-check"></div><span class="pay-new">Novità</span></div>
+      <div class="pay-tile" data-pay="apple"><div class="pay-logo pl-apple"><svg viewBox="0 0 24 24" fill="#fff"><path d="M17 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.5-.2-2.8.8-3.6.8-.7 0-1.9-.8-3.1-.8-1.6 0-3 .9-3.9 2.4-1.6 2.9-.4 7.1 1.2 9.5.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3.1-.7 1.4 0 1.8.7 3.1.7 1.3 0 2.1-1.1 2.9-2.3.6-.9.9-1.7.9-1.8 0 0-1.7-.7-1.7-2.6z"/></svg><span>Apple Pay</span></div><div class="pay-name">Apple Pay</div><div class="pay-sub">Wallet</div><div class="pay-check"></div><span class="pay-new">Novità</span></div>
+      <div class="pay-tile" data-pay="google"><div class="pay-logo pl-google"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="#4285f4" stroke-width="2"/><path fill="#4285f4" d="M12 11v2h3a3 3 0 11-1-2.7"/></svg><span>Google Pay</span></div><div class="pay-name">Google Pay</div><div class="pay-sub">Wallet</div><div class="pay-check"></div><span class="pay-new">Novità</span></div>
+      <div class="pay-tile" data-pay="card"><div class="pay-logo pl-card"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2" fill="none" stroke="#a8a39a" stroke-width="1.6"/><rect x="2" y="8" width="20" height="3" fill="#a8a39a"/></svg><span>•••• 4242</span></div><div class="pay-name">Carta salvata</div><div class="pay-sub">•••• 4242</div><div class="pay-check"></div></div>
+      <div class="pay-tile" data-pay="pasto"><div class="pay-logo pl-pasto"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="#3a7d5c" stroke-width="1.6"/><line x1="9" y1="6" x2="9" y2="18" stroke="#3a7d5c" stroke-dasharray="2 2"/></svg><span>Buoni pasto</span></div><div class="pay-name">Buoni pasto</div><div class="pay-sub">Buono elettronico</div><div class="pay-check"></div><span class="pay-new">Novità</span></div>
+      <div class="pay-tile" data-pay="contanti"><div class="pay-logo pl-card"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="#a8a39a" stroke-width="1.6"/><text x="12" y="16" font-size="10" text-anchor="middle" fill="#a8a39a">€</text></svg><span>Contanti</span></div><div class="pay-name">Contanti</div><div class="pay-sub">Pagamento alla consegna</div><div class="pay-check"></div></div>
+    </div>
+    <div class="co-reassure">
+      <span class="cr-dot"></span><strong>Pagamento sicuro</strong>
+      <span>· Crittografia HTTPS ·</span>
+      <span>Prezzo del ristorante · zero commissioni di piattaforma</span>
+      <span>· Dati memorizzati, la prossima volta paghi con un tocco</span>
+    </div>
+    <button class="btn btn-accent" id="confirmOrder">Ordina e paga €0,00</button>
+  </div>
+</aside>
+
+<footer class="footer"><div class="footer-grid">
+  <div class="footer-brand"><img src="assets/img/site/logo-white.png" alt="Harù" style="height:46px;width:auto;margin-bottom:16px" /><p>Sushi e cucina asiatica dal 2014. 13 ristoranti tra Lombardia, Piemonte, Liguria e Torino. Stesso marchio, stessa App, il tuo ordine diretto.</p></div>
+  <div class="footer-col"><h5>Ordina</h5><ul><li><a href="haru-menu.html">Menu completo</a></li><li><a href="haru-order.html">Ordina online</a></li><li><a href="haru-locali.html">I nostri ristoranti</a></li><li><a href="haru-app.html">App &amp; Loyalty</a></li></ul></div>
+  <div class="footer-col"><h5>Brand</h5><ul><li><a href="haru-index.html">Chi siamo</a></li><li><a href="haru-owners.html">Per i proprietari</a></li></ul></div>
+  <div class="footer-col"><h5>Contatti</h5><p>info@haru.it<br/>13 ristoranti nel Nord Italia<br/>Lun–Dom · pranzo e cena</p></div>
+</div><div class="footer-bottom"><span>© 2026 Harù · esempio dimostrativo · HOTATE S.A.S. / YE SONDRIO S.R.L.</span><div class="socials"><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">TikTok</a></div></div></footer>
+
+<div class="toast" id="toast"><span class="t-ic">✓</span><span id="toastMsg">Aggiunto al carrello</span></div>
+
+<script src="assets/main.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- PRODUCT DATA (real Harù catalogue from window.HARU_MENU) ---------- */
+  var MENU = (window.HARU_MENU || []);
+  var PLACEHOLDER_IMG = "assets/img/site/favicon.jpg";
+  // categories that get a "Più ordinato" highlight on their first card
+  // (must match the real Italian category strings in data.js)
+  var POPULAR_CATS = { "Nigiri": true, "Uramaki": true, "Chirashi e Cake": true };
+
+  // flat map of every product keyed by id, plus normalised fields
+  var PRODUCT_MAP = {};
+  MENU.forEach(function(group){
+    (group.items || []).forEach(function(it, idx){
+      var p = {
+        id: String(it.id),
+        cat: it.cat || group.category,
+        name: it.name || "",
+        desc: it.desc || "",
+        allerg: it.allergeni || "",
+        price: typeof it.eur === "number" ? it.eur : 0,
+        priceLabel: it.price || ("€ " + (typeof it.eur === "number" ? it.eur.toFixed(2).replace(".", ",") : "0,00")),
+        img: it.img || PLACEHOLDER_IMG,
+        tag: (idx === 0 && POPULAR_CATS[group.category]) ? "Più ordinato" : ""
+      };
+      PRODUCT_MAP[p.id] = p;
+    });
+  });
+
+  /* ---------- STATE ---------- */
+  var cart = [];                 // [{id, qty}]
+  // Cross-page cart: seed from items added on the menu page (localStorage)
+  try {
+    var _saved = JSON.parse(localStorage.getItem('haru_cart') || '[]');
+    if (Array.isArray(_saved)) {
+      _saved.forEach(function(l){
+        if (l && PRODUCT_MAP[String(l.id)]) {
+          var q = Math.max(1, parseInt(l.qty,10) || 1);
+          cart.push({ id: String(l.id), qty: q });
+        }
+      });
+    }
+  } catch(e){}
+  var zone = null;               // {name, prov}
+  var mode = "ritiro";           // ritiro | consegna
+  var payment = null;
+  var MIN_ORDER = 25;
+  var PLATFORM_FEE = 0.28;       // illustrative Glovo blended take
+
+  var euro = function(n){ return "€" + n.toFixed(2).replace(".", ","); };
+
+  /* ---------- HTML escape helper ---------- */
+  function esc(s){
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  /* ---------- RENDER MENU (real categories, render active category only) ---------- */
+  var grid = document.getElementById("productGrid");
+  function cardHTML(p){
+    var jp = p.cat ? '<span class="jp">' + esc(p.cat) + '</span>' : '';
+    var tag = p.tag ? '<span class="pc-tag">' + esc(p.tag) + '</span>' : '';
+    var desc = p.desc ? '<div class="pc-desc">' + esc(p.desc) + '</div>' : '';
+    var allerg = p.allerg ? '<div class="pc-allerg">Allergeni: ' + esc(p.allerg) + '</div>' : '';
+    return '<div class="product-card">' +
+        '<div class="pc-media">' + tag + '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + '" loading="lazy" /></div>' +
+        '<div class="pc-body">' +
+          '<div class="pc-name">' + esc(p.name) + ' ' + jp + '</div>' +
+          desc + allerg +
+          '<div class="pc-foot">' +
+            '<span class="pc-price">' + esc(p.priceLabel) + '</span>' +
+            '<button class="add-btn" data-id="' + esc(p.id) + '">Aggiungi</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+  }
+  var activeCat = "tutti";
+  var searchQuery = "";
+  function renderMenu(cat){
+    if (cat != null) activeCat = cat;
+    var q = searchQuery;
+    var html = "", shown = 0;
+    MENU.forEach(function(group){
+      if (activeCat && activeCat !== "tutti" && group.category !== activeCat) return;
+      (group.items || []).forEach(function(it){
+        var p = PRODUCT_MAP[String(it.id)];
+        if (!p) return;
+        if (q && p.name.toLowerCase().indexOf(q) === -1) return;
+        html += cardHTML(p); shown++;
+      });
+    });
+    if (!html){
+      html = '<div class="cart-empty" style="grid-column:1/-1;padding:48px 0;text-align:center;">Nessun piatto trovato per "' + esc(searchQuery) + '"</div>';
+    }
+    grid.innerHTML = html;
+    var counter = document.getElementById("menuSearchCount");
+    if (counter) counter.textContent = q ? (shown + " piatti") : "";
+  }
+  renderMenu("tutti");
+
+  /* ---------- FEATURED RAIL · "I più ordinati" ---------- */
+  // pick ~6 products from popular real categories
+  // (must match the real Italian category strings in data.js)
+  var FEATURED_CATS = ["Uramaki", "Nigiri", "Chirashi e Cake", "Tartare"];
+  function buildFeatured(){
+    var featGrid = document.getElementById("featuredGrid");
+    if (!featGrid) return;
+    var picks = [], seen = {};
+    FEATURED_CATS.forEach(function(catName){
+      var group = MENU.filter(function(g){ return g.category === catName; })[0];
+      if (!group) return;
+      (group.items || []).slice(0, 2).forEach(function(it){
+        var p = PRODUCT_MAP[String(it.id)];
+        if (p && !seen[p.id]){ seen[p.id] = true; picks.push(p); }
+      });
+    });
+    picks = picks.slice(0, 6);
+    featGrid.innerHTML = picks.map(function(p){
+      // mark every featured card as "Più ordinato" without mutating the shared map
+      var fp = {};
+      for (var k in p){ if (Object.prototype.hasOwnProperty.call(p, k)) fp[k] = p[k]; }
+      fp.tag = "Più ordinato";
+      return cardHTML(fp);
+    }).join("");
+  }
+  buildFeatured();
+
+  /* ---------- CATEGORY TABS (built from real categories) ---------- */
+  var tabs = document.getElementById("catTabs");
+  (function buildTabs(){
+    var html = '<button class="active" data-cat="tutti">Tutti</button>';
+    MENU.forEach(function(group){
+      html += '<button data-cat="' + esc(group.category) + '">' + esc(group.category) + '</button>';
+    });
+    tabs.innerHTML = html;
+  })();
+  tabs.addEventListener("click", function(e){
+    var b = e.target.closest("button"); if (!b) return;
+    tabs.querySelectorAll("button").forEach(function(x){ x.classList.remove("active"); });
+    b.classList.add("active");
+    renderMenu(b.getAttribute("data-cat"));
+  });
+
+  /* ---------- IN-MENU SEARCH (live, combines with category) ---------- */
+  var menuSearch = document.getElementById("menuSearch");
+  if (menuSearch){
+    menuSearch.addEventListener("input", function(){
+      searchQuery = this.value.trim().toLowerCase();
+      renderMenu(null);
+    });
+  }
+
+  /* ---------- ADD TO CART (delegated · shared by grid + featured rail) ---------- */
+  function handleAddClick(e){
+    var btn = e.target.closest(".add-btn"); if (!btn) return;
+    if (!document.body.classList.contains("zone-selected")){
+      showToast("Scegli prima il ristorante"); return;
+    }
+    var id = btn.getAttribute("data-id");
+    if (!PRODUCT_MAP[id]) return;
+    addItem(id);
+    btn.classList.add("added");
+    btn.textContent = "Aggiunto ✓";
+    setTimeout(function(){ btn.classList.remove("added"); btn.textContent = "Aggiungi"; }, 1100);
+    showToast("Aggiunto " + PRODUCT_MAP[id].name);
+  }
+  grid.addEventListener("click", handleAddClick);
+  var featuredGridEl = document.getElementById("featuredGrid");
+  if (featuredGridEl) featuredGridEl.addEventListener("click", handleAddClick);
+
+  function addItem(id){
+    var line = cart.find(function(x){ return x.id === id; });
+    if (line) line.qty++; else cart.push({ id:id, qty:1 });
+    renderCart();
+  }
+  function changeQty(id, d){
+    var line = cart.find(function(x){ return x.id === id; });
+    if (!line) return;
+    line.qty += d;
+    if (line.qty <= 0) cart = cart.filter(function(x){ return x.id !== id; });
+    renderCart();
+  }
+  function removeItem(id){ cart = cart.filter(function(x){ return x.id !== id; }); renderCart(); }
+
+  /* ---------- TOTALS ---------- */
+  function totals(){
+    var sub = 0, count = 0;
+    cart.forEach(function(l){ var p = PRODUCT_MAP[l.id]; sub += p.price * l.qty; count += l.qty; });
+    var discRate = mode === "ritiro" ? 0.30 : 0.20;
+    var disc = sub * discRate;
+    var total = sub - disc;
+    var fee = sub * PLATFORM_FEE;   // what a platform would have skimmed
+    return { sub:sub, disc:disc, discRate:discRate, total:total, fee:fee, count:count };
+  }
+
+  /* ---------- RENDER CART ---------- */
+  var cartBody = document.getElementById("cartBody");
+  function renderCart(){
+    var t = totals();
+    try { localStorage.setItem('haru_cart', JSON.stringify(cart)); } catch(e){}
+    // items
+    if (cart.length === 0){
+      cartBody.innerHTML = '<div class="cart-empty">Il carrello è ancora vuoto<br/><span style="font-size:12.5px;color:var(--fg-dim);">Inizia scegliendo qualche piatto tra i «più ordinati» — ordinando direttamente hai subito il ritiro −30% / la consegna −20%.</span></div>';
+    } else {
+      cartBody.innerHTML = "";
+      cart.forEach(function(l){
+        var p = PRODUCT_MAP[l.id];
+        var row = document.createElement("div");
+        row.className = "cart-item";
+        row.innerHTML =
+          '<img class="ci-img" src="' + p.img + '" alt="" />' +
+          '<div><div class="ci-name">' + p.name + '</div><div class="ci-price">' + euro(p.price) + ' · cad.</div></div>' +
+          '<div class="ci-right">' +
+            '<div class="qty"><button data-act="dec" data-id="' + p.id + '">−</button><span class="v">' + l.qty + '</span><button data-act="inc" data-id="' + p.id + '">+</button></div>' +
+            '<button class="ci-remove" data-act="rm" data-id="' + p.id + '">Rimuovi</button>' +
+          '</div>';
+        cartBody.appendChild(row);
+      });
+    }
+    // counts
+    document.getElementById("navCartCount").textContent = t.count;
+    document.getElementById("fabCount").textContent = t.count;
+    document.getElementById("cartFab").classList.toggle("show", t.count > 0);
+    // foot lines
+    document.getElementById("lineSub").textContent = euro(t.sub);
+    document.getElementById("lineFee").textContent = euro(t.fee);
+    document.getElementById("lineDel").textContent = "−" + euro(t.disc);
+    document.getElementById("lineDelRow").firstChild.textContent =
+      (mode === "ritiro" ? "Sconto ritiro −30% " : "Sconto consegna −20% ");
+    document.getElementById("lineDelRow").style.display = t.sub > 0 ? "flex" : "none";
+    document.getElementById("lineTotal").textContent = euro(t.total);
+    // min order gating (based on total, net of discounts)
+    var below = t.total < MIN_ORDER;
+    var hint = document.getElementById("minHint");
+    var btn = document.getElementById("goCheckout");
+    if (cart.length > 0 && below){
+      hint.classList.add("show");
+      hint.textContent = "Aggiungi ancora " + euro(MIN_ORDER - t.total) + " per raggiungere l'ordine minimo di €25";
+    } else hint.classList.remove("show");
+    btn.disabled = (cart.length === 0 || below);
+    btn.style.opacity = btn.disabled ? "0.45" : "1";
+    btn.style.pointerEvents = btn.disabled ? "none" : "auto";
+    // confirm button amount
+    document.getElementById("confirmOrder").textContent = "Ordina e paga " + euro(t.total);
+    // sticky mini-cart bar (mirrors cart; shown when count>0)
+    var mc = document.getElementById("miniCart");
+    if (mc){
+      document.getElementById("mcCount").textContent = t.count + " articoli";
+      document.getElementById("mcTotal").textContent = euro(t.total);
+      mc.classList.toggle("show", t.count > 0);
+    }
+  }
+
+  cartBody.addEventListener("click", function(e){
+    var b = e.target.closest("button[data-act]"); if (!b) return;
+    var id = b.getAttribute("data-id"), act = b.getAttribute("data-act");
+    if (act === "inc") changeQty(id, 1);
+    else if (act === "dec") changeQty(id, -1);
+    else if (act === "rm") removeItem(id);
+  });
+
+  /* ---------- ZONE ROUTER (real sedi from window.HARU_SEDI) ---------- */
+  var SEDI = (window.HARU_SEDI || []);
+  var zoneGrid = document.getElementById("zoneGrid");
+  var zoneSearch = document.getElementById("zoneSearch");
+  var zoneModeSel = document.getElementById("zoneMode");
+
+  (function buildZones(){
+    var html = "";
+    SEDI.forEach(function(s){
+      var hay = [s.city, s.prov, s.addr].join(" ");
+      var thumb = s.img ? '<img class="loc-thumb" src="' + esc(s.img) + '" alt="' + esc(s.city) + '" loading="lazy" />' : '';
+      html += '<div class="loc-card" data-city="' + esc(hay) + '">' +
+          thumb +
+          '<div class="loc-top"><div><div class="loc-city">' + esc(s.city) + '</div></div><span class="loc-prov">' + esc(s.prov) + '</span></div>' +
+          '<div class="loc-addr">' + esc(s.addr) + '</div>' +
+          '<div class="loc-meta"><span class="star">★</span> 4,4 <span class="tag-status open">Ordina online</span><span class="loc-cta">Scegli →</span></div>' +
+        '</div>';
+    });
+    zoneGrid.innerHTML = html;
+  })();
+
+  zoneSearch.addEventListener("input", function(){
+    var q = this.value.trim().toLowerCase();
+    zoneGrid.querySelectorAll(".loc-card").forEach(function(card){
+      var hay = (card.getAttribute("data-city") || "").toLowerCase();
+      card.classList.toggle("is-hidden", q.length > 0 && hay.indexOf(q) === -1);
+    });
+  });
+
+  zoneModeSel.addEventListener("change", function(){
+    mode = this.value;
+    updateZoneUI();
+    renderCart();
+  });
+
+  zoneGrid.addEventListener("click", function(e){
+    var card = e.target.closest(".loc-card"); if (!card) return;
+    zoneGrid.querySelectorAll(".loc-card").forEach(function(c){ c.classList.remove("is-active"); });
+    card.classList.add("is-active");
+    var name = card.querySelector(".loc-city").textContent.trim();
+    var prov = card.querySelector(".loc-prov").textContent.trim();
+    var addrEl = card.querySelector(".loc-addr");
+    var addr = addrEl ? addrEl.textContent.trim() : "";
+    zone = { name:name, prov:prov, addr:addr };
+    var firstUnlock = !document.body.classList.contains("zone-selected");
+    document.body.classList.add("zone-selected");
+    updateZoneUI();
+    showToast("Ristorante selezionato: " + name);
+    if (firstUnlock) flashMenuSkeleton();
+    // smooth scroll to menu
+    var anchor = document.getElementById("menuAnchor");
+    setTimeout(function(){ anchor.scrollIntoView({ behavior:"smooth", block:"start" }); }, 120);
+  });
+
+  /* ---------- MENU SKELETON (one brief shimmer when the menu unlocks) ---------- */
+  function flashMenuSkeleton(){
+    if (!grid) return;
+    var sk = "";
+    for (var i = 0; i < 6; i++){
+      sk += '<div class="sk-card"><div class="sk-media"></div><div class="sk-body"><div class="sk-line w70"></div><div class="sk-line w40"></div></div></div>';
+    }
+    grid.classList.add("menu-skeleton");
+    grid.innerHTML = sk;
+    setTimeout(function(){
+      grid.classList.remove("menu-skeleton");
+      renderMenu(null);
+    }, 520);
+  }
+
+  document.getElementById("zbChange").addEventListener("click", function(){
+    document.getElementById("zoneGrid").scrollIntoView({ behavior:"smooth", block:"center" });
+  });
+
+  function updateZoneUI(){
+    var modeLabel = mode === "ritiro" ? "Ritiro · −30%" : "Consegna · −20%";
+    if (zone){
+      document.getElementById("zoneBanner").classList.add("show");
+      document.getElementById("delivBar").classList.add("show");
+      document.getElementById("zbName").textContent =
+        zone.name + " (" + zone.prov + ")" + (zone.addr ? " · " + zone.addr : "");
+      document.getElementById("zbMode").textContent = modeLabel;
+      document.getElementById("cartZoneLabel").textContent =
+        (mode === "ritiro" ? "Ritiro" : "Consegna") + " · " + zone.name;
+    }
+    // live discount strip under the menu header
+    var ssPct = document.getElementById("ssPct");
+    var ssTxt = ssPct && ssPct.parentNode.querySelector(".ss-txt");
+    if (ssPct){
+      ssPct.textContent = mode === "ritiro" ? "Ritiro −30%" : "Consegna −20%";
+    }
+    if (ssTxt){
+      ssTxt.innerHTML = mode === "ritiro"
+        ? '<strong>Ogni piatto è già scontato del 30% per il ritiro.</strong> È il modo più conveniente: ritira in negozio e risparmia ancora di più.'
+        : '<strong>Ogni piatto è già scontato del 20% per la consegna.</strong> Passa al «Ritiro» per risparmiare un livello in più e ottenere subito il −30%.';
+    }
+    setStep(zone ? "menu" : "zone");
+  }
+
+  /* ---------- 3-STEP PROGRESS RAIL ---------- */
+  function setStep(stage){
+    var rail = document.getElementById("stepRail");
+    if (!rail) return;
+    var order = ["zone", "menu", "pay"];
+    var cur = order.indexOf(stage);
+    if (cur === -1) cur = 0;
+    rail.querySelectorAll(".sr-item").forEach(function(it){
+      var i = order.indexOf(it.getAttribute("data-step"));
+      it.classList.toggle("is-done", i < cur);
+      it.classList.toggle("is-active", i === cur);
+    });
+  }
+
+  /* ---------- CART OPEN / CLOSE ---------- */
+  var overlay = document.getElementById("cartOverlay");
+  var drawer = document.getElementById("cartDrawer");
+  function openCart(){ overlay.classList.add("open"); drawer.classList.add("open"); }
+  function closeCart(){ overlay.classList.remove("open"); drawer.classList.remove("open"); }
+  document.getElementById("navCart").addEventListener("click", function(e){ e.preventDefault(); openCart(); });
+  document.getElementById("cartFab").addEventListener("click", openCart);
+  document.getElementById("mcBtn").addEventListener("click", openCart);
+  document.getElementById("cartClose").addEventListener("click", closeCart);
+  overlay.addEventListener("click", closeCart);
+
+  /* ---------- CHECKOUT ---------- */
+  var checkoutPanel = document.getElementById("checkoutPanel");
+  document.getElementById("goCheckout").addEventListener("click", function(){
+    if (this.disabled) return;
+    checkoutPanel.classList.add("show");
+    setStep("pay");
+    checkoutPanel.scrollIntoView({ behavior:"smooth", block:"end" });
+  });
+  document.getElementById("payBack").addEventListener("click", function(){
+    checkoutPanel.classList.remove("show");
+    setStep(zone ? "menu" : "zone");
+  });
+
+  var payTiles = document.getElementById("payTiles");
+  payTiles.addEventListener("click", function(e){
+    var tile = e.target.closest(".pay-tile"); if (!tile) return;
+    payTiles.querySelectorAll(".pay-tile").forEach(function(t){ t.classList.remove("selected"); });
+    tile.classList.add("selected");
+    payment = tile.getAttribute("data-pay");
+  });
+
+  document.getElementById("confirmOrder").addEventListener("click", function(){
+    var t = totals();
+    if (cart.length === 0 || t.total < MIN_ORDER){ showToast("Ordine minimo €25"); return; }
+    if (!payment){ showToast("Scegli il metodo di pagamento"); return; }
+    // success state
+    var eta = mode === "ritiro" ? "Pronto per il ritiro in negozio tra circa 25 minuti." : "Consegna in 25–35 minuti.";
+    document.getElementById("csEta").textContent = eta + " " + (zone ? zone.name + " (" + zone.prov + ")." : "");
+    document.getElementById("csSave").textContent =
+      "Rispetto a Glovo hai risparmiato " + euro(t.fee) + " di commissioni";
+    document.getElementById("cartBody").style.display = "none";
+    document.getElementById("cartFoot").style.display = "none";
+    document.getElementById("checkoutPanel").classList.remove("show");
+    document.getElementById("checkoutPanel").style.display = "none";
+    document.getElementById("cartSuccess").classList.add("show");
+    showToast("Ordine confermato · Grazie!");
+    // reset cart state (keeps zone), restore drawer after close
+    cart = []; payment = null;
+    payTiles.querySelectorAll(".pay-tile").forEach(function(t){ t.classList.remove("selected"); });
+    renderCart();
+    setTimeout(resetDrawerOnClose, 50);
+  });
+
+  function resetDrawerOnClose(){
+    // when user closes the success drawer, restore the normal cart UI for the next order
+    var restore = function(){
+      document.getElementById("cartSuccess").classList.remove("show");
+      document.getElementById("cartBody").style.display = "";
+      document.getElementById("cartFoot").style.display = "";
+      document.getElementById("checkoutPanel").style.display = "";
+      overlay.removeEventListener("click", restore);
+      document.getElementById("cartClose").removeEventListener("click", restore);
+    };
+    overlay.addEventListener("click", restore);
+    document.getElementById("cartClose").addEventListener("click", restore);
+  }
+
+  /* ---------- TOAST ---------- */
+  var toast = document.getElementById("toast"), toastTimer;
+  function showToast(msg){
+    document.getElementById("toastMsg").textContent = msg;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toast.classList.remove("show"); }, 2400);
+  }
+
+  /* init */
+  renderCart();
+  setStep(zone ? "menu" : "zone");
+  // if dishes were carried over from the menu page, gently confirm it
+  if (cart.length){
+    setTimeout(function(){
+      var n = cart.reduce(function(a,l){ return a + l.qty; }, 0);
+      showToast("Recuperati " + n + " piatti aggiunti dalla pagina menu");
+    }, 700);
+  }
+})();
+</script>
+<script>
+// Deep-link preselect: /haru-order.html?zone=<city> auto-selects that restaurant.
+(function(){
+  try {
+    var z = new URLSearchParams(location.search).get('zone');
+    if (!z) return;
+    z = decodeURIComponent(z).trim();
+    var grid = document.getElementById('zoneGrid');
+    if (!grid) return;
+    var cards = grid.querySelectorAll('.loc-card');
+    for (var i=0;i<cards.length;i++){
+      var c = cards[i].querySelector('.loc-city');
+      if (c && c.textContent.trim() === z) { cards[i].click(); break; }
+    }
+  } catch(e){}
+})();
+</script>
+</body>
+</html>

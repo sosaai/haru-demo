@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Harù — Sushi e cucina asiatica · 13 ristoranti nel Nord Italia</title>
+  <meta name="description" content="Harù — Sushi e cucina asiatica dal 2014. 13 ristoranti tra Lombardia, Piemonte e Liguria. Ordina online direttamente dal sito: un'unica app, un solo brand." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Harù" />
+<meta property="og:locale" content="it_IT" />
+<meta property="og:title" content="Harù — Sushi e cucina asiatica · 13 ristoranti nel Nord Italia" />
+<meta property="og:description" content="Harù — Sushi e cucina asiatica dal 2014. 13 ristoranti tra Lombardia, Piemonte e Liguria. Ordina online direttamente dal sito: un'unica app, un solo brand." />
+<meta property="og:image" content="https://haru-sushi-cn.vercel.app/assets/img/og/default.png" />
+<meta property="og:image:width" content="1200" /><meta property="og:image:height" content="800" />
+<meta property="og:url" content="https://haru-sushi-cn.vercel.app/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Harù — Sushi e cucina asiatica · 13 ristoranti nel Nord Italia" />
+<meta name="twitter:description" content="Harù — Sushi e cucina asiatica dal 2014. 13 ristoranti tra Lombardia, Piemonte e Liguria. Ordina online direttamente dal sito: un'unica app, un solo brand." />
+<meta name="twitter:image" content="https://haru-sushi-cn.vercel.app/assets/img/og/default.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600&family=Geist+Mono:wght@400;500&family=Noto+Sans+JP:wght@200;300;400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/img/site/favicon.jpg" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/haru.css" />
+  <style>
+    /* page-specific tweaks */
+    .zone-intro { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 28px; }
+    .zone-intro p { color: var(--fg-muted); font-size: 15px; max-width: 52ch; line-height: 1.6; }
+    .zone-finder .grid-foot { margin-top: 28px; display: flex; justify-content: center; }
+    .savings-band { text-align: center; max-width: 920px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 28px; }
+    .savings-band .big-line { font-size: clamp(28px, 4vw, 52px); font-weight: 300; letter-spacing: -0.025em; line-height: 1.12; }
+    .savings-band .big-line em { font-family: var(--font-jp); font-style: normal; color: var(--accent-2); }
+    .savings-band .big-line strong { color: var(--accent-2); font-weight: 300; }
+    .app-loyalty-stats { display: flex; gap: 32px; flex-wrap: wrap; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border); }
+    .app-loyalty-stats > div { display: flex; flex-direction: column; gap: 5px; }
+    .app-loyalty-stats .v { font-size: 30px; font-weight: 200; letter-spacing: -0.03em; color: var(--fg); line-height: 1; }
+    .app-loyalty-stats .v .unit { font-family: var(--font-mono); font-size: 13px; color: var(--accent-2); margin-left: 4px; }
+    .app-loyalty-stats .l { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-muted); }
+    .sig-cta { display: flex; justify-content: flex-end; margin-top: 28px; }
+    /* override stock cta-banner bg with real local photo */
+    .cta-banner::before { background-image: url("assets/img/site/sushi-2.jpg"); }
+
+    /* COME FUNZIONA — numbered steps */
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+    @media (max-width: 880px) { .steps-grid { grid-template-columns: 1fr; } }
+    .step-card { background: var(--bg-2); border: 1px solid var(--border); padding: 36px 30px 34px; display: flex; flex-direction: column; gap: 16px; min-height: 260px; transition: all .4s var(--ease); box-shadow: 0 8px 24px -18px rgba(0,0,0,0.8); }
+    .step-card:hover { border-color: var(--border-gold); transform: translateY(-3px); }
+    .step-card .step-n { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.18em; color: var(--accent-2); }
+    .step-card .step-jp { font-family: var(--font-jp); font-size: 30px; font-weight: 200; color: var(--fg-muted); line-height: 1; margin-top: 2px; }
+    .step-card h3 { font-size: 22px; font-weight: 400; letter-spacing: -0.02em; margin: 4px 0 0; }
+    .step-card p { color: var(--fg-muted); font-size: 14px; line-height: 1.6; }
+    .step-card .step-tag { margin-top: auto; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-2); border-top: 1px solid var(--border); padding-top: 14px; }
+
+    /* REVIEWS head */
+    .reviews-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 28px; flex-wrap: wrap; margin-bottom: 32px; }
+    .reviews-head .lede { max-width: 46ch; }
+
+    /* I NOSTRI RISTORANTI — compact sedi strip */
+    .sedi-strip { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 4px; }
+    .sede-mini { display: block; position: relative; overflow: hidden; border: 1px solid var(--border); background: var(--bg-2); transition: all .4s var(--ease); }
+    .sede-mini:hover { border-color: var(--border-gold); transform: translateY(-3px); }
+    .sede-mini .sm-media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
+    .sede-mini .sm-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s var(--ease); }
+    .sede-mini:hover .sm-media img { transform: scale(1.06); }
+    .sede-mini .sm-prov { position: absolute; top: 10px; right: 10px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; background: rgba(0,0,0,0.62); backdrop-filter: blur(4px); color: var(--fg); padding: 4px 8px; border-radius: 4px; }
+    .sede-mini .sm-body { padding: 14px 16px 16px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .sede-mini .sm-city { font-size: 14px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.25; }
+    .sede-mini .sm-go { font-family: var(--font-mono); font-size: 13px; color: var(--accent-2); opacity: 0; transform: translateX(-4px); transition: all .3s var(--ease); }
+    .sede-mini:hover .sm-go { opacity: 1; transform: translateX(0); }
+    .sedi-strip-foot { margin-top: 28px; display: flex; justify-content: center; }
+
+    /* FRESHNESS / Pesce del giorno band */
+    .fresh-band { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
+    @media (max-width: 880px) { .fresh-band { grid-template-columns: 1fr; gap: 30px; } }
+    .fresh-media { position: relative; aspect-ratio: 5 / 4; overflow: hidden; border: 1px solid var(--border); }
+    .fresh-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1s var(--ease); }
+    .fresh-band:hover .fresh-media img { transform: scale(1.04); }
+    .fresh-media .fresh-stamp { position: absolute; left: 16px; bottom: 16px; display: flex; align-items: center; gap: 9px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg); background: rgba(10,10,10,0.6); backdrop-filter: blur(6px); border: 1px solid var(--border-strong); padding: 7px 13px; border-radius: 100px; }
+    .fresh-media .fresh-stamp .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 0 0 rgba(212,160,70,0.55); animation: freshPulse 2.4s infinite; }
+    @keyframes freshPulse { 0% { box-shadow: 0 0 0 0 rgba(212,160,70,0.5); } 70% { box-shadow: 0 0 0 9px rgba(212,160,70,0); } 100% { box-shadow: 0 0 0 0 rgba(212,160,70,0); } }
+    .fresh-list { list-style: none; padding: 0; margin: 26px 0 0; display: flex; flex-direction: column; }
+    .fresh-list li { display: flex; gap: 16px; padding: 18px 0; border-top: 1px solid var(--border); }
+    .fresh-list li:last-child { border-bottom: 1px solid var(--border); }
+    .fresh-list .fr-jp { font-family: var(--font-jp); font-size: 26px; font-weight: 200; color: var(--accent-2); line-height: 1; flex: none; width: 38px; }
+    .fresh-list .fr-h { font-size: 16px; font-weight: 500; letter-spacing: -0.01em; margin: 0 0 4px; }
+    .fresh-list .fr-p { font-size: 14px; line-height: 1.6; color: var(--fg-muted); margin: 0; }
+
+    /* VALUE LADDER — incentive tiers */
+    .ladder-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+    @media (max-width: 880px) { .ladder-grid { grid-template-columns: 1fr; } }
+    .ladder-card { position: relative; background: var(--bg-2); border: 1px solid var(--border); padding: 34px 30px 32px; display: flex; flex-direction: column; gap: 14px; min-height: 250px; transition: all .4s var(--ease); box-shadow: 0 8px 24px -18px rgba(0,0,0,0.8); }
+    .ladder-card:hover { border-color: var(--border-gold); transform: translateY(-3px); }
+    .ladder-card.is-feat { border-color: var(--border-gold); }
+    .ladder-card .ld-tier { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg-muted); }
+    .ladder-card .ld-pct { font-size: clamp(40px, 5vw, 56px); font-weight: 200; letter-spacing: -0.04em; line-height: 0.95; color: var(--fg); }
+    .ladder-card.is-feat .ld-pct { color: var(--accent-2); }
+    .ladder-card .ld-pct .sub { font-size: 18px; color: var(--fg-muted); margin-left: 6px; letter-spacing: 0; }
+    .ladder-card h3 { font-size: 19px; font-weight: 400; letter-spacing: -0.015em; margin: 2px 0 0; }
+    .ladder-card p { color: var(--fg-muted); font-size: 14px; line-height: 1.6; margin: 0; }
+    .ladder-card .ld-foot { margin-top: auto; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-2); border-top: 1px solid var(--border); padding-top: 14px; }
+    .ladder-card .ld-flag { position: absolute; top: 16px; right: 16px; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bg); background: var(--accent-2); padding: 4px 9px; border-radius: 100px; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Harù",
+    "description": "Sushi e cucina asiatica dal 2014. 13 ristoranti tra Lombardia, Piemonte e Liguria, con ordine online diretto dal sito e app fedeltà.",
+    "servesCuisine": ["Japanese", "Sushi", "Asian Fusion"],
+    "priceRange": "€€",
+    "url": "https://www.haru.it/",
+    "image": "https://www.haru.it/assets/img/site/hero-sushi.jpg",
+    "foundingDate": "2014",
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Lombardia" },
+      { "@type": "AdministrativeArea", "name": "Piemonte" },
+      { "@type": "AdministrativeArea", "name": "Liguria" }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "Lombardia",
+      "addressCountry": "IT"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.4",
+      "bestRating": "5",
+      "reviewCount": "6000"
+    },
+    "acceptsReservations": "False"
+  }
+  </script>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar"><div class="wrap">
+  <span><strong>Ordina diretto su harù.it</strong> &nbsp;·&nbsp; <span class="pill-0">−10% sul primo ordine</span> &nbsp;·&nbsp; Prezzi del ristorante, nessun sovrapprezzo</span>
+  <div class="tb-right"><span>13 ristoranti · LO · PI · LI · TO</span><span>★ 4,4 / 5 su Google</span></div>
+</div></div>
+
+<!-- NAV -->
+<div class="nav-shell"><nav class="nav">
+  <a href="haru-index.html" class="brand"><span class="mark">春</span> Harù</a>
+  <div class="links">
+    <a href="haru-index.html" class="active">Home</a>
+    <a href="haru-menu.html">Menu</a>
+    <a href="haru-order.html">Ordina</a>
+    <a href="haru-locali.html">Locali</a>
+    <a href="haru-app.html">App</a>
+    <a href="haru-owners.html" class="owners">Per i proprietari</a>
+  </div>
+  <a href="haru-order.html" class="cta-mini">Ordina ora</a>
+  <button class="menu-toggle" aria-label="Menu"><span></span></button>
+</nav></div>
+<div class="mobile-menu">
+  <a href="haru-index.html">Home</a><a href="haru-menu.html">Menu</a><a href="haru-order.html">Ordina</a><a href="haru-locali.html">Locali</a><a href="haru-app.html">App &amp; Loyalty</a><a href="haru-owners.html">Per i proprietari</a>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg">
+    <img src="assets/img/site/hero-sushi.jpg" alt="" />
+  </div>
+
+  <div class="hero-top">
+    <div class="hero-top-block">
+      <span class="eyebrow"><span class="dot"></span>Dal 2014 · Nord Italia</span>
+    </div>
+    <div class="hero-top-block">
+      <span class="eyebrow">LOMBARDIA · PIEMONTE · LIGURIA</span>
+    </div>
+  </div>
+
+  <div class="hero-meta">
+    <span>春 / HARÙ</span>
+    <div class="v-line"></div>
+    <span>Sushi e<br/>cucina asiatica</span>
+  </div>
+
+  <div class="hero-inner">
+    <h1 class="display reveal in">
+      13 ristoranti,<br/>un solo Harù <em>春</em>.<br/>Un'unica app.
+    </h1>
+    <div class="hero-bottom reveal in">
+      <div style="max-width: 560px;">
+        <p class="lede">
+          Tredici ristoranti tra Lombardia, Piemonte e Liguria, un solo menu e un solo account. Salta gli intermediari e ordina direttamente da Harù: zero commissioni, pochi tap e il tuo sushi fresco arriva a casa o ti aspetta per il ritiro.
+        </p>
+
+        <div class="hero-social">
+          <div class="avatar-stack">
+            <div class="ava" style="background-image: url('assets/img/products/156-Uramaki-Ebiten-soy.jpg');"></div>
+            <div class="ava" style="background-image: url('assets/img/products/90-Sushi-sake.jpg');"></div>
+            <div class="ava" style="background-image: url('assets/img/products/95-Sashimi-royale.jpg');"></div>
+            <div class="ava" style="background-image: url('assets/img/products/113-Temaki-spicy-maguro.jpg');"></div>
+            <div class="ava" style="background-image: url('assets/img/products/70-Poke-ebi.jpg');"></div>
+            <div class="more">6k</div>
+          </div>
+          <div class="social-rating">
+            <div class="stars">★★★★★</div>
+            <div class="num"><strong>4,4</strong> · ≈6.000 recensioni Google</div>
+          </div>
+          <div class="social-divider"></div>
+          <div class="social-badge">
+            <div class="top">13 ristoranti<span class="jp">店</span></div>
+            <div class="sub">Aperti dal 2014</div>
+          </div>
+          <div class="social-divider"></div>
+          <div class="social-badge">
+            <div class="top">3 regioni <span class="jp">北</span></div>
+            <div class="sub">Lombardia · Piemonte · Liguria</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <a href="haru-order.html" class="btn btn-primary">
+          Ordina ora
+          <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="haru-app.html" class="btn btn-ghost">Scarica l'app</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- DISH MARQUEE (real menu, auto-filled) -->
+<div class="dish-marquee"><div class="dm-track"></div></div>
+
+<!-- FACTS -->
+<section style="padding: 0;">
+  <div class="wrap">
+    <div class="facts reveal">
+      <div class="fact"><div class="num"><span data-countup="13">13</span><span class="unit">ristoranti</span></div><div class="label">Locali nel Nord Italia</div></div>
+      <div class="fact"><div class="num"><span data-countup="4.4" data-decimals="1">4,4</span><span class="unit">★</span></div><div class="label">Valutazione media Google</div></div>
+      <div class="fact"><div class="num"><span data-countup="6000" data-sep="dot" data-prefix="≈">≈6.000</span></div><div class="label">Recensioni dei clienti</div></div>
+      <div class="fact"><div class="num"><span data-countup="0">0</span><span class="unit">%</span></div><div class="label">Commissioni sul canale diretto</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COME FUNZIONA -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Come funziona · 01</span>
+        <h2 class="h2" style="margin-top: 20px;">Dal ristorante a casa tua,<br/>in tre passi.</h2>
+      </div>
+      <p class="lede">Ordinare direttamente da Harù dovrebbe essere semplice così. Tra te e la cucina non c'è nessun intermediario: solo il tuo sushi, più fresco e più veloce.</p>
+    </div>
+
+    <div class="steps-grid reveal">
+      <div class="step-card">
+        <div class="step-n">01</div>
+        <div class="step-jp">選</div>
+        <h3>Scegli il ristorante</h3>
+        <p>Scegli il locale Harù più vicino a te tra i tredici ristoranti del Nord Italia. Menu, prezzi e disponibilità sono sempre allineati.</p>
+        <div class="step-tag">13 ristoranti · un solo brand</div>
+      </div>
+      <div class="step-card">
+        <div class="step-n">02</div>
+        <div class="step-jp">注</div>
+        <h3>Ordina</h3>
+        <p>Sfoglia il menu completo con foto reali, aggiungi i piatti che vuoi e paga in pochi tap. Sul primo ordine diretto hai subito un −10%.</p>
+        <div class="step-tag">−10% sul primo ordine</div>
+      </div>
+      <div class="step-card">
+        <div class="step-n">03</div>
+        <div class="step-jp">届</div>
+        <h3>Ritira o fatti consegnare</h3>
+        <p>Scegli il ritiro in negozio o la consegna a casa. Ordine diretto, zero commissioni: il margine resta tutto nel tuo ristorante.</p>
+        <div class="step-tag">0% commissioni · meglio delle piattaforme</div>
+      </div>
+    </div>
+
+    <div class="sig-cta">
+      <a href="haru-order.html" class="btn-link">Inizia a ordinare<svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- UNA SOLA HARÙ -->
+<section style="background: var(--bg-2);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Un solo HARÙ · 02</span>
+        <h2 class="h2" style="margin-top: 20px;">Tredici ristoranti,<br/>un'unica esperienza.</h2>
+      </div>
+      <p class="lede">Oggi Harù è frammentato su sottodomini diversi, con menu non allineati e senza un account condiviso. Domani sarà un unico brand digitale: un sito, un account, un'app — e ogni ordine è tuo.</p>
+    </div>
+
+    <div class="compare reveal">
+      <div class="compare-col before">
+        <div class="cc-label"><span>✕</span> Harù oggi</div>
+        <ul>
+          <li><span class="ic">✕</span><span class="t">Sottodomini frammentati<span>Ogni zona ha il suo sito, e qualcuno ha solo un PDF o un link che non funziona.</span></span></li>
+          <li><span class="ic">✕</span><span class="t">Menu non allineati<span>Piatti, prezzi e foto cambiano da locale a locale: il cliente si disorienta.</span></span></li>
+          <li><span class="ic">✕</span><span class="t">Nessun account<span>Niente storico ordini, niente riordino rapido, nessuna fidelizzazione.</span></span></li>
+          <li><span class="ic">✕</span><span class="t">Pagamenti limitati<span>Di fatto solo PayPal: niente Satispay, né Apple Pay o Google Pay.</span></span></li>
+          <li><span class="ic">✕</span><span class="t">20–35% alle piattaforme<span>Su Glovo, Deliveroo e Just Eat ogni ordine si porta via una bella fetta di margine.</span></span></li>
+        </ul>
+      </div>
+      <div class="compare-col after">
+        <div class="cc-label"><span>✓</span> Harù domani</div>
+        <ul>
+          <li><span class="ic">✓</span><span class="t">Un unico sito<span>Tutti i 13 locali sulla stessa piattaforma, veloce e mobile-first.</span></span></li>
+          <li><span class="ic">✓</span><span class="t">Menu unificato<span>Un catalogo coerente, con foto professionali e prezzi allineati.</span></span></li>
+          <li><span class="ic">✓</span><span class="t">Un account, un'app<span>Storico ordini, riordino con un tap e programma fedeltà integrato.</span></span></li>
+          <li><span class="ic">✓</span><span class="t">Pagamenti moderni<span>Satispay, Apple Pay, Google Pay, carte salvate e buoni pasto elettronici.</span></span></li>
+          <li><span class="ic">✓</span><span class="t">Ordine diretto, 0% commissioni<span>I clienti sono tuoi, i dati sono tuoi, il margine resta in cassa.</span></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TROVA IL TUO HARÙ -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>I nostri locali · 03</span>
+        <h2 class="h2" style="margin-top: 20px;">Trova<br/>il tuo Harù.</h2>
+      </div>
+      <p class="lede">Dalla Valtellina a Milano, dal Lago di Como al Piemonte. Scegli il locale più vicino e ordina direttamente in pochi secondi.</p>
+    </div>
+
+    <div class="zone-finder reveal">
+      <div class="zone-intro">
+        <p>Tredici ristoranti tra Lombardia, Piemonte e Liguria. Qui ci sono i più amati — la lista completa è a un solo clic.</p>
+        <span class="badge0"><span class="n">13</span> ristoranti · ordine diretto</span>
+      </div>
+
+      <div class="zone-grid">
+        <a href="locali/mozzate/" class="loc-card">
+          <img class="loc-thumb" src="assets/img/sedi/mozzate.jpg" alt="Harù Mozzate" loading="lazy" style="width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:14px;display:block" />
+          <div class="loc-top"><div class="loc-city">Mozzate</div><div class="loc-prov">CO</div></div>
+          <div class="loc-addr">Via Volta 12, 22076 Mozzate</div>
+          <div class="loc-meta"><span class="star">★ 4,4</span> · <span class="tag-status open">Aperto</span> · <span class="loc-cta">Ordina →</span></div>
+        </a>
+        <a href="locali/milano-sempione/" class="loc-card">
+          <img class="loc-thumb" src="assets/img/sedi/milano-sempione.jpg" alt="Harù Milano Corso Sempione" loading="lazy" style="width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:14px;display:block" />
+          <div class="loc-top"><div class="loc-city">Milano Corso Sempione</div><div class="loc-prov">MI</div></div>
+          <div class="loc-addr">Corso Sempione 48, 20154 Milano</div>
+          <div class="loc-meta"><span class="star">★ 4,4</span> · <span class="tag-status open">Aperto</span> · <span class="loc-cta">Ordina →</span></div>
+        </a>
+        <a href="locali/oggiono/" class="loc-card">
+          <img class="loc-thumb" src="assets/img/sedi/oggiono.jpg" alt="Harù Oggiono" loading="lazy" style="width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:14px;display:block" />
+          <div class="loc-top"><div class="loc-city">Oggiono</div><div class="loc-prov">LC</div></div>
+          <div class="loc-addr">Via Cesare Battisti 9, 23848 Oggiono</div>
+          <div class="loc-meta"><span class="star">★ 4,4</span> · <span class="tag-status open">Aperto</span> · <span class="loc-cta">Ordina →</span></div>
+        </a>
+        <a href="locali/valtellina/" class="loc-card">
+          <img class="loc-thumb" src="assets/img/sedi/valtellina.jpg" alt="Harù Berbenno di Valtellina" loading="lazy" style="width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:14px;display:block" />
+          <div class="loc-top"><div class="loc-city">Berbenno di Valtellina</div><div class="loc-prov">SO</div></div>
+          <div class="loc-addr">Via Nazionale 24, 23010 Berbenno</div>
+          <div class="loc-meta"><span class="star">★ 4,4</span> · <span class="tag-status open">Aperto</span> · <span class="loc-cta">Ordina →</span></div>
+        </a>
+        <a href="locali/como/" class="loc-card">
+          <img class="loc-thumb" src="assets/img/sedi/como.jpg" alt="Harù Como" loading="lazy" style="width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:14px;display:block" />
+          <div class="loc-top"><div class="loc-city">Como</div><div class="loc-prov">CO</div></div>
+          <div class="loc-addr">Via Milano 102, 22100 Como</div>
+          <div class="loc-meta"><span class="star">★ 4,4</span> · <span class="tag-status open">Aperto</span> · <span class="loc-cta">Ordina →</span></div>
+        </a>
+        <a href="locali/opera/" class="loc-card">
+          <img class="loc-thumb" src="assets/img/sedi/opera.jpg" alt="Harù Opera" loading="lazy" style="width:100%;height:140px;object-fit:cover;border-radius:8px;margin-bottom:14px;display:block" />
+          <div class="loc-top"><div class="loc-city">Opera</div><div class="loc-prov">MI</div></div>
+          <div class="loc-addr">Via Diaz 5, 20090 Opera</div>
+          <div class="loc-meta"><span class="star">★ 4,4</span> · <span class="tag-status open">Aperto</span> · <span class="loc-cta">Ordina →</span></div>
+        </a>
+      </div>
+
+      <div class="grid-foot">
+        <a href="haru-locali.html" class="btn-link">Scopri tutti i 13 ristoranti<svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURE DISHES -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Piatti signature · 04</span>
+        <h2 class="h2" style="margin-top: 20px;">Quattro signature,<br/>impossibili da dimenticare.</h2>
+      </div>
+      <p class="lede">I piatti che i clienti riordinano di più, stagione dopo stagione. Pesce fresco del giorno, riso lavorato a mano e ingredienti selezionati ogni mattina: la cura si sente al primo morso.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="signature-grid reveal" id="signature-grid">
+
+      <a href="haru-menu.html" class="signature-card">
+        <img src="assets/img/products/156-Uramaki-Ebiten-soy.jpg" alt="Uramaki Ebiten soy" loading="lazy" />
+        <div class="info">
+          <div class="num">N° 01</div>
+          <div>
+            <div class="name"><span class="jp">裏巻き</span>Uramaki Ebiten soy</div>
+            <span class="price">€ 12,00</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="haru-menu.html" class="signature-card">
+        <img src="assets/img/products/90-Sushi-sake.jpg" alt="Nigiri Sushi sake" loading="lazy" />
+        <div class="info">
+          <div class="num">N° 02</div>
+          <div>
+            <div class="name"><span class="jp">握り</span>Nigiri Sushi sake</div>
+            <span class="price">€ 10,00</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="haru-menu.html" class="signature-card">
+        <img src="assets/img/products/95-Sashimi-royale.jpg" alt="Sashimi royale" loading="lazy" />
+        <div class="info">
+          <div class="num">N° 03</div>
+          <div>
+            <div class="name"><span class="jp">刺身</span>Sashimi royale</div>
+            <span class="price">€ 14,00</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="haru-menu.html" class="signature-card">
+        <img src="assets/img/products/113-Temaki-spicy-maguro.jpg" alt="Temaki spicy maguro" loading="lazy" />
+        <div class="info">
+          <div class="num">N° 04</div>
+          <div>
+            <div class="name"><span class="jp">手巻き</span>Temaki spicy maguro</div>
+            <span class="price">€ 6,00</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+    <div class="sig-cta">
+      <a href="haru-menu.html" class="btn-link">Scopri tutto il menu<svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- FRESHNESS / Pesce del giorno -->
+<section style="background: var(--bg-2);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Pesce del giorno · 05</span>
+        <h2 class="h2" style="margin-top: 20px;">Ogni mattina,<br/>dal mercato al banco.</h2>
+      </div>
+      <p class="lede">Per il buon sushi non ci sono scorciatoie. Il pesce è selezionato e lavorato in giornata; il riso si scalda e si modella a mano, mai conservato per il giorno dopo. È lo stesso standard che tutti e tredici i ristoranti rispettano.</p>
+    </div>
+
+    <div class="fresh-band reveal">
+      <div class="fresh-media">
+        <img src="assets/img/site/ingredienti.jpg" alt="Harù ingredienti selezionati ogni giorno" loading="lazy" />
+        <span class="fresh-stamp"><span class="pulse"></span>Fresco del giorno · preparato al momento</span>
+      </div>
+      <div>
+        <ul class="fresh-list">
+          <li>
+            <span class="fr-jp">鮮</span>
+            <div>
+              <p class="fr-h">Pesce selezionato in giornata</p>
+              <p class="fr-p">Salmone, tonno e ricciola arrivano ogni mattina presto. I nostri maestri li tagliano a mano, scegliendo solo le parti più pregiate.</p>
+            </div>
+          </li>
+          <li>
+            <span class="fr-jp">飯</span>
+            <div>
+              <p class="fr-h">Riso modellato a mano</p>
+              <p class="fr-p">Ogni nigiri è preparato a mano al momento: il riso ha la consistenza giusta, si scioglie in bocca e non viene mai conservato in anticipo.</p>
+            </div>
+          </li>
+          <li>
+            <span class="fr-jp">季</span>
+            <div>
+              <p class="fr-h">Un menu che segue le stagioni</p>
+              <p class="fr-p">Dai grandi classici alle novità di stagione, selezioniamo i migliori ingredienti del momento: ogni visita ha qualcosa di nuovo da scoprire.</p>
+            </div>
+          </li>
+        </ul>
+        <a href="haru-menu.html" class="btn-link" style="margin-top: 26px;">Sfoglia il menu completo<svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY / BRAND -->
+<section>
+  <div class="wrap">
+    <div class="split reveal" style="direction: rtl;">
+      <div class="media" style="direction: ltr;">
+        <img src="assets/img/site/ingredienti.jpg" alt="Harù ingredienti selezionati" loading="lazy" />
+      </div>
+      <div class="content" style="direction: ltr;">
+        <span class="eyebrow"><span class="dot"></span>La nostra storia · 06</span>
+        <h2 class="h2">Dal 2014,<br/>il gusto del Nord.</h2>
+        <p class="lede">Harù nasce nel 2014 con un'idea semplice: portare nel Nord Italia un sushi raffinato e i veri sapori d'Asia, senza compromessi sugli ingredienti.</p>
+        <p class="lede mt-4">Pesce selezionato in giornata, riso lavorato con cura, dai grandi classici alle novità di stagione. Tredici ristoranti, ognuno con il suo carattere, uniti dalla stessa passione per la qualità.</p>
+        <div class="app-loyalty-stats">
+          <div><div class="v"><span data-countup="2014">2014</span></div><div class="l">Anno di fondazione</div></div>
+          <div><div class="v"><span data-countup="13">13</span><span class="unit">ristoranti</span></div><div class="l">Locali nel Nord Italia</div></div>
+          <div><div class="v"><span data-countup="3">3</span><span class="unit">regioni</span></div><div class="l">Lombardia · Piemonte · Liguria</div></div>
+        </div>
+        <a href="haru-menu.html" class="btn btn-primary mt-8">Scopri il menu<svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APP & LOYALTY -->
+<section style="background: var(--bg-2); padding-top: 0;">
+  <div class="wrap">
+    <div class="split reveal">
+      <div class="media">
+        <img src="assets/img/site/consegne.jpg" alt="Harù consegne a domicilio" loading="lazy" />
+      </div>
+      <div class="content">
+        <span class="eyebrow"><span class="dot"></span>App &amp; Loyalty · 07</span>
+        <h2 class="h2">Harù<br/>sempre in tasca.</h2>
+        <p class="lede">Un'unica app per tutti i ristoranti: ordina, paga e segui la consegna in tempo reale. Ogni ordine ti avvicina alla prossima ricompensa.</p>
+        <p class="lede mt-4">Ogni 10 ordini, un piatto in regalo. Riordina i tuoi preferiti con un tap e approfitta delle offerte riservate all'app. Semplice, veloce, sempre con te.</p>
+        <div class="app-loyalty-stats">
+          <div><div class="v">10<span class="unit">ordini</span></div><div class="l">Un piatto in regalo</div></div>
+          <div><div class="v">1<span class="unit">tap</span></div><div class="l">Riordina i preferiti</div></div>
+          <div><div class="v">0<span class="unit">%</span></div><div class="l">Commissioni sul canale diretto</div></div>
+        </div>
+        <a href="haru-app.html" class="btn btn-primary mt-8">Scarica l'app<svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE LADDER — incentive tiers -->
+<section style="background: var(--bg-2);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>I vantaggi dell'ordine diretto · 08</span>
+        <h2 class="h2" style="margin-top: 20px;">Più è diretto,<br/>più conviene.</h2>
+      </div>
+      <p class="lede">Ordinando direttamente su harù.it non risparmi solo le commissioni delle piattaforme. Dal primo al decimo ordine, ogni acquisto ti regala un vantaggio concreto.</p>
+    </div>
+
+    <div class="ladder-grid reveal">
+      <div class="ladder-card is-feat">
+        <span class="ld-flag">Solo primo ordine</span>
+        <span class="ld-tier">Al primo ordine</span>
+        <div class="ld-pct">−10<span class="sub">%</span></div>
+        <h3>Sconto nuovo cliente</h3>
+        <p>Sul primo ordine dal sito o dall'app hai subito un −10% su tutto. Nessun codice da inserire: lo sconto è automatico al pagamento.</p>
+        <div class="ld-foot">−10% sul primo ordine</div>
+      </div>
+      <div class="ladder-card">
+        <span class="ld-tier">Ogni 10 ordini</span>
+        <div class="ld-pct">+1<span class="sub">piatto</span></div>
+        <h3>Premio fedeltà</h3>
+        <p>Ogni 10 ordini, un piatto in regalo. I punti valgono in tutti i 13 ristoranti e riordini i preferiti con un tap: più ordini, più convieni.</p>
+        <div class="ld-foot">Ogni 10 ordini un piatto in regalo</div>
+      </div>
+      <div class="ladder-card">
+        <span class="ld-tier">Su ogni ordine</span>
+        <div class="ld-pct">0<span class="sub">%</span></div>
+        <h3>Prezzo del ristorante</h3>
+        <p>Ordine diretto, zero commissioni: i piatti restano sempre al prezzo del ristorante. Quello che risparmi è esattamente ciò che si prendono le piattaforme.</p>
+        <div class="ld-foot">Nessun sovrapprezzo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAVINGS TEASER -->
+<section>
+  <div class="wrap">
+    <div class="savings-band reveal">
+      <span class="badge0"><span class="n">0%</span> commissioni sul canale diretto</span>
+      <p class="big-line">Fino a <strong>€27.000</strong> all'anno per ristorante restano nelle <em>tue</em> tasche, invece di finire a Glovo.</p>
+      <a href="haru-owners.html" class="btn-link">Scopri il business case<svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section style="background: var(--bg-2); padding-top: 0;">
+  <div class="wrap">
+    <div class="testimonial reveal">
+      <blockquote>
+        Senza esagerare, è il miglior sushi della Valtellina. Il pesce è sempre freschissimo, le porzioni sono abbondanti e il personale è davvero gentile. Ordino qui ogni settimana e non mi ha mai deluso, nemmeno una volta.
+      </blockquote>
+      <cite>★★★★★ · Recensione Google <span class="src">· Valtellina</span></cite>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section>
+  <div class="wrap">
+    <div class="reviews-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Recensioni dei clienti · 09</span>
+        <div class="bigstat" style="margin-top: 20px;">
+          <div class="v"><span data-countup="4.4" data-decimals="1">4,4</span><span class="u">★</span></div>
+          <div class="l"><span data-countup="6000" data-sep="dot" data-prefix="≈">≈6.000</span> recensioni Google</div>
+        </div>
+      </div>
+      <p class="lede">Ogni settimana migliaia di clienti tornano a ordinare. Pesce fresco, porzioni generose, consegne puntuali: scopri cosa dicono di Harù.</p>
+    </div>
+
+    <div class="review-grid reveal">
+      <div class="review-card">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">Il sushi è sempre freschissimo e le porzioni sono davvero abbondanti. Ho scelto il ritiro in negozio ed era pronto in dieci minuti. Il miglior giapponese della zona, vengo ogni venerdì.</p>
+        <div class="rv-who">
+          <div class="rv-ava">寿</div>
+          <div>
+            <div class="rv-name">Marco B.</div>
+            <div class="rv-src">Recensione Google · Mozzate</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">Ho ordinato direttamente dal sito: consegna velocissima e tutto perfetto all'arrivo. Pesce di ottima qualità e prezzo onesto. Finalmente non devo più usare quelle app di delivery così care.</p>
+        <div class="rv-who">
+          <div class="rv-ava">鮮</div>
+          <div>
+            <div class="rv-name">Giulia M.</div>
+            <div class="rv-src">Recensione Google · Milano Corso Sempione</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="rv-stars">★★★★★</div>
+        <p class="rv-text">Porzioni generose, uramaki curatissimi e personale molto gentile. Ordino spesso per tutta la famiglia e non sono mai rimasto deluso. Qualità-prezzo eccellente.</p>
+        <div class="rv-who">
+          <div class="rv-ava">味</div>
+          <div>
+            <div class="rv-name">Davide R.</div>
+            <div class="rv-src">Recensione Google · Berbenno di Valtellina</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- I NOSTRI RISTORANTI -->
+<section style="background: var(--bg-2);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>I nostri ristoranti · 10</span>
+        <h2 class="h2" style="margin-top: 20px;">13 ristoranti,<br/>un'unica esperienza.</h2>
+      </div>
+      <p class="lede">Dalla Valtellina a Torino, dal Lago di Como alla Liguria. Ovunque tu sia nel Nord, c'è sempre un Harù pronto a servirti.</p>
+    </div>
+
+    <div class="sedi-strip reveal" id="sedi-strip"></div>
+
+    <div class="sedi-strip-foot">
+      <a href="haru-locali.html" class="btn-link">Scopri tutti i ristoranti<svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <span class="eyebrow"><span class="dot"></span>Ordine diretto</span>
+  <h2 class="h1">Ordina diretto.<br/>Questo è il <em>tuo</em> Harù.</h2>
+  <p class="lede" style="margin: 0 auto;">Tredici ristoranti, un solo brand, nessun intermediario. Sul primo ordine dal sito, subito un −10%.</p>
+  <div class="actions">
+    <a href="haru-order.html" class="btn btn-primary">Ordina ora<svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    <a href="haru-app.html" class="btn btn-ghost">Scarica l'app</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer"><div class="footer-grid">
+  <div class="footer-brand"><img src="assets/img/site/logo-white.png" alt="Harù" loading="lazy" style="height:46px;width:auto;margin-bottom:16px" /><p>Sushi e cucina asiatica dal 2014. 13 ristoranti tra Lombardia, Piemonte, Liguria e Torino. Un solo brand, un'unica app, e ordini direttamente da te.</p></div>
+  <div class="footer-col"><h5>Ordina</h5><ul><li><a href="haru-menu.html">Menu completo</a></li><li><a href="haru-order.html">Ordina online</a></li><li><a href="haru-locali.html">I nostri locali</a></li><li><a href="haru-app.html">App &amp; Loyalty</a></li></ul></div>
+  <div class="footer-col"><h5>Brand</h5><ul><li><a href="haru-index.html">Chi siamo</a></li><li><a href="haru-owners.html">Per i proprietari</a></li></ul></div>
+  <div class="footer-col"><h5>Contatti</h5><p>info@haru.it<br/>13 ristoranti nel Nord Italia<br/>Lun–Dom · pranzo e cena</p></div>
+</div><div class="footer-bottom"><span>© 2026 Harù · Demo · HOTATE S.A.S. / YE SONDRIO S.R.L.</span><div class="socials"><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">TikTok</a></div></div></footer>
+
+<script src="assets/data.js"></script>
+<script>
+(function () {
+  var menu = window.HARU_MENU;
+  var grid = document.getElementById('signature-grid');
+  if (!menu || !grid) return;
+  var picks = [
+    { cat: 'Uramaki', jp: '裏巻き' },
+    { cat: 'Nigiri', jp: '握り' },
+    { cat: 'Sashimi', jp: '刺身' },
+    { cat: 'Temaki', jp: '手巻き' }
+  ];
+  var cards = [];
+  picks.forEach(function (p) {
+    var c = menu.find(function (x) { return x.category === p.cat; });
+    if (!c || !c.items) return;
+    var it = c.items.find(function (i) { return i.img && i.img.length; });
+    if (it) cards.push({ jp: p.jp, item: it });
+  });
+  if (cards.length < 4) return;
+  grid.innerHTML = cards.map(function (c, i) {
+    var n = String(i + 1).padStart(2, '0');
+    return '<a href="haru-menu.html" class="signature-card">' +
+      '<img src="' + c.item.img + '" alt="' + c.item.name + '" loading="lazy" />' +
+      '<div class="info"><div class="num">N° ' + n + '</div>' +
+      '<div><div class="name"><span class="jp">' + c.jp + '</span>' + c.item.name + '</div>' +
+      '<span class="price">' + c.item.price + '</span></div></div></a>';
+  }).join('');
+})();
+
+(function () {
+  var sedi = window.HARU_SEDI;
+  var strip = document.getElementById('sedi-strip');
+  if (!sedi || !strip) return;
+  strip.innerHTML = sedi.map(function (s) {
+    var city = (s.city || '').replace(/[<>]/g, '');
+    var prov = (s.prov || '').replace(/[<>]/g, '');
+    return '<a href="locali/' + s.key + '/" class="sede-mini" aria-label="Harù ' + city + '">' +
+      '<div class="sm-media">' +
+      '<img src="' + s.img + '" alt="Harù ' + city + '" loading="lazy" />' +
+      '<span class="sm-prov">' + prov + '</span></div>' +
+      '<div class="sm-body"><span class="sm-city">' + city + '</span>' +
+      '<span class="sm-go">→</span></div></a>';
+  }).join('');
+})();
+</script>
+<script src="assets/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,732 @@
+<!doctype html><html lang="it"><head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>App e Fedeltà — Harù · 13 ristoranti in tasca</title>
+<meta name="description" content="App Harù: 13 ristoranti, un solo account, ordini con un tocco. Ripeti l'ultimo ordine in un attimo, ogni 10 ordini un sushi in omaggio e segui lo stato in tempo reale. Fedeltà, notifiche e wallet, tutto in un'unica app." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Harù" />
+<meta property="og:locale" content="it_IT" />
+<meta property="og:title" content="App e Fedeltà — Harù · 13 ristoranti in tasca" />
+<meta property="og:description" content="App Harù: 13 ristoranti, un solo account, ordini con un tocco. Ripeti l'ultimo ordine in un attimo, ogni 10 ordini un sushi in omaggio e segui lo stato in tempo reale. Fedeltà, notifiche e wallet, tutto in un'unica app." />
+<meta property="og:image" content="https://haru-sushi-cn.vercel.app/assets/img/og/default.png" />
+<meta property="og:image:width" content="1200" /><meta property="og:image:height" content="800" />
+<meta property="og:url" content="https://haru-sushi-cn.vercel.app/haru-app.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="App e Fedeltà — Harù · 13 ristoranti in tasca" />
+<meta name="twitter:description" content="App Harù: 13 ristoranti, un solo account, ordini con un tocco. Ripeti l'ultimo ordine in un attimo, ogni 10 ordini un sushi in omaggio e segui lo stato in tempo reale. Fedeltà, notifiche e wallet, tutto in un'unica app." />
+<meta name="twitter:image" content="https://haru-sushi-cn.vercel.app/assets/img/og/default.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600&family=Geist+Mono:wght@400;500&family=Noto+Sans+JP:wght@200;300;400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css" /><link rel="stylesheet" href="assets/haru.css" />
+<link rel="icon" href="assets/img/site/favicon.jpg" />
+<style>
+/* page-specific only */
+.app-hero { align-items: center; }
+.app-hero .content .lede { max-width: 46ch; }
+.benefit-list { list-style: none; display: flex; flex-direction: column; gap: 18px; margin: 30px 0 34px; }
+.benefit-list li { display: flex; gap: 14px; align-items: flex-start; font-size: 15.5px; line-height: 1.5; color: var(--fg); }
+.benefit-list li .bn-ic { flex-shrink: 0; width: 30px; height: 30px; border-radius: 9px; background: var(--haru-green-soft); border: 1px solid var(--border-gold); display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-jp); font-size: 14px; color: var(--accent-2); margin-top: 1px; }
+.benefit-list li .bn-t span { display: block; font-size: 13.5px; color: var(--fg-muted); margin-top: 3px; }
+
+/* in-phone app composition */
+.app-shell { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+.app-head { display: flex; align-items: center; justify-content: space-between; padding: 6px 18px 12px; border-bottom: 1px solid var(--border); }
+.app-head .ah-brand { display: flex; align-items: baseline; gap: 8px; font-size: 17px; font-weight: 500; letter-spacing: -0.01em; }
+.app-head .ah-brand .jp { font-family: var(--font-jp); font-size: 15px; color: var(--accent-2); font-weight: 300; }
+.app-head .ah-city { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-muted); display: flex; align-items: center; gap: 5px; }
+.app-head .ah-city .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--ok); }
+.app-hero-img { position: relative; height: 142px; overflow: hidden; flex-shrink: 0; }
+.app-hero-img img { width: 100%; height: 100%; object-fit: cover; }
+.app-hero-img .ahi-grad { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,0) 40%, rgba(10,10,10,0.85) 100%); }
+.app-hero-img .ahi-cap { position: absolute; left: 14px; bottom: 12px; right: 14px; }
+.app-hero-img .ahi-tag { font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-2); }
+.app-hero-img .ahi-name { font-size: 16px; font-weight: 500; margin-top: 2px; }
+.app-scroll { flex: 1; overflow: hidden; padding: 14px; display: flex; flex-direction: column; gap: 14px; }
+.app-chips { display: flex; gap: 7px; }
+.app-chips .chip { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 12px; border-radius: 100px; border: 1px solid var(--border); color: var(--fg-muted); white-space: nowrap; }
+.app-chips .chip.on { color: var(--bg); background: var(--accent-2); border-color: var(--accent-2); }
+.reorder-card { border: 1px solid var(--border-gold); border-radius: 14px; padding: 13px; display: flex; gap: 12px; align-items: center; background: linear-gradient(135deg, var(--haru-green-soft), var(--bg-3)); }
+.reorder-card img { width: 50px; height: 50px; border-radius: 10px; object-fit: cover; flex-shrink: 0; }
+.reorder-card .rc-body { flex: 1; min-width: 0; }
+.reorder-card .rc-label { font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-2); }
+.reorder-card .rc-name { font-size: 13.5px; font-weight: 500; margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.reorder-card .rc-meta { font-size: 11px; color: var(--fg-muted); margin-top: 2px; }
+.reorder-card .rc-btn { flex-shrink: 0; font-size: 11px; font-weight: 500; padding: 8px 13px; border-radius: 100px; background: var(--fg); color: var(--bg); }
+.app-mini-row { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.app-mini { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--bg-2); }
+.app-mini img { width: 100%; height: 64px; object-fit: cover; display: block; }
+.app-mini .am-body { padding: 8px 10px 10px; }
+.app-mini .am-name { font-size: 11.5px; font-weight: 500; }
+.app-mini .am-price { font-family: var(--font-mono); font-size: 10px; color: var(--accent-2); margin-top: 2px; }
+.app-tabbar { display: flex; justify-content: space-around; align-items: center; padding: 11px 8px 13px; border-top: 1px solid var(--border); background: var(--bg-2); flex-shrink: 0; }
+.app-tabbar .tab { display: flex; flex-direction: column; align-items: center; gap: 4px; font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-dim); }
+.app-tabbar .tab.on { color: var(--accent-2); }
+.app-tabbar .tab .ti { width: 18px; height: 18px; border-radius: 6px; border: 1.5px solid currentColor; display: flex; align-items: center; justify-content: center; font-family: var(--font-jp); font-size: 9px; }
+.app-tabbar .tab.on .ti { background: var(--accent-2); color: var(--bg); border-color: var(--accent-2); }
+
+/* loyalty section */
+.loyalty-wrap { max-width: 460px; margin: 0 auto; }
+.loyalty-cap { text-align: center; margin-top: 26px; font-size: 14.5px; color: var(--fg-muted); line-height: 1.6; }
+.loyalty-cap strong { color: var(--fg); font-weight: 500; }
+
+/* feature cards (6 small) */
+.feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+@media (max-width: 880px) { .feat-grid { grid-template-columns: 1fr; } }
+.feat-card { background: var(--bg-2); border: 1px solid var(--border); padding: 32px 30px 34px; display: flex; flex-direction: column; gap: 14px; transition: all 0.4s var(--ease); }
+.feat-card:hover { border-color: var(--border-gold); background: var(--bg-3); }
+.feat-card .fc-ic { width: 42px; height: 42px; border-radius: 11px; background: var(--haru-green-soft); border: 1px solid var(--border-gold); display: flex; align-items: center; justify-content: center; font-family: var(--font-jp); font-size: 18px; color: var(--accent-2); }
+.feat-card .fc-n { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg-dim); }
+.feat-card h3 { font-size: 20px; font-weight: 400; letter-spacing: -0.01em; }
+.feat-card p { font-size: 14px; color: var(--fg-muted); line-height: 1.55; }
+.feat-card p .hl { color: var(--accent-2); }
+
+/* push showcase */
+.push-stack { display: flex; flex-direction: column; gap: 12px; max-width: 460px; }
+.push-side { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(40px, 6vw, 90px); align-items: center; }
+@media (max-width: 768px) { .push-side { grid-template-columns: 1fr; } }
+
+/* whatsapp band */
+.wa-band { border: 1px solid var(--border-gold); background: linear-gradient(135deg, var(--haru-green-soft), var(--bg-2)); border-radius: var(--radius); padding: clamp(36px, 5vw, 60px); display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(32px, 5vw, 70px); align-items: center; }
+@media (max-width: 768px) { .wa-band { grid-template-columns: 1fr; } }
+.wa-band h2 { font-size: clamp(26px, 3.5vw, 40px); font-weight: 300; letter-spacing: -0.02em; line-height: 1.1; }
+.wa-band h2 em { font-family: var(--font-jp); font-style: normal; color: var(--accent-2); }
+.wa-band p { font-size: 15px; color: var(--fg-muted); line-height: 1.6; margin-top: 18px; max-width: 52ch; }
+.wa-stats { display: flex; flex-direction: column; gap: 4px; }
+.wa-stat { background: var(--bg); border: 1px solid var(--border); padding: 20px 24px; }
+.wa-stat .ws-v { font-size: 38px; font-weight: 200; letter-spacing: -0.03em; }
+.wa-stat .ws-v.up { color: var(--ok); }
+.wa-stat .ws-v.down { color: var(--fg-dim); }
+.wa-stat .ws-l { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-muted); margin-top: 4px; }
+
+/* ===== DUO PHONES (Dentro l'app) ===== */
+.phone-duo { position: relative; display: flex; justify-content: center; align-items: flex-end; gap: clamp(-30px, -2vw, 0px); min-height: 660px; padding: 20px 0; }
+@media (max-width: 880px) { .phone-duo { flex-direction: column; align-items: center; gap: 40px; min-height: 0; } }
+.phone-duo .phone { margin: 0; }
+.phone-duo .phone.p-back { transform: translateY(30px) rotate(-6deg) scale(0.92); z-index: 1; opacity: 0.97; }
+.phone-duo .phone.p-front { transform: translateX(-24px) rotate(4deg); z-index: 2; }
+@media (max-width: 880px) {
+  .phone-duo .phone.p-back, .phone-duo .phone.p-front { transform: none; }
+}
+.duo-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(32px, 5vw, 80px); align-items: center; }
+@media (max-width: 880px) { .duo-grid { grid-template-columns: 1fr; } }
+
+/* live order tracking screen */
+.track-shell { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+.track-head { padding: 8px 18px 14px; border-bottom: 1px solid var(--border); }
+.track-head .th-back { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-dim); }
+.track-head .th-title { font-size: 17px; font-weight: 500; letter-spacing: -0.01em; margin-top: 6px; display: flex; align-items: baseline; gap: 8px; }
+.track-head .th-title .jp { font-family: var(--font-jp); font-size: 14px; color: var(--accent-2); font-weight: 300; }
+.track-eta { margin: 14px 14px 4px; border: 1px solid var(--border-gold); border-radius: 14px; padding: 16px 18px; background: linear-gradient(135deg, var(--haru-green-soft), var(--bg-3)); display: flex; align-items: center; justify-content: space-between; }
+.track-eta .te-l { font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-2); }
+.track-eta .te-v { font-size: 26px; font-weight: 200; letter-spacing: -0.02em; margin-top: 3px; }
+.track-eta .te-ring { width: 46px; height: 46px; border-radius: 50%; background: conic-gradient(var(--accent-2) 0% 66%, var(--border) 66% 100%); display: flex; align-items: center; justify-content: center; }
+.track-eta .te-ring i { width: 36px; height: 36px; border-radius: 50%; background: var(--bg); display: flex; align-items: center; justify-content: center; font-family: var(--font-jp); font-size: 15px; color: var(--accent-2); font-style: normal; }
+.track-steps { padding: 18px 20px; display: flex; flex-direction: column; gap: 0; }
+.track-step { display: grid; grid-template-columns: 24px 1fr; gap: 14px; position: relative; padding-bottom: 22px; }
+.track-step:last-child { padding-bottom: 0; }
+.track-step .ts-dot { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--border); background: var(--bg-2); margin: 2px auto 0; z-index: 2; position: relative; }
+.track-step::before { content: ""; position: absolute; left: 11px; top: 18px; bottom: 0; width: 2px; background: var(--border); }
+.track-step:last-child::before { display: none; }
+.track-step.done .ts-dot { background: var(--accent-2); border-color: var(--accent-2); }
+.track-step.done::before { background: var(--accent-2); }
+.track-step.active .ts-dot { border-color: var(--accent-2); background: var(--bg); box-shadow: 0 0 0 4px var(--haru-green-soft); animation: trackPulse 1.8s var(--ease) infinite; }
+@keyframes trackPulse { 0%,100% { box-shadow: 0 0 0 3px var(--haru-green-soft); } 50% { box-shadow: 0 0 0 7px rgba(168,138,58,0.12); } }
+.track-step .ts-t { font-size: 13.5px; font-weight: 500; }
+.track-step.pending .ts-t { color: var(--fg-dim); }
+.track-step .ts-s { font-size: 11px; color: var(--fg-muted); margin-top: 3px; }
+.track-step.active .ts-s { color: var(--accent-2); }
+.track-foot { margin-top: auto; padding: 14px; border-top: 1px solid var(--border); display: flex; gap: 9px; align-items: center; }
+.track-foot img { width: 40px; height: 40px; border-radius: 9px; object-fit: cover; }
+.track-foot .tf-body { flex: 1; min-width: 0; }
+.track-foot .tf-n { font-size: 12px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.track-foot .tf-m { font-size: 10.5px; color: var(--fg-muted); margin-top: 1px; }
+.track-foot .tf-tot { font-family: var(--font-mono); font-size: 13px; color: var(--accent-2); }
+
+/* loyalty screen (in second phone) */
+.club-shell { flex: 1; display: flex; flex-direction: column; overflow: hidden; padding: 6px 16px 0; }
+.club-head { display: flex; align-items: baseline; justify-content: space-between; padding: 4px 2px 14px; }
+.club-head .ch-t { font-size: 17px; font-weight: 500; letter-spacing: -0.01em; display: flex; align-items: baseline; gap: 7px; }
+.club-head .ch-t .jp { font-family: var(--font-jp); font-size: 14px; color: var(--accent-2); }
+.club-head .ch-tier { font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-2); border: 1px solid var(--border-gold); border-radius: 100px; padding: 4px 9px; }
+.club-balance { border: 1px solid var(--border-gold); border-radius: 16px; padding: 18px 20px; background: linear-gradient(150deg, var(--haru-green-soft), var(--bg-3)); }
+.club-balance .cb-l { font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-2); }
+.club-balance .cb-v { font-size: 40px; font-weight: 200; letter-spacing: -0.03em; line-height: 1; margin-top: 6px; }
+.club-balance .cb-v small { font-family: var(--font-mono); font-size: 13px; color: var(--fg-muted); font-weight: 400; margin-left: 6px; }
+.club-prog { margin-top: 14px; }
+.club-prog .cp-bar { height: 7px; border-radius: 100px; background: var(--border); overflow: hidden; }
+.club-prog .cp-bar i { display: block; height: 100%; width: 70%; border-radius: 100px; background: linear-gradient(90deg, var(--accent-2), #d9b85a); }
+.club-prog .cp-cap { display: flex; justify-content: space-between; font-size: 10.5px; color: var(--fg-muted); margin-top: 7px; }
+.club-prog .cp-cap b { color: var(--fg); font-weight: 500; }
+.club-reward { margin-top: 14px; border: 1px dashed var(--border-gold); border-radius: 14px; padding: 13px 15px; display: flex; gap: 12px; align-items: center; }
+.club-reward img { width: 44px; height: 44px; border-radius: 10px; object-fit: cover; }
+.club-reward .cw-body { flex: 1; }
+.club-reward .cw-l { font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-2); }
+.club-reward .cw-n { font-size: 12.5px; font-weight: 500; margin-top: 2px; }
+.club-reward .cw-s { font-size: 10.5px; color: var(--fg-muted); margin-top: 1px; }
+.club-mini-stamps { display: flex; gap: 5px; margin-top: 16px; flex-wrap: wrap; }
+.club-mini-stamps i { width: 24px; height: 24px; border-radius: 7px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: var(--font-jp); font-size: 11px; color: var(--fg-dim); font-style: normal; }
+.club-mini-stamps i.on { background: var(--haru-green-soft); border-color: var(--border-gold); color: var(--accent-2); }
+.club-mini-stamps i.rew { background: var(--accent-2); border-color: var(--accent-2); color: var(--bg); }
+
+/* Dentro l'app vignettes */
+.vig-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+@media (max-width: 980px) { .vig-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .vig-grid { grid-template-columns: 1fr; } }
+.vig { position: relative; aspect-ratio: 3/4; overflow: hidden; border: 1px solid var(--border); background: var(--bg-2); }
+.vig img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--ease); filter: saturate(0.96); }
+.vig:hover img { transform: scale(1.05); }
+.vig::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,0) 38%, rgba(10,10,10,0.9) 100%); }
+.vig .vg-body { position: absolute; left: 16px; right: 16px; bottom: 16px; z-index: 2; }
+.vig .vg-n { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-2); }
+.vig .vg-t { font-size: 16px; font-weight: 500; letter-spacing: -0.01em; margin-top: 6px; }
+.vig .vg-s { font-size: 12px; color: var(--fg-muted); line-height: 1.45; margin-top: 6px; }
+
+/* benchmark wrapper */
+.bench-wrap { border: 1px solid var(--border); overflow-x: auto; }
+.bench-table .col-haru { border-left: 1px solid var(--border-gold); border-right: 1px solid var(--border-gold); }
+.bench-table tbody tr:last-child td { border-bottom: none; }
+.bench-table .fee-bad { color: var(--danger); font-family: var(--font-mono); }
+.bench-table .fee-good { color: var(--ok); font-family: var(--font-mono); }
+.bench-table td.feat { font-weight: 400; }
+
+/* payments band (customer) */
+.pay-methods { display: flex; flex-wrap: wrap; gap: 10px; }
+.pay-method { display: inline-flex; align-items: center; gap: 8px; padding: 16px 24px; border: 1px solid var(--border-strong); border-radius: 100px; background: var(--bg-2); font-size: 15px; font-weight: 400; transition: all .35s var(--ease); box-shadow: 0 8px 24px -18px rgba(0,0,0,0.8); }
+.pay-method:hover { border-color: var(--border-gold); transform: translateY(-2px); }
+.pay-method .pm-logo { font-weight: 600; letter-spacing: -0.01em; }
+.pay-method .pm-ic { width: 22px; height: 22px; flex-shrink: 0; }
+</style></head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <span><strong>Ordina diretto su harù.it</strong> &nbsp;·&nbsp; <span class="pill-0">−10% sul primo ordine</span> &nbsp;·&nbsp; Prezzi del ristorante, nessun sovrapprezzo</span>
+  <div class="tb-right"><span>13 ristoranti · LO · PI · LI · TO</span><span>★ 4,4 / 5 su Google</span></div>
+</div></div>
+<div class="nav-shell"><nav class="nav">
+  <a href="haru-index.html" class="brand"><span class="mark">春</span> Harù</a>
+  <div class="links">
+    <a href="haru-index.html">Home</a>
+    <a href="haru-menu.html">Menu</a>
+    <a href="haru-order.html">Ordina</a>
+    <a href="haru-locali.html">Locali</a>
+    <a href="haru-app.html" class="active">App</a>
+    <a href="haru-owners.html" class="owners">Per i proprietari</a>
+  </div>
+  <a href="haru-order.html" class="cta-mini">Ordina ora</a>
+  <button class="menu-toggle" aria-label="Menu"><span></span></button>
+</nav></div>
+<div class="mobile-menu">
+  <a href="haru-index.html">Home</a><a href="haru-menu.html">Menu</a><a href="haru-order.html">Ordina</a><a href="haru-locali.html">Locali</a><a href="haru-app.html">App e Fedeltà</a><a href="haru-owners.html">Per i proprietari</a>
+</div>
+
+<!-- PAGE HEAD -->
+<header class="page-head">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="haru-index.html">Home</a><span class="sep">/</span><span>App e Fedeltà</span></div>
+      <h1 class="h1">13 ristoranti<br/><em>in tasca</em></h1>
+    </div>
+    <div class="meta">
+      <span>iOS · Android</span>
+      <span>Download gratuito</span>
+      <span>Vantaggi fedeltà inclusi</span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO SPLIT -->
+<section style="padding-top: clamp(28px, 4vw, 56px);">
+  <div class="wrap">
+    <div class="split app-hero reveal">
+      <div class="content">
+        <span class="eyebrow"><span class="dot"></span>Un'app · Tutti i ristoranti</span>
+        <h2 class="h2" style="margin: 18px 0 22px;">Un'app,<br/>13 ristoranti<br/>a portata di mano.</h2>
+        <p class="lede">Un solo account con i menu di ogni locale, e ordini con pochi tocchi. In qualsiasi città tu sia, è sempre lo stesso Harù che conosci: i tuoi punti, i tuoi premi e le tue offerte, tutto sincronizzato in un unico posto.</p>
+
+        <ul class="benefit-list">
+          <li><span class="bn-ic">回</span><span class="bn-t">Riordina con un tocco<span>Il tuo ultimo ordine è sempre in cima: quando ti viene voglia, basta un tocco.</span></span></li>
+          <li><span class="bn-ic">時</span><span class="bn-t">Tracciamento in tempo reale<span>Dalla conferma al ritiro, lo stato si aggiorna in diretta: niente più telefonate.</span></span></li>
+          <li><span class="bn-ic">点</span><span class="bn-t">Punti e ricompense<span>Entra nell'Harù Club: ogni 10 ordini un piatto in omaggio.</span></span></li>
+          <li><span class="bn-ic">報</span><span class="bn-t">Notifiche con le offerte<span>Promozioni esclusive riservate a chi usa l'app, gestite da te con un interruttore.</span></span></li>
+        </ul>
+
+        <div class="store-badges">
+          <a href="#" class="store-badge">
+            <span class="sb-ic"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.05 12.7c-.03-2.4 1.96-3.55 2.05-3.6-1.12-1.63-2.86-1.86-3.48-1.88-1.48-.15-2.89.87-3.64.87-.75 0-1.91-.85-3.14-.83-1.62.02-3.11.94-3.94 2.39-1.68 2.92-.43 7.24 1.2 9.61.8 1.16 1.75 2.46 3 2.41 1.2-.05 1.66-.78 3.11-.78 1.45 0 1.86.78 3.14.75 1.3-.02 2.12-1.18 2.91-2.35.92-1.35 1.3-2.66 1.32-2.73-.03-.01-2.53-.97-2.56-3.86zM14.64 5.6c.66-.8 1.11-1.92.99-3.03-.95.04-2.11.63-2.79 1.43-.61.71-1.15 1.85-1 2.94 1.06.08 2.14-.54 2.8-1.34z"/></svg></span>
+            <span class="sb-text"><span class="sb-small">Scarica su</span><span class="sb-big">App Store</span></span>
+          </a>
+          <a href="#" class="store-badge">
+            <span class="sb-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00d2ff" d="M3.6 2.3c-.2.2-.3.5-.3.9v17.6c0 .4.1.7.3.9l.1.1L13.4 12v-.1z"/><path fill="#ffce00" d="M17 15.3 13.4 12v-.1L17 8.6l4.2 2.4c1.2.7 1.2 1.8 0 2.5z"/><path fill="#ff3b30" d="M17.1 15.2 13.4 11.9 3.6 21.7c.4.4 1 .5 1.8 0l11.7-6.5"/><path fill="#00c853" d="M17.1 8.8 5.4 2.3c-.8-.5-1.4-.4-1.8 0L13.4 12z"/></svg></span>
+            <span class="sb-text"><span class="sb-small">Scarica su</span><span class="sb-big">Google Play</span></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- PHONE MOCKUP -->
+      <div class="media" style="aspect-ratio: auto; overflow: visible; display: flex; justify-content: center;">
+        <div class="phone">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <div class="phone-notch"></div>
+              <div class="phone-statusbar"><span>20:14</span><span>5G &nbsp; ●●● &nbsp; 86%</span></div>
+              <div class="app-shell">
+                <div class="app-head">
+                  <span class="ah-brand"><span class="jp">春</span> Harù</span>
+                  <span class="ah-city"><span class="dot"></span>Mozzate · Aperto</span>
+                </div>
+                <div class="app-hero-img">
+                  <img src="assets/img/products/145-Uramaki-Phoenix-roll.jpg" alt="Phoenix roll Harù" />
+                  <div class="ahi-grad"></div>
+                  <div class="ahi-cap">
+                    <div class="ahi-tag">Consigliato per te</div>
+                    <div class="ahi-name">Phoenix Roll · 8 pezzi</div>
+                  </div>
+                </div>
+                <div class="app-scroll">
+                  <div class="app-chips">
+                    <span class="chip on">Tutto</span>
+                    <span class="chip">Nigiri</span>
+                    <span class="chip">Uramaki</span>
+                    <span class="chip">Poke</span>
+                  </div>
+                  <div class="reorder-card">
+                    <img src="assets/img/products/150-Uramaki-Crunch-roll.jpg" alt="" loading="lazy" />
+                    <div class="rc-body">
+                      <div class="rc-label">Riordina</div>
+                      <div class="rc-name">Crunch Roll · 8 pezzi</div>
+                      <div class="rc-meta">Ordinato il 24 mag · € 12,00</div>
+                    </div>
+                    <span class="rc-btn">Riordina</span>
+                  </div>
+                  <div class="app-mini-row">
+                    <div class="app-mini">
+                      <img src="assets/img/products/152-Uramaki-Salmon-flambe.jpg" alt="" loading="lazy" />
+                      <div class="am-body"><div class="am-name">Salmon Flambé</div><div class="am-price">€ 11,00</div></div>
+                    </div>
+                    <div class="app-mini">
+                      <img src="assets/img/products/151-Uramaki-Black-dragon.jpg" alt="" loading="lazy" />
+                      <div class="am-body"><div class="am-name">Black Dragon</div><div class="am-price">€ 12,00</div></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="app-tabbar">
+                  <span class="tab on"><span class="ti">春</span>Home</span>
+                  <span class="tab"><span class="ti">点</span>Punti</span>
+                  <span class="tab"><span class="ti">袋</span>Carrello</span>
+                  <span class="tab"><span class="ti">人</span>Profilo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DENTRO L'APP · DUE SCHERMATE -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Dentro l'app</span>
+        <h2 class="h2" style="margin-top: 20px;">Dall'ordine al ritiro,<br/>tutto a portata di mano.</h2>
+      </div>
+      <p class="lede">Le due schermate che i clienti aprono di più: il tracciamento dell'ordine in tempo reale e la tessera Harù Club. Un'esperienza fluida da grande marchio, pensata per questi 13 locali.</p>
+    </div>
+
+    <div class="duo-grid reveal">
+      <!-- DUE TELEFONI -->
+      <div class="phone-duo">
+        <!-- PHONE 2A · LIVE ORDER TRACKING -->
+        <div class="phone p-back">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <div class="phone-notch"></div>
+              <div class="phone-statusbar"><span>20:24</span><span>5G &nbsp; ●●● &nbsp; 81%</span></div>
+              <div class="track-shell">
+                <div class="track-head">
+                  <div class="th-back">‹ Ordine #HR-2418</div>
+                  <div class="th-title"><span class="jp">追</span> Il tuo ordine è in arrivo</div>
+                </div>
+                <div class="track-eta">
+                  <div>
+                    <div class="te-l">Ritiro previsto tra</div>
+                    <div class="te-v">12 minuti</div>
+                  </div>
+                  <div class="te-ring"><i>春</i></div>
+                </div>
+                <div class="track-steps">
+                  <div class="track-step done">
+                    <span class="ts-dot"></span>
+                    <div><div class="ts-t">Confermato</div><div class="ts-s">Ricevuto alle 20:18 · Mozzate</div></div>
+                  </div>
+                  <div class="track-step active">
+                    <span class="ts-dot"></span>
+                    <div><div class="ts-t">In preparazione</div><div class="ts-s">Lo chef sta preparando i tuoi roll</div></div>
+                  </div>
+                  <div class="track-step pending">
+                    <span class="ts-dot"></span>
+                    <div><div class="ts-t">Pronto / In consegna</div><div class="ts-s">Ti avvisiamo con una notifica</div></div>
+                  </div>
+                </div>
+                <div class="track-foot">
+                  <img src="assets/img/products/145-Uramaki-Phoenix-roll.jpg" alt="" loading="lazy" />
+                  <div class="tf-body">
+                    <div class="tf-n">Phoenix Roll + Crunch Roll</div>
+                    <div class="tf-m">2 articoli · Ritiro a Mozzate</div>
+                  </div>
+                  <span class="tf-tot">€ 24,00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PHONE 2B · HARÙ CLUB -->
+        <div class="phone p-front">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <div class="phone-notch"></div>
+              <div class="phone-statusbar"><span>20:26</span><span>5G &nbsp; ●●● &nbsp; 80%</span></div>
+              <div class="club-shell">
+                <div class="club-head">
+                  <span class="ch-t"><span class="jp">点</span> Harù Club</span>
+                  <span class="ch-tier">Socio · Gold</span>
+                </div>
+                <div class="club-balance">
+                  <div class="cb-l">Saldo punti</div>
+                  <div class="cb-v">720<small>punti</small></div>
+                  <div class="club-prog">
+                    <div class="cp-bar"><i></i></div>
+                    <div class="cp-cap"><span>7 ordini su 10 completati</span><span>Ancora <b>3</b> ordini al premio</span></div>
+                  </div>
+                </div>
+                <div class="club-reward">
+                  <img src="assets/img/products/152-Uramaki-Salmon-flambe.jpg" alt="" loading="lazy" />
+                  <div class="cw-body">
+                    <div class="cw-l">Prossima ricompensa</div>
+                    <div class="cw-n">Uramaki a scelta · Gratis</div>
+                    <div class="cw-s">Sbloccala al 10º ordine</div>
+                  </div>
+                </div>
+                <div class="club-mini-stamps">
+                  <i class="on">春</i><i class="on">春</i><i class="on">春</i><i class="on">春</i><i class="on">春</i><i class="on">春</i><i class="on">春</i><i>春</i><i>春</i><i class="rew">★</i>
+                </div>
+              </div>
+              <div class="app-tabbar">
+                <span class="tab"><span class="ti">春</span>Home</span>
+                <span class="tab on"><span class="ti">点</span>Punti</span>
+                <span class="tab"><span class="ti">袋</span>Carrello</span>
+                <span class="tab"><span class="ti">人</span>Profilo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TESTO LATERALE -->
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Due schermate, zero attriti</span>
+        <h2 class="h2" style="margin: 18px 0 22px; font-size: clamp(28px, 3.2vw, 40px);">Tracciamento<br/>in tempo reale e una<br/>tessera che vive<br/>nell'app.</h2>
+        <p class="lede">A sinistra, lo stato in diretta dalla conferma al ritiro: niente più telefonate per chiedere "è pronto?". A destra, il saldo punti, l'avanzamento verso il premio e il prossimo piatto in omaggio, tutto sincronizzato nello stesso account che copre 13 locali. Due schermi che trasformano l'attesa di un sushi in un'attesa che si vede.</p>
+        <ul class="benefit-list">
+          <li><span class="bn-ic">追</span><span class="bn-t">Stato dell'ordine in tempo reale<span>Confermato → In preparazione → Pronto, con il tempo stimato sempre aggiornato.</span></span></li>
+          <li><span class="bn-ic">点</span><span class="bn-t">Saldo punti a colpo d'occhio<span>Quanti ordini mancano al prossimo piatto gratis, lo vedi subito.</span></span></li>
+          <li><span class="bn-ic">報</span><span class="bn-t">Promemoria al momento giusto<span>"Il tuo ordine è pronto" arriva sul telefono, non sepolto in una mail.</span></span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- VIGNETTE -->
+    <div class="vig-grid reveal-stagger" style="margin-top: clamp(36px, 5vw, 64px);">
+      <div class="vig">
+        <img src="assets/img/products/69-Poke-mix.jpg" alt="Poke bowl Harù" loading="lazy" />
+        <div class="vg-body">
+          <div class="vg-n">01 · Scopri</div>
+          <div class="vg-t">Menu per zona</div>
+          <div class="vg-s">Foto reali, prezzi e disponibilità del locale più vicino.</div>
+        </div>
+      </div>
+      <div class="vig">
+        <img src="assets/img/products/150-Uramaki-Crunch-roll.jpg" alt="Crunch roll Harù" loading="lazy" />
+        <div class="vg-body">
+          <div class="vg-n">02 · Riordina</div>
+          <div class="vg-t">L'ultimo ordine, con un tocco</div>
+          <div class="vg-s">I piatti che ordini di più sempre in cima: dalla voglia al carrello in pochi secondi.</div>
+        </div>
+      </div>
+      <div class="vig">
+        <img src="assets/img/products/46-Tartare-tuna.jpg" alt="Tartare di tonno Harù" loading="lazy" />
+        <div class="vg-body">
+          <div class="vg-n">03 · Traccia</div>
+          <div class="vg-t">Stato dell'ordine in diretta</div>
+          <div class="vg-s">Ogni fase aggiornata in tempo reale, fino alla notifica "Pronto".</div>
+        </div>
+      </div>
+      <div class="vig">
+        <img src="assets/img/products/152-Uramaki-Salmon-flambe.jpg" alt="Salmon flambé Harù" loading="lazy" />
+        <div class="vg-body">
+          <div class="vg-n">04 · Premi</div>
+          <div class="vg-t">Punti per piatti in omaggio</div>
+          <div class="vg-s">Una ricompensa ogni 10 ordini, con la tessera sempre nel telefono.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOYALTY -->
+<section style="background: var(--bg-2);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>HARÙ CLUB · Fedeltà</span>
+        <h2 class="h2" style="margin-top: 20px;">Ogni ordine conta.<br/>Mangia gratis.</h2>
+      </div>
+      <p class="lede">Ogni ordine accumula punti. Più ordini, più ricevi: ogni 10 ordini un piatto in omaggio, una sorpresa per il compleanno e offerte riservate ai soci Harù Club. La tessera è nell'app, non la perdi mai.</p>
+    </div>
+
+    <div class="loyalty-wrap reveal">
+      <div class="loyalty-card">
+        <div class="lc-top">
+          <span class="lc-name">Harù Club</span>
+          <span class="lc-pts">720 punti</span>
+        </div>
+        <div class="stamp-row" id="stampRow">
+          <span class="stamp filled">春</span>
+          <span class="stamp filled">春</span>
+          <span class="stamp filled">春</span>
+          <span class="stamp filled">春</span>
+          <span class="stamp filled">春</span>
+          <span class="stamp filled">春</span>
+          <span class="stamp filled">春</span>
+          <span class="stamp">春</span>
+          <span class="stamp">春</span>
+          <span class="stamp reward">★</span>
+        </div>
+      </div>
+      <p class="loyalty-cap">
+        <strong>Ogni 10 ordini un piatto in omaggio</strong> · Offerta di compleanno · Vantaggi riservati ai soci. La tessera vive nell'app: niente più carte di plastica da perdere.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Cosa fa l'app</span>
+        <h2 class="h2" style="margin-top: 20px;">Tutto ciò che ti serve,<br/>a un solo<br/>tocco.</h2>
+      </div>
+      <p class="lede">Ordinare da Harù non è mai stato così semplice: i tuoi piatti preferiti, i tuoi punti e il tuo metodo di pagamento, tutto a portata di mano. Un'attesa in meno, più serenità.</p>
+    </div>
+
+    <div class="feat-grid reveal">
+      <div class="feat-card">
+        <div class="fc-ic">回</div>
+        <div class="fc-n">01 · Riordina</div>
+        <h3>Riordina con un tocco</h3>
+        <p>I tuoi <span class="hl">piatti preferiti</span> sempre in cima: ritrovi l'ultimo ordine e lo ripeti con un solo tocco.</p>
+      </div>
+      <div class="feat-card">
+        <div class="fc-ic">時</div>
+        <div class="fc-n">02 · Tracciamento</div>
+        <h3>Tracciamento in tempo reale</h3>
+        <p>Dalla conferma al ritiro, lo stato dell'ordine è sempre visibile. Niente più telefonate per chiedere "è pronto?".</p>
+      </div>
+      <div class="feat-card">
+        <div class="fc-ic">報</div>
+        <div class="fc-n">03 · Interazione</div>
+        <h3>Notifiche con le offerte</h3>
+        <p>Sconti e promozioni <span class="hl">riservati a chi usa l'app</span>: solo qui, direttamente sul tuo telefono. Le attivi o le disattivi quando vuoi.</p>
+      </div>
+      <div class="feat-card">
+        <div class="fc-ic">財</div>
+        <div class="fc-n">04 · Wallet</div>
+        <h3>Carta Apple/Google Wallet</h3>
+        <p>Salva la tessera Harù Club nel wallet del telefono e portala sempre con te. Niente più ricerche né carte di plastica da perdere.</p>
+      </div>
+      <div class="feat-card">
+        <div class="fc-ic">払</div>
+        <div class="fc-n">05 · Pagamento</div>
+        <h3>Metodi di pagamento salvati</h3>
+        <p>Carta, Satispay, Apple Pay e Google Pay restano memorizzati: paghi in pochi secondi senza intoppi.</p>
+      </div>
+      <div class="feat-card">
+        <div class="fc-ic">話</div>
+        <div class="fc-n">06 · WhatsApp</div>
+        <h3>Funziona anche su WhatsApp</h3>
+        <p>Conferme d'ordine e <span class="hl">promozioni</span> arrivano direttamente su WhatsApp, dove le leggi all'istante. Comodo e veloce, dove sei già di casa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUSH NOTIFICATIONS -->
+<section style="background: var(--bg-2);">
+  <div class="wrap">
+    <div class="push-side reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Notifiche push</span>
+        <h2 class="h2" style="margin: 18px 0 22px;">Non perdere<br/>più<br/>nessuna offerta.</h2>
+        <p class="lede">Promemoria, promozioni esclusive e aggiornamenti sull'ordine: arrivano sul telefono nel momento giusto. Decidi tu cosa ricevere: le notifiche si attivano o si disattivano quando vuoi.</p>
+      </div>
+      <div class="push-stack">
+        <div class="push-note">
+          <span class="pn-ic">春</span>
+          <div>
+            <div class="pn-title">Harù</div>
+            <div class="pn-body">Stasera −15% sul ritiro a Mozzate. Ordina entro le 21:00.</div>
+          </div>
+          <span class="pn-time">Adesso</span>
+        </div>
+        <div class="push-note">
+          <span class="pn-ic">春</span>
+          <div>
+            <div class="pn-title">Harù Club</div>
+            <div class="pn-body">Manca solo 1 ordine al tuo piatto in omaggio. Ci sei quasi.</div>
+          </div>
+          <span class="pn-time">2 ore fa</span>
+        </div>
+        <div class="push-note">
+          <span class="pn-ic">春</span>
+          <div>
+            <div class="pn-title">Harù</div>
+            <div class="pn-body">Il tuo ordine è in preparazione · Pronto previsto per le 20:30.</div>
+          </div>
+          <span class="pn-time">Ieri</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENTS BAND -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Metodi di pagamento</span>
+        <h2 class="h2" style="margin-top: 20px;">Paga come<br/>preferisci.</h2>
+      </div>
+      <p class="lede">Satispay, Apple Pay, Google Pay, carta, buoni pasto o contanti alla consegna. Salvi il metodo una volta sola e poi paghi con un tocco.</p>
+    </div>
+    <div class="pay-methods reveal">
+      <div class="pay-method"><svg class="pm-ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="#f94d00" d="M4 12l8-8 8 8-8 8z"/></svg> Satispay</div>
+      <div class="pay-method"><svg class="pm-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.5-.2-2.8.8-3.6.8-.7 0-1.9-.8-3.1-.8-1.6 0-3 .9-3.9 2.4-1.6 2.9-.4 7.1 1.2 9.5.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3.1-.7 1.4 0 1.8.7 3.1.7 1.3 0 2.1-1.1 2.9-2.3.6-.9.9-1.7.9-1.8 0 0-1.7-.7-1.7-2.6z"/></svg> Apple Pay</div>
+      <div class="pay-method"><svg class="pm-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="#4285f4" stroke-width="2"/><path fill="#4285f4" d="M12 11v2h3a3 3 0 11-1-2.7"/></svg> Google Pay</div>
+      <div class="pay-method"><svg class="pm-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="2" y="8" width="20" height="3" fill="currentColor"/></svg> Carta</div>
+      <div class="pay-method"><svg class="pm-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2" fill="none" stroke="#3a7d5c" stroke-width="1.6"/><line x1="9" y1="6" x2="9" y2="18" stroke="#3a7d5c" stroke-dasharray="2 2"/></svg> Buoni pasto</div>
+      <div class="pay-method"><svg class="pm-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.6"/><text x="12" y="16" font-size="11" text-anchor="middle" fill="currentColor">€</text></svg> Contanti</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" style="background: var(--bg-2);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Domande frequenti</span>
+        <h2 class="h2" style="margin-top: 20px;">Tutto quello<br/>che vuoi sapere.</h2>
+      </div>
+      <p class="lede">L'app è gratuita, vale per tutti i 13 ristoranti Harù e raccoglie ordini, punti e pagamenti in un unico posto.</p>
+    </div>
+
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q"><span class="question"><span class="num">01</span>Scaricare l'app ha un costo?</span><span class="faq-icon"></span></div>
+        <div class="faq-a"><p>No: l'app Harù è <strong>completamente gratuita</strong> su iOS e Android. La scarichi, crei l'account e in pochi secondi ordini.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="question"><span class="num">02</span>Come funziona l'Harù Club?</span><span class="faq-icon"></span></div>
+        <div class="faq-a"><p>Ogni ordine accumula punti. Ogni <strong>10 ordini un piatto in omaggio</strong>, più offerte riservate ai soci e una sorpresa per il compleanno. La tessera vive nell'app: niente più carte da perdere.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="question"><span class="num">03</span>Da quali ristoranti posso ordinare?</span><span class="faq-icon"></span></div>
+        <div class="faq-a"><p>Da <strong>tutti i 13 ristoranti Harù</strong> tra Lombardia, Piemonte e Liguria. Scegli quello più comodo per il ritiro o la consegna a domicilio.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="question"><span class="num">04</span>Come posso pagare?</span><span class="faq-icon"></span></div>
+        <div class="faq-a"><p>Con <strong>Satispay, Apple Pay, Google Pay, carta, buoni pasto</strong> o contanti alla consegna. Salvi il metodo una volta sola e poi paghi con un tocco.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="question"><span class="num">05</span>Posso tracciare il mio ordine?</span><span class="faq-icon"></span></div>
+        <div class="faq-a"><p>Sì. Dalla ricezione alla preparazione fino a <strong>"Pronto" o "In consegna"</strong>, con il tempo stimato. Niente più telefonate per sapere se è pronto.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="question"><span class="num">06</span>C'è un ordine minimo?</span><span class="faq-icon"></span></div>
+        <div class="faq-a"><p>Per la <strong>consegna</strong> l'ordine minimo è di €25. Per il <strong>ritiro</strong> non c'è minimo e c'è uno <strong>sconto del 30%</strong>. Ordinare diretto dall'app conviene sempre.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <span class="eyebrow"><span class="dot"></span>Scarica l'app</span>
+  <h2 class="h1">Il tuo Harù,<br/>sempre <em>con te</em>.</h2>
+  <p class="lede" style="margin: 0 auto;">Ordina diretto, accumula punti, mangia sushi gratis. Un marchio, un'app, 13 ristoranti, sempre a portata di mano.</p>
+  <div class="actions">
+    <a href="haru-order.html" class="btn btn-primary">Ordina ora<svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    <a href="haru-menu.html" class="btn btn-ghost">Vedi il menu</a>
+  </div>
+  <div class="store-badges" style="justify-content: center; margin-top: 30px;">
+    <a href="#" class="store-badge">
+      <span class="sb-ic"></span>
+      <span class="sb-text"><span class="sb-small">Scarica su</span><span class="sb-big">App Store</span></span>
+    </a>
+    <a href="#" class="store-badge">
+      <span class="sb-ic">▶</span>
+      <span class="sb-text"><span class="sb-small">Scarica su</span><span class="sb-big">Google Play</span></span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer"><div class="footer-grid">
+  <div class="footer-brand"><img src="assets/img/site/logo-white.png" alt="Harù" style="height:46px;width:auto;margin-bottom:16px" /><p>Sushi e cucina asiatica dal 2014. 13 ristoranti tra Lombardia, Piemonte, Liguria e Torino. Un marchio, un'app, il tuo ordine diretto.</p></div>
+  <div class="footer-col"><h5>Ordina</h5><ul><li><a href="haru-menu.html">Menu completo</a></li><li><a href="haru-order.html">Ordina online</a></li><li><a href="haru-locali.html">I nostri locali</a></li><li><a href="haru-app.html">App e Fedeltà</a></li></ul></div>
+  <div class="footer-col"><h5>Marchio</h5><ul><li><a href="haru-index.html">Chi siamo</a></li><li><a href="haru-owners.html">Per i proprietari</a></li></ul></div>
+  <div class="footer-col"><h5>Contatti</h5><p>info@haru.it<br/>13 ristoranti nel Nord Italia<br/>Lun–Dom · Pranzo e cena</p></div>
+</div><div class="footer-bottom"><span>© 2026 Harù · Esempio dimostrativo · HOTATE S.A.S. / YE SONDRIO S.R.L.</span><div class="socials"><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">TikTok</a></div></div></footer>
+
+<script src="assets/main.js"></script>
+<script>
+// Light interactions: animate loyalty stamps filling in on scroll, and tab the in-phone chips.
+(function () {
+  var row = document.getElementById('stampRow');
+  if (row) {
+    var stamps = Array.prototype.slice.call(row.querySelectorAll('.stamp'));
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          stamps.forEach(function (s, i) {
+            if (s.classList.contains('filled')) {
+              s.style.transition = 'transform .4s var(--ease), background .4s var(--ease)';
+              s.style.transform = 'scale(0.4)';
+              setTimeout(function () { s.style.transform = 'scale(1)'; }, 80 * i + 60);
+            }
+          });
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+    io.observe(row);
+  }
+
+  // in-phone category chips
+  document.querySelectorAll('.app-chips').forEach(function (group) {
+    group.querySelectorAll('.chip').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        group.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); });
+        chip.classList.add('on');
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>

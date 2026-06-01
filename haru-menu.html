@@ -1,0 +1,449 @@
+<!doctype html><html lang="it"><head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Menu completo — Harù · Sushi e cucina asiatica</title>
+<meta name="description" content="Menu completo Harù: 291 piatti tra nigiri, uramaki, sashimi, chirashi, dim sum, teppanyaki e cucina asiatica. Sfoglia online, scarica il PDF o ordina online." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Harù" />
+<meta property="og:locale" content="it_IT" />
+<meta property="og:title" content="Menu completo — Harù · Sushi e cucina asiatica" />
+<meta property="og:description" content="Menu completo Harù: 291 piatti tra nigiri, uramaki, sashimi, chirashi, dim sum, teppanyaki e cucina asiatica. Sfoglia online, scarica il PDF o ordina online." />
+<meta property="og:image" content="https://haru-sushi-cn.vercel.app/assets/img/og/default.png" />
+<meta property="og:image:width" content="1200" /><meta property="og:image:height" content="800" />
+<meta property="og:url" content="https://haru-sushi-cn.vercel.app/haru-menu.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Menu completo — Harù · Sushi e cucina asiatica" />
+<meta name="twitter:description" content="Menu completo Harù: 291 piatti tra nigiri, uramaki, sashimi, chirashi, dim sum, teppanyaki e cucina asiatica. Sfoglia online, scarica il PDF o ordina online." />
+<meta name="twitter:image" content="https://haru-sushi-cn.vercel.app/assets/img/og/default.png" />
+<link rel="icon" href="assets/img/site/favicon.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600&family=Geist+Mono:wght@400;500&family=Noto+Sans+JP:wght@200;300;400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css" /><link rel="stylesheet" href="assets/haru.css" />
+<style>
+/* page-specific */
+.menu-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.menu-actions .btn { padding: 14px 24px; }
+
+.menu-section .head .h2 .ct { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.1em; color: var(--fg-dim); align-self: flex-end; }
+
+/* thumbnail variant of the canonical .menu-item */
+.menu-item.with-thumb { grid-template-columns: 72px 1fr auto; gap: 24px; align-items: center; }
+.menu-item.with-thumb .thumb {
+  width: 72px; height: 72px; border-radius: 4px; object-fit: cover;
+  background: var(--bg-3); border: 1px solid var(--border);
+}
+.menu-item.with-thumb .thumb.placeholder {
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-jp); color: var(--accent-2); font-size: 22px;
+}
+.menu-item.with-thumb .body .name { font-size: 18px; }
+.menu-item.with-thumb .body .code {
+  font-family: var(--font-mono); font-size: 11px; color: var(--fg-dim);
+  letter-spacing: 0.1em; margin-right: 4px;
+}
+.menu-item.with-thumb .body .jp { font-family: var(--font-jp); color: var(--accent-2); font-size: 12px; font-weight: 300; }
+.menu-item.with-thumb .body .allerg {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--fg-dim); margin-top: 6px;
+}
+.menu-nav .nav-note { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-dim); padding: 14px 0 6px; }
+
+/* page-head stats as animated count-ups */
+.page-head .meta .bigstat { gap: 4px; }
+.page-head .meta .bigstat .v { font-size: clamp(34px, 4vw, 52px); }
+.page-head .meta { display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
+.page-head .meta .meta-note { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-dim); }
+
+/* category hero strip */
+.cat-strip-wrap { padding: clamp(40px, 6vw, 72px) 0 clamp(16px, 3vw, 32px); }
+.cat-strip-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 22px; flex-wrap: wrap; }
+.cat-strip-head .eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-2); }
+.cat-strip-head .hint { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: var(--fg-dim); }
+.cat-strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+.cat-tile {
+  position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden;
+  border: 1px solid var(--border); border-radius: 4px; isolation: isolate;
+  text-decoration: none; background: var(--bg-3);
+  transition: border-color .4s var(--ease), transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.cat-tile img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  transition: transform .8s var(--ease), filter .6s var(--ease);
+  filter: saturate(0.92) brightness(0.82);
+}
+.cat-tile::after {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, rgba(10,10,10,0) 30%, rgba(10,10,10,0.55) 70%, rgba(10,10,10,0.92) 100%);
+}
+.cat-tile .cap { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 16px 16px 14px; }
+.cat-tile .cap .nm { display: block; font-size: clamp(14px, 1.3vw, 17px); font-weight: 400; letter-spacing: -0.01em; color: #fff; line-height: 1.15; }
+.cat-tile .cap .ct { display: block; margin-top: 5px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-2); }
+.cat-tile:hover { border-color: var(--border-gold, var(--border-strong)); transform: translateY(-3px); box-shadow: 0 18px 40px -26px rgba(0,0,0,0.9); }
+.cat-tile:hover img { transform: scale(1.08); filter: saturate(1.05) brightness(0.9); }
+
+/* refine category section header with count */
+.menu-section .head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.menu-section .head .ct { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; color: var(--fg-dim); }
+.menu-section .head .ct [data-countup] { color: var(--accent-2); }
+.menu-item.with-thumb { transition: background .3s var(--ease); border-radius: 4px; }
+.menu-item.with-thumb:hover { background: var(--bg-2); }
+.menu-item .mi-foot { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; white-space: nowrap; }
+.mi-add { font-size: 12px; font-weight: 500; padding: 7px 14px; border-radius: 100px; background: var(--bg-3); color: var(--fg); border: 1px solid var(--border-strong); transition: all .25s var(--ease); }
+.mi-add:hover { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.mi-add.added { background: var(--ok); color: #fff; border-color: var(--ok); }
+.menu-cartbar { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%) translateY(140%); z-index: 150; display: flex; align-items: center; gap: 16px; padding: 12px 14px 12px 22px; background: rgba(20,20,20,0.92); backdrop-filter: blur(18px) saturate(160%); border: 1px solid var(--border-gold); border-radius: 100px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); transition: transform .45s var(--ease); }
+.menu-cartbar.show { transform: translateX(-50%) translateY(0); }
+.menu-cartbar .mcb-txt { font-size: 13.5px; color: var(--fg); }
+.menu-cartbar .mcb-txt b { font-family: var(--font-mono); color: var(--accent-2); }
+.menu-cartbar a { background: var(--fg); color: var(--bg); padding: 11px 20px; border-radius: 100px; font-size: 13.5px; font-weight: 500; transition: background .3s var(--ease); }
+.menu-cartbar a:hover { background: var(--accent-2); }
+@media print { .mi-foot .mi-add, .menu-cartbar { display: none !important; } }
+
+/* per-category appetite line under each section header */
+.menu-section .head { margin-bottom: 6px; }
+.cat-appetite { font-size: 14px; line-height: 1.55; color: var(--fg-muted); max-width: 64ch; margin: 0 0 26px; font-weight: 300; }
+.cat-appetite em { font-family: var(--font-jp); font-style: normal; color: var(--accent-2); }
+
+/* menu → order relationship hint */
+.cross-hint { display: flex; align-items: center; gap: 14px; margin-top: 22px; padding: 15px 20px; border: 1px solid var(--border-gold); background: linear-gradient(180deg, var(--haru-green-soft), transparent); border-radius: var(--radius); }
+.cross-hint .ch-ic { flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--ok-soft); border: 1px solid rgba(76,175,114,0.4); display: flex; align-items: center; justify-content: center; color: var(--ok); font-size: 15px; }
+.cross-hint .ch-txt { font-size: 13.5px; color: var(--fg-muted); line-height: 1.5; }
+.cross-hint .ch-txt strong { color: var(--fg); font-weight: 500; }
+.cross-hint .ch-txt a { color: var(--accent-2); }
+
+/* count-up tally inside the floating cart bar */
+.menu-cartbar .mcb-sub { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-dim); display: block; margin-top: 1px; }
+.menu-cartbar .mcb-main { display: flex; flex-direction: column; }
+
+@media (max-width: 1100px) { .cat-strip { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 880px) {
+  .menu-item.with-thumb { grid-template-columns: 56px 1fr auto; gap: 16px; }
+  .menu-item.with-thumb .thumb { width: 56px; height: 56px; }
+  .cat-strip { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* print: turn the dark menu into a clean white printable menu */
+@media print {
+  :root { --bg: #fff; --bg-2: #fff; --bg-3: #fff; --bg-4: #fff; --fg: #111; --fg-muted: #555; --fg-dim: #888; --border: #ddd; --border-strong: #ccc; }
+  .topbar, .nav-shell, .mobile-menu, .footer, .menu-actions, .menu-nav, .cta-mini, .menu-toggle,
+  .dish-marquee, .cat-strip-wrap, .cta-banner, #menuOutro { display: none !important; }
+  .page-head .meta { flex-direction: row; gap: 18px; }
+  .page-head .meta .bigstat .v { font-size: 20px; color: #111; }
+  .page-head .meta .bigstat .l { color: #555; }
+  body { background: #fff; color: #111; }
+  .page-head { padding: 24px 0 16px; border-bottom: 2px solid #111; }
+  .page-head .meta { color: #555; }
+  .menu-layout { display: block; }
+  section { padding: 16px 0 !important; }
+  .menu-section { break-inside: auto; padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid #ccc; }
+  .menu-section .head { margin-bottom: 18px; }
+  .menu-item { break-inside: avoid; padding: 8px 0; border-top: 1px solid #eee; }
+  .menu-item.with-thumb .thumb { display: none; }
+  .menu-item.with-thumb { grid-template-columns: 1fr auto; gap: 18px; }
+  .menu-item .body .name { color: #111; font-size: 14px; }
+  .menu-item .body .desc { color: #444; font-size: 11px; }
+  .menu-item .body .allerg { color: #999; }
+  .menu-item .price { color: #111; }
+  a { color: #111 !important; }
+  @page { margin: 14mm; }
+}
+</style></head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <span><strong>Ordina diretto su harù.it</strong> &nbsp;·&nbsp; <span class="pill-0">−10% sul primo ordine</span> &nbsp;·&nbsp; Prezzi del ristorante, nessun sovrapprezzo</span>
+  <div class="tb-right"><span>13 ristoranti · LO · PI · LI · TO</span><span>★ 4,4 / 5 su Google</span></div>
+</div></div>
+<div class="nav-shell"><nav class="nav">
+  <a href="haru-index.html" class="brand"><span class="mark">春</span> Harù</a>
+  <div class="links">
+    <a href="haru-index.html">Home</a>
+    <a href="haru-menu.html" class="active">Menu</a>
+    <a href="haru-order.html">Ordina</a>
+    <a href="haru-locali.html">Locali</a>
+    <a href="haru-app.html">App</a>
+    <a href="haru-owners.html" class="owners">Per i proprietari</a>
+  </div>
+  <a href="haru-order.html" class="cta-mini">Ordina ora</a>
+  <button class="menu-toggle" aria-label="Menu"><span></span></button>
+</nav></div>
+<div class="mobile-menu">
+  <a href="haru-index.html">Home</a><a href="haru-menu.html">Menu</a><a href="haru-order.html">Ordina</a><a href="haru-locali.html">Locali</a><a href="haru-app.html">App &amp; membership</a><a href="haru-owners.html">Per i proprietari</a>
+</div>
+
+<header class="page-head">
+  <div class="wrap">
+    <div>
+      <div class="crumb"><a href="haru-index.html">Home</a><span class="sep">/</span><span>Menu</span></div>
+      <h1 class="h1"><em>Menu</em></h1>
+      <div class="menu-actions">
+        <a class="btn btn-primary" href="#" id="downloadPdf">Scarica il menu (PDF)</a>
+        <a class="btn btn-ghost" href="haru-order.html">Ordina online</a>
+      </div>
+      <div class="cross-hint">
+        <span class="ch-ic" aria-hidden="true">+</span>
+        <span class="ch-txt"><strong>Scegli mentre sfogli.</strong> I piatti aggiunti compaiono automaticamente nella pagina <a href="haru-order.html">Ordina</a>, nel carrello: scegli il ristorante e completa l'ordine.</span>
+      </div>
+    </div>
+    <div class="meta">
+      <div class="bigstat"><span class="v"><span data-countup="291" data-duration="1600">291</span></span><span class="l">piatti in menu</span></div>
+      <div class="bigstat"><span class="v"><span data-countup="28" data-duration="1200">28</span></span><span class="l">categorie</span></div>
+      <span class="meta-note">Sincronizzato dal catalogo piatti Harù</span>
+    </div>
+  </div>
+</header>
+
+<div class="dish-marquee" aria-hidden="true"><div class="dm-track"></div></div>
+
+<div class="cat-strip-wrap">
+  <div class="wrap">
+    <div class="cat-strip-head">
+      <span class="eyebrow">Categorie in evidenza</span>
+      <span class="hint">Clicca per saltare alla categoria</span>
+    </div>
+    <div class="cat-strip reveal" id="catStrip"></div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="menu-layout">
+      <nav class="menu-nav" id="menuNav"><span class="nav-note">Categorie</span></nav>
+      <div id="menuSections"></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner" id="menuOutro">
+  <span class="eyebrow">春 · Harù</span>
+  <h2 class="h1">Hai scelto? <em>Ordina ora.</em></h2>
+  <p class="lede" style="max-width:46ch;margin:0 auto 8px;color:var(--fg-muted)">Ordina diretto, senza commissioni di consegna, con −10% sul primo ordine.</p>
+  <div class="actions">
+    <a class="btn btn-primary" href="haru-order.html">Ordina online</a>
+    <a class="btn btn-ghost" href="haru-locali.html">Trova un ristorante</a>
+  </div>
+</section>
+
+<footer class="footer"><div class="footer-grid">
+  <div class="footer-brand"><img src="assets/img/site/logo-white.png" alt="Harù" style="height:46px;width:auto;margin-bottom:16px" /><p>Sushi e cucina asiatica dal 2014. 13 ristoranti tra Lombardia, Piemonte, Liguria e Torino. Stesso marchio, stessa App, il tuo ordine diretto.</p></div>
+  <div class="footer-col"><h5>Ordina</h5><ul><li><a href="haru-menu.html">Menu completo</a></li><li><a href="haru-order.html">Ordina online</a></li><li><a href="haru-locali.html">I nostri ristoranti</a></li><li><a href="haru-app.html">App &amp; membership</a></li></ul></div>
+  <div class="footer-col"><h5>Brand</h5><ul><li><a href="haru-index.html">Chi siamo</a></li><li><a href="haru-owners.html">Per i proprietari</a></li></ul></div>
+  <div class="footer-col"><h5>Contatti</h5><p>info@haru.it<br/>13 ristoranti nel Nord Italia<br/>Lunedì–Domenica · pranzo e cena</p></div>
+</div><div class="footer-bottom"><span>© 2026 Harù · Esempio dimostrativo · HOTATE S.A.S. / YE SONDRIO S.R.L.</span><div class="socials"><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">TikTok</a></div></div></footer>
+
+<script src="assets/data.js"></script><script src="assets/main.js"></script>
+<script>
+(function () {
+  var MENU = window.HARU_MENU || [];
+  function slug(s) {
+    return String(s).toLowerCase()
+      .replace(/[àáâ]/g, 'a').replace(/[èé]/g, 'e').replace(/[ìí]/g, 'i')
+      .replace(/[òó]/g, 'o').replace(/[ùú]/g, 'u')
+      .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  }
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  // short, appetising one-liners per category (keyed to the Italian category names)
+  var APPETITE = {
+    'Sushi Misto': 'Selezioni del giorno composte dallo chef: un assaggio dei nostri grandi classici, perfette da condividere.',
+    'Chirashi e Cake': 'Letto di riso all\'aceto, pesce crudo e topping a strati: una ciotola che appaga occhi e appetito.',
+    'Nigiri': 'Un boccone di riso, una fetta di pesce del giorno: la forma classica che rivela la mano dello chef. Assaggia prima al naturale, poi con un velo di soia.',
+    'Gunkan': 'L\'alga avvolge il riso e sorregge uova di pesce e frutti di mare: prima la croccantezza, poi la dolcezza del mare.',
+    'Uramaki': 'Roll in stile California con il riso all\'esterno e l\'alga all\'interno: morbidi e avvolgenti, il punto di partenza ideale.',
+    'Hosomaki': 'Piccoli roll essenziali, un pesce e un solo ingrediente: netti e puliti, perfetti da accompagnare al resto.',
+    'Temaki': 'Coni arrotolati al momento: l\'alga dà il meglio quando è croccante, gustali appena arrivano in tavola.',
+    'Sashimi': 'Solo i tagli più freschi del giorno, lo spessore deciso dalla lama: l\'essenza pura del pesce.',
+    'Usuzukuri': 'Fettine quasi trasparenti, servite con ponzu e spezie: fresche e capaci di aprire l\'appetito.',
+    'Tartare': 'Pesce crudo al coltello mantecato con salse e aromi: cremoso, intenso, si scioglie in bocca.',
+    'Roll fritti': 'Impanati e fritti fino al dorato: croccanti fuori, morbidi dentro, ancora più gustosi caldi.',
+    'Special cucina': 'Creazioni che nascono in cucina, dove la tecnica giapponese incontra l\'ispirazione di stagione.',
+    'Piatti Speciali': 'Le specialità tra le specialità: i piatti che meglio raccontano il gusto di Harù.',
+    'Antipasti': 'Stuzzichini e antipasti per iniziare: scaldano lo stomaco e risvegliano il palato.',
+    'Dim Sum': 'Bocconcini caldi al vapore, sfoglia sottile e ripieno generoso: al meglio appena pronti.',
+    'Primi piatti': 'Noodle e riso che scaldano il cuore: porzioni generose, un piatto e sei sazio.',
+    'Secondi piatti': 'Saltati e brasati a base di carne e pesce: ricchi di sapore, perfetti con il riso.',
+    'Salad': 'Verdure e alghe fresche e croccanti, per bilanciare l\'intera tavola.',
+    'Verdure': 'Preparazioni semplici di verdure di stagione: leggere e capaci di sgrassare il palato.',
+    'Agemono': 'Tempura e fritti preparati al momento: croccanti fuori e teneri dentro, da gustare caldi.',
+    'Teppanyaki': 'Cotti ad alta temperatura sulla piastra, che trattiene succhi e sentori tostati: arrivano fumanti in tavola.',
+    'Bevande': 'Le scelte fresche da abbinare al pasto: bibite e tè per ogni gusto.',
+    'Birre': 'Birre giapponesi e artigianali ben fredde: perfette con pesce crudo e fritti.',
+    'Bollicine': 'Bollicine fini che regalano leggerezza ed eleganza a tutto il pasto.',
+    'Vini Bianchi': 'Vini bianchi freschi e fruttati, in perfetta sintonia con sashimi e sushi.',
+    'Vini rossi': 'Rossi dal corpo deciso: con teppanyaki e secondi di carne svelano tutte le sfumature.',
+    'Vini Rosé': 'Rosé a metà tra bianco e rosso: freschi e beverini, si abbinano a tutto.',
+    'Mezze Bottiglie': 'Formato mezza bottiglia: ideale per un brindisi in due o un calice con il pasto.'
+  };
+
+  var nav = document.getElementById('menuNav');
+  var host = document.getElementById('menuSections');
+  var navFrag = document.createDocumentFragment();
+  var secFrag = document.createDocumentFragment();
+
+  MENU.forEach(function (cat, idx) {
+    var id = 'cat-' + idx;
+    var count = cat.items.length;
+
+    var a = document.createElement('a');
+    a.href = '#' + id;
+    a.innerHTML = '<span>' + esc(cat.category) + '</span><span class="ct">' + count + '</span>';
+    navFrag.appendChild(a);
+
+    var sec = document.createElement('section');
+    sec.className = 'menu-section';
+    sec.id = id;
+
+    var head = '<div class="head"><h2 class="h2">' + esc(cat.category) +
+      '</h2><span class="ct"><span data-countup="' + count + '">' + count + '</span> piatti</span></div>';
+    var appetite = APPETITE[cat.category]
+      ? '<p class="cat-appetite">' + esc(APPETITE[cat.category]) + '</p>' : '';
+
+    var rows = cat.items.map(function (it) {
+      var thumb;
+      if (it.img) {
+        thumb = '<img class="thumb" loading="lazy" src="' + esc(it.img) +
+          '" alt="' + esc(it.name) + '" />';
+      } else {
+        thumb = '<div class="thumb placeholder">春</div>';
+      }
+      var code = it.code ? '<span class="code">' + esc(it.code) + '</span>' : '';
+      var jp = '<span class="jp">' + esc(cat.category) + '</span>';
+      var desc = it.desc ? '<div class="desc">' + esc(it.desc) + '</div>' : '';
+      var allerg = (it.allergeni && it.allergeni !== 'chiedere al ristorante')
+        ? '<div class="allerg">Allergeni: ' + esc(it.allergeni) + '</div>' : '';
+      return '<div class="menu-item with-thumb">' +
+        thumb +
+        '<div class="body"><div class="name">' + code +
+        '<span>' + esc(it.name) + '</span> ' + jp + '</div>' +
+        desc + allerg + '</div>' +
+        '<div class="mi-foot"><div class="price">' + esc(it.price) + '</div>' +
+        '<button class="mi-add" type="button" data-id="' + esc(String(it.id)) + '" data-name="' + esc(it.name) + '">Aggiungi</button></div></div>';
+    }).join('');
+
+    sec.innerHTML = head + appetite + '<div class="menu-items">' + rows + '</div>';
+    secFrag.appendChild(sec);
+  });
+
+  nav.appendChild(navFrag);
+  host.appendChild(secFrag);
+
+  // category hero strip — representative photos linking to in-page sections
+  var strip = document.getElementById('catStrip');
+  if (strip) {
+    var wanted = ['Uramaki', 'Nigiri', 'Sashimi', 'Chirashi e Cake', 'Teppanyaki', 'Tartare'];
+    var stripFrag = document.createDocumentFragment();
+    wanted.forEach(function (name) {
+      var catIdx = -1;
+      for (var i = 0; i < MENU.length; i++) { if (MENU[i].category === name) { catIdx = i; break; } }
+      if (catIdx === -1) return;
+      var cat = MENU[catIdx];
+      var withImg = cat.items.filter(function (it) { return it.img; })[0];
+      if (!withImg) return;
+      var id = 'cat-' + catIdx;
+      var n = cat.items.length;
+      var a = document.createElement('a');
+      a.className = 'cat-tile';
+      a.href = '#' + id;
+      a.innerHTML =
+        '<img loading="lazy" src="' + esc(withImg.img) + '" alt="' + esc(cat.category) + '" />' +
+        '<span class="cap"><span class="nm">' + esc(cat.category) + '</span>' +
+        '<span class="ct">' + n + ' piatti</span></span>';
+      stripFrag.appendChild(a);
+    });
+    strip.appendChild(stripFrag);
+  }
+
+  // animate any [data-countup] that was injected after main.js' initial pass
+  (function () {
+    function fmt(n) { return String(Math.round(n)); }
+    // only the freshly-rendered section-header counters; the page-head
+    // stats are already handled by main.js' initial count-up pass.
+    var els = Array.prototype.slice.call(host.querySelectorAll('[data-countup]'));
+    if (!els.length || !('IntersectionObserver' in window)) return;
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var el = e.target; cio.unobserve(el);
+        if (el.dataset.cuDone) return; el.dataset.cuDone = '1';
+        var target = parseFloat(el.dataset.countup);
+        var dur = parseInt(el.dataset.duration || '1200', 10), t0 = null;
+        function step(ts) {
+          if (!t0) t0 = ts;
+          var p = Math.min((ts - t0) / dur, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = fmt(target * eased);
+          if (p < 1) requestAnimationFrame(step); else el.textContent = fmt(target);
+        }
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.1 });
+    els.forEach(function (el) { cio.observe(el); });
+  })();
+
+  var pdfBtn = document.getElementById('downloadPdf');
+  if (pdfBtn) {
+    pdfBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.print();
+    });
+  }
+
+  // active-state for the sticky nav (mirrors main.js convention)
+  var links = Array.prototype.slice.call(nav.querySelectorAll('a'));
+  var byId = {};
+  links.forEach(function (l) { byId[l.getAttribute('href').slice(1)] = l; });
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          links.forEach(function (l) { l.classList.remove('active'); });
+          var cur = byId[en.target.id];
+          if (cur) cur.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-110px 0px -70% 0px', threshold: 0 });
+    host.querySelectorAll('.menu-section').forEach(function (s) { obs.observe(s); });
+  }
+})();
+
+// --- Cross-page cart: add dishes from the menu, carried to the order page via localStorage ---
+(function () {
+  var KEY = 'haru_cart';
+  function read(){ try { var v = JSON.parse(localStorage.getItem(KEY) || '[]'); return Array.isArray(v) ? v : []; } catch(e){ return []; } }
+  function write(c){ try { localStorage.setItem(KEY, JSON.stringify(c)); } catch(e){} }
+  function count(c){ return c.reduce(function(a,l){ return a + (parseInt(l.qty,10)||0); }, 0); }
+
+  // floating bar
+  var bar = document.createElement('div');
+  bar.className = 'menu-cartbar';
+  bar.innerHTML = '<span class="mcb-txt mcb-main"><b id="mcbN">0</b> piatti selezionati<span class="mcb-sub">verranno portati alla pagina Ordina</span></span><a href="haru-order.html">Vai al carrello →</a>';
+  document.body.appendChild(bar);
+  var nEl = bar.querySelector('#mcbN');
+
+  function refresh(){
+    var n = count(read());
+    nEl.textContent = n;
+    bar.classList.toggle('show', n > 0);
+  }
+  refresh();
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.mi-add');
+    if (!btn) return;
+    var id = String(btn.getAttribute('data-id'));
+    var c = read();
+    var line = c.filter(function(l){ return String(l.id) === id; })[0];
+    if (line) line.qty = (parseInt(line.qty,10)||0) + 1; else c.push({ id: id, qty: 1 });
+    write(c);
+    refresh();
+    btn.classList.add('added');
+    var orig = btn.textContent;
+    btn.textContent = 'Aggiunto ✓';
+    setTimeout(function(){ btn.classList.remove('added'); btn.textContent = orig; }, 1100);
+  });
+})();
+</script>
+</body></html>

@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Omakase · SHUN — Sushi & Omakase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;300;400;500;600&family=Geist+Mono:wght@400;500&family=Noto+Sans+JP:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<div class="nav-shell">
+  <nav class="nav">
+    <a href="index.html" class="brand"><span class="mark">旬</span> SHUN</a>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="omakase.html" class="active">Omakase</a>
+      <a href="chef.html">Chef</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="private-events.html">Private</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="reservations.html" class="cta-mini">Reserve</a>
+    <button class="menu-toggle" aria-label="Menu"><span></span></button>
+  </nav>
+</div>
+<div class="mobile-menu">
+  <a href="index.html">Home</a><a href="menu.html">Menu</a><a href="omakase.html">Omakase</a>
+  <a href="chef.html">Chef</a><a href="gallery.html">Gallery</a><a href="private-events.html">Private events</a>
+  <a href="contact.html">Contact</a><a href="reservations.html">Reserve a table</a>
+</div>
+
+<!-- HERO -->
+<header class="hero" style="min-height: 90svh;">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?w=2400&q=85" alt="" />
+  </div>
+  <div class="hero-inner">
+    <div>
+      <div class="crumb"><a href="index.html">Home</a><span class="sep">/</span><span>Omakase</span></div>
+      <span class="eyebrow"><span class="dot"></span>OMAKASE · お任せ</span>
+    </div>
+    <h1 class="display reveal in">
+      I leave it<br/>to you. <em>任せる</em>
+    </h1>
+    <p class="lede reveal in" style="max-width: 56ch;">
+      The chef chooses everything — the fish, the order, the pace. You choose only how long you want to sit. Three rhythms, written this morning, told piece by piece.
+    </p>
+  </div>
+</header>
+
+<!-- WHAT IS OMAKASE -->
+<section>
+  <div class="wrap-narrow text-center reveal">
+    <span class="eyebrow"><span class="dot"></span>WHAT IT MEANS</span>
+    <h2 class="h2" style="margin-top: 24px; margin-bottom: 24px;">A counter dinner<br/>without a menu.</h2>
+    <p class="lede" style="margin: 0 auto; max-width: 64ch;">
+      Omakase begins when the chef bows and the first piece arrives. There is no "next page" — only the next piece. You eat each one in two bites, in silence if you like. The pace is set so that the warmth of the rice and the temperature of the fish meet exactly at the moment they reach the counter.
+    </p>
+    <div class="divider-jp">
+      <div class="line"></div>
+      <span class="ch">旬 · 一期一会</span>
+      <div class="line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIERS DETAIL -->
+<section style="background: var(--bg-2); padding-top: 0;">
+  <div class="wrap">
+    <div class="section-head reveal" style="padding-top: 120px;">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>THREE COUNTERS</span>
+        <h2 class="h2" style="margin-top: 20px;">Choose the rhythm.<br/>The rest is written.</h2>
+      </div>
+      <p class="lede">Each rhythm runs on the same fish — the difference is how many pieces tell the story, and how much time we take to tell it.</p>
+    </div>
+
+    <div class="tiers reveal">
+      <div class="tier">
+        <div class="tier-label">For the curious · two seatings nightly</div>
+        <div class="tier-title">Tsuki <span class="jp">月</span></div>
+        <div class="tier-price"><span class="num">€ 95</span> per guest · 90 minutes</div>
+        <ul>
+          <li>Otsumami (one appetiser of the day)</li>
+          <li>Sashimi · three seasonal cuts</li>
+          <li>Eight pieces of edomae nigiri</li>
+          <li>Anago hand-roll, finishing piece</li>
+          <li>Miso shiru with the day's catch</li>
+          <li>Tamago & seasonal dessert</li>
+        </ul>
+        <a href="reservations.html?tier=tsuki" class="btn btn-ghost" style="margin-top: 8px;">Reserve Tsuki<svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="tier featured">
+        <div class="tier-label">The room's favourite · most chosen</div>
+        <div class="tier-title">Hoshi <span class="jp">星</span></div>
+        <div class="tier-price"><span class="num">€ 145</span> per guest · 2 hours</div>
+        <ul>
+          <li>Three otsumami courses</li>
+          <li>Sashimi flight · five seasonal cuts</li>
+          <li>Eleven pieces of nigiri, paced one-by-one</li>
+          <li>Chawanmushi with snow crab</li>
+          <li>Otoro & uni temaki, counter-only</li>
+          <li>Miso shiru, tamago, dessert by Chef Aoi</li>
+          <li>Three-pour sake pairing available · + € 45</li>
+        </ul>
+        <a href="reservations.html?tier=hoshi" class="btn btn-primary" style="margin-top: 8px;">Reserve Hoshi<svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="tier">
+        <div class="tier-label">Chef's table only · six seats</div>
+        <div class="tier-title">Tenku <span class="jp">天空</span></div>
+        <div class="tier-price"><span class="num">€ 220</span> per guest · 3 hours</div>
+        <ul>
+          <li>Five otsumami — the full opening</li>
+          <li>Sashimi flight · seven cuts</li>
+          <li>Fifteen pieces of edomae nigiri</li>
+          <li>Premium reserves — A5 wagyu, premium uni</li>
+          <li>Gindara saikyo from the irori</li>
+          <li>Whole anago, hand-cut at the counter</li>
+          <li>Five-pour pairing · sake & champagne · incl.</li>
+          <li>Dessert tasting · three pieces</li>
+        </ul>
+        <a href="reservations.html?tier=tenku" class="btn btn-ghost" style="margin-top: 8px;">Reserve Tenku<svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLE COURSE -->
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>SAMPLE EVENING · HOSHI</span>
+        <h2 class="h2" style="margin-top: 20px;">What an<br/>evening reads like.</h2>
+      </div>
+      <p class="lede">An example progression from October 2025. The next one will not be the same — the fish decides.</p>
+    </div>
+
+    <div class="menu-layout reveal">
+      <aside class="menu-nav">
+        <a href="#open" class="active">Opening <span class="ct">03</span></a>
+        <a href="#sashimi-tasting">Sashimi flight <span class="ct">05</span></a>
+        <a href="#nigiri-tasting">Edomae nigiri <span class="ct">11</span></a>
+        <a href="#close">To close <span class="ct">04</span></a>
+      </aside>
+
+      <div>
+        <div class="menu-section" id="open">
+          <div class="head"><h2 class="h2"><span>Opening</span><span class="jp">前菜</span></h2><span class="eyebrow">Three pieces</span></div>
+          <div class="menu-items">
+            <div class="menu-item"><span class="num">01</span><div class="body"><div class="name">Chawanmushi · snow crab <span class="jp">茶碗蒸し</span></div><p class="desc">Silken steamed custard, snow crab from Hokkaido, dashi.</p></div><span class="price">·</span></div>
+            <div class="menu-item"><span class="num">02</span><div class="body"><div class="name">Tako sumiso <span class="jp">蛸酢味噌</span></div><p class="desc">Octopus, miso vinegar, baby cucumber.</p></div><span class="price">·</span></div>
+            <div class="menu-item"><span class="num">03</span><div class="body"><div class="name">Saba bozushi <span class="jp">鯖棒寿司</span></div><p class="desc">Pressed cured mackerel, one bite.</p></div><span class="price">·</span></div>
+          </div>
+        </div>
+
+        <div class="menu-section" id="sashimi-tasting">
+          <div class="head"><h2 class="h2"><span>Sashimi flight</span><span class="jp">刺身</span></h2><span class="eyebrow">Five cuts</span></div>
+          <div class="menu-items">
+            <div class="menu-item"><span class="num">04</span><div class="body"><div class="name">Hirame · fluke from Adriatico</div></div><span class="price">·</span></div>
+            <div class="menu-item"><span class="num">05</span><div class="body"><div class="name">Akami · lean tuna, aged 5 days</div></div><span class="price">·</span></div>
+            <div class="menu-item"><span class="num">06</span><div class="body"><div class="name">Hotate · Hokkaido scallop</div></div><span class="price">·</span></div>
+            <div class="menu-item"><span class="num">07</span><div class="body"><div class="name">Kanpachi · Adriatic amberjack</div></div><span class="price">·</span></div>
+            <div class="menu-item"><span class="num">08</span><div class="body"><div class="name">Otoro · bluefin belly</div></div><span class="price">·</span></div>
+          </div>
+        </div>
+
+        <div class="menu-section" id="nigiri-tasting">
+          <div class="head"><h2 class="h2"><span>Edomae nigiri</span><span class="jp">握り</span></h2><span class="eyebrow">Eleven pieces · one-by-one</span></div>
+          <div class="menu-items">
+            <div class="menu-item"><span class="num">09</span><div class="body"><div class="name">Kohada vinegared overnight</div></div><span class="price">·</span></div>
+            <div class="menu-item"><span class="num">10</span><div class="body"><div class="name">Akami zuke · marinated lean tuna</div></div><span class="price">·</span></div>
+            <div class="menu-item"><span class="num">11</span><div class="body"><div class="name">Chutoro · medium-fatty</div></div><span class="price">·</span></div>
+            <div class="menu-item"><span class="num">12</span><div class="body"><div class="name">Otoro · belly</div></div><span class="price">·</span></div>
+            <div class="menu-item"><span class="num">13</span><div class="body"><div class="name">Hirame engawa, aburi-seared</div></div><span class="price">·</span></div>
+            <div class="menu-item"><span class="num">14</span><div class="body"><div class="name">Aji · horse mackerel, ginger & negi</div></div><span class="price">·</span></div>
+            <div class="menu-item"><span class="num">15</span><div class="body"><div class="name">Ikura gunkan</div></div><span class="price">·</span></div>
+            <div class="menu-item"><span class="num">16</span><div class="body"><div class="name">Hokkaido uni, single sheet of nori</div></div><span class="price">·</span></div>
+            <div class="menu-item"><span class="num">17</span><div class="body"><div class="name">Ebi · botan shrimp</div></div><span class="price">·</span></div>
+            <div class="menu-item"><span class="num">18</span><div class="body"><div class="name">A5 Wagyu aburi · sea salt & wasabi</div></div><span class="price">·</span></div>
+            <div class="menu-item"><span class="num">19</span><div class="body"><div class="name">Anago · whole, brushed with tsume</div></div><span class="price">·</span></div>
+          </div>
+        </div>
+
+        <div class="menu-section" id="close">
+          <div class="head"><h2 class="h2"><span>To close</span><span class="jp">締め</span></h2><span class="eyebrow">Four pieces</span></div>
+          <div class="menu-items">
+            <div class="menu-item"><span class="num">20</span><div class="body"><div class="name">Otoro temaki, counter-only</div></div><span class="price">·</span></div>
+            <div class="menu-item"><span class="num">21</span><div class="body"><div class="name">Miso shiru · catch of the day</div></div><span class="price">·</span></div>
+            <div class="menu-item"><span class="num">22</span><div class="body"><div class="name">Tamago · castella-style</div></div><span class="price">·</span></div>
+            <div class="menu-item"><span class="num">23</span><div class="body"><div class="name">Yuzu sorbetto & matcha mille-feuille</div></div><span class="price">·</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE EXPERIENCE -->
+<section style="background: var(--bg-2);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow"><span class="dot"></span>HOW WE SIT</span>
+        <h2 class="h2" style="margin-top: 20px;">A few things to<br/>know before.</h2>
+      </div>
+    </div>
+
+    <div class="signature-grid reveal" style="grid-template-columns: repeat(4, 1fr); gap: 4px;">
+      <div class="tier" style="padding: 32px; background: var(--bg-3);">
+        <div class="tier-label">01 · Seating</div>
+        <h3 class="h3" style="margin: 12px 0; font-size: 22px;">Eight at the counter</h3>
+        <p class="muted" style="font-size: 14px;">Two seatings: 19:00 and 21:30. The counter is l-shaped, eight stools, you face the chef directly.</p>
+      </div>
+      <div class="tier" style="padding: 32px; background: var(--bg-3);">
+        <div class="tier-label">02 · Etiquette</div>
+        <h3 class="h3" style="margin: 12px 0; font-size: 22px;">Use your hands</h3>
+        <p class="muted" style="font-size: 14px;">Nigiri is finger-food in its proper home. Dip the fish — not the rice — into a little nikiri. We do the rest.</p>
+      </div>
+      <div class="tier" style="padding: 32px; background: var(--bg-3);">
+        <div class="tier-label">03 · Pace</div>
+        <h3 class="h3" style="margin: 12px 0; font-size: 22px;">Eat in two bites</h3>
+        <p class="muted" style="font-size: 14px;">Each piece is built for the moment it lands in front of you. The next one comes when your plate is empty, not before.</p>
+      </div>
+      <div class="tier" style="padding: 32px; background: var(--bg-3);">
+        <div class="tier-label">04 · Dress</div>
+        <h3 class="h3" style="margin: 12px 0; font-size: 22px;">Smart casual</h3>
+        <p class="muted" style="font-size: 14px;">No dress code — we ask only no strong perfume. The fish has a quieter voice than your cologne.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section>
+  <div class="wrap">
+    <div class="testimonial reveal">
+      <blockquote>
+        Tanaka-san pours the soy sauce for you. He brushes the nikiri himself. He times the rice to the second. After two hours you understand why every great sushi room in the world has only eight seats.
+      </blockquote>
+      <cite>Identità Golose, 2025 <span class="src">· Top 10 omakase in Italy</span></cite>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <span class="eyebrow"><span class="dot"></span>BOOK THE COUNTER</span>
+  <h2 class="h1">Eight seats per<br/>seating. <em>限定</em></h2>
+  <p class="lede" style="margin: 0 auto;">Tenku (chef's table) opens once weekly — Saturday evenings only.</p>
+  <div class="actions">
+    <a href="reservations.html" class="btn btn-primary">Reserve omakase<svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+    <a href="contact.html" class="btn btn-ghost">Speak to us</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="brand-large"><span class="jp">旬</span>SHUN</div><p>Edomae sushi & omakase. Via Solferino 14, Brera, Milano.</p></div>
+    <div class="footer-col"><h5>Navigate</h5><ul><li><a href="menu.html">Menu</a></li><li><a href="omakase.html">Omakase</a></li><li><a href="chef.html">The chef</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="private-events.html">Private events</a></li></ul></div>
+    <div class="footer-col"><h5>Visit</h5><ul><li><p>Via Solferino 14<br/>Brera, 20121 Milano</p></li><li><a href="tel:+390212345678">+39 02 1234 5678</a></li><li><a href="mailto:ciao@shun.it">ciao@shun.it</a></li></ul></div>
+    <div class="footer-col"><h5>Hours</h5><ul><li><p>Tue — Sat<br/>19:00 · 22:30</p></li><li><p>Sun & Mon<br/>Closed</p></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 SHUN · Sushi & Omakase</span>
+    <div class="socials"><a href="#">Instagram</a><a href="#">The Fork</a><a href="#">Resy</a></div>
+    <span>P.IVA 09876543210</span>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

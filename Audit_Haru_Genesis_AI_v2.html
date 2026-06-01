@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit Digitale — Harù Restaurant · Genesis AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Big+Shoulders+Display:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0E0E0E;--ink-2:#161616;--ink-3:#1f1f1f;
+    --bone:#F2F0EB;--bone-2:#E9E6DD;--bone-dim:#bdb9ad;
+    --red:#E63946;--red-deep:#c42d39;
+    --line:rgba(14,14,14,.12);--line-d:rgba(242,240,235,.14);
+    --maxw:1040px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bone);color:var(--ink);font-family:'Space Grotesk',sans-serif;font-weight:400;line-height:1.62;-webkit-font-smoothing:antialiased;font-size:17px;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  .eyebrow{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--red);display:inline-flex;align-items:center;gap:12px}
+  .eyebrow::before{content:"";width:26px;height:5px;background:var(--red);display:inline-block}
+  h1,h2,h3{font-family:'Bebas Neue',sans-serif;font-weight:400;letter-spacing:.01em;line-height:.96}
+
+  /* HERO */
+  .hero{background:var(--ink);color:var(--bone);position:relative;overflow:hidden;padding:108px 0 88px}
+  .hero::after{content:"";position:absolute;top:0;bottom:0;left:50%;width:5px;background:var(--red);transform:translateX(-520px);opacity:.9}
+  .hero-bg{position:absolute;inset:0;background:radial-gradient(900px 480px at 82% -8%,rgba(230,57,70,.22),transparent 60%),radial-gradient(640px 420px at -6% 110%,rgba(230,57,70,.10),transparent 55%);pointer-events:none}
+  .hero-grid{position:absolute;inset:0;opacity:.5;pointer-events:none;background-image:linear-gradient(var(--line-d) 1px,transparent 1px),linear-gradient(90deg,var(--line-d) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent)}
+  .hero .wrap{position:relative;z-index:2}
+  .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:84px;flex-wrap:wrap;gap:18px}
+  .brand{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:24px;letter-spacing:.04em;display:flex;align-items:center;gap:11px}
+  .brand .tick{width:5px;height:26px;background:var(--red);display:inline-block}
+  .brand small{font-family:'Space Grotesk',sans-serif;font-weight:400;font-size:11px;letter-spacing:.22em;color:var(--bone-dim);text-transform:uppercase;margin-left:4px}
+  .brandrow .meta-r{font-family:'Space Grotesk',sans-serif;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-dim);text-align:right;line-height:1.9}
+  .hero h1{font-size:clamp(62px,13vw,168px);margin:0 0 6px}
+  .hero .sub{font-family:'Big Shoulders Display',sans-serif;font-weight:600;font-size:clamp(26px,5vw,52px);letter-spacing:.02em;color:var(--bone);line-height:1.02;margin-bottom:30px}
+  .hero .sub b{color:var(--red);font-weight:700}
+  .hero .lede{max-width:580px;color:#cfccc3;font-size:18px;line-height:1.6}
+  .hero .docmeta{display:flex;gap:36px;margin-top:46px;flex-wrap:wrap;border-top:1px solid var(--line-d);padding-top:26px}
+  .hero .docmeta div span{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--bone-dim);margin-bottom:5px}
+  .hero .docmeta div strong{font-family:'Big Shoulders Display',sans-serif;font-weight:600;font-size:19px;letter-spacing:.02em;color:var(--bone)}
+
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .rv.in{opacity:1;transform:none}
+  .hero .rv{animation:heroUp .9s cubic-bezier(.2,.7,.2,1) both}
+  .hero .d1{animation-delay:.05s}.hero .d2{animation-delay:.18s}.hero .d3{animation-delay:.32s}.hero .d4{animation-delay:.46s}.hero .d5{animation-delay:.6s}
+  @keyframes heroUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+  section{padding:84px 0}
+  .sec-head{display:flex;gap:26px;align-items:flex-start;margin-bottom:48px}
+  .sec-no{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:15px;color:var(--red);letter-spacing:.1em;padding-top:9px;white-space:nowrap}
+  .sec-head .t h2{font-size:clamp(40px,6.5vw,76px);margin-bottom:14px}
+  .sec-head .t p{max-width:640px;color:#43423d;font-size:18px}
+
+  .premise{font-size:clamp(22px,3.4vw,32px);font-family:'Big Shoulders Display',sans-serif;font-weight:500;line-height:1.18;letter-spacing:.005em;max-width:880px}
+  .premise b{color:var(--red);font-weight:700}
+  .premise .muted{color:#7a786f}
+
+  /* COST + CALCULATOR */
+  .cost-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:start}
+  .cost-grid p{font-size:18px;color:#3c3b36;margin-bottom:18px}
+  .cost-grid p:last-of-type{margin-bottom:0}
+  .quote-tag{font-size:13px;color:#8a887e;letter-spacing:.04em}
+  .calc{background:var(--ink);color:var(--bone);padding:34px 34px 36px;border-left:5px solid var(--red)}
+  .calc .k{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:6px}
+  .calc .ksub{font-size:13px;color:#b7b4aa;margin-bottom:24px}
+  .field{margin-bottom:22px}
+  .field .lab{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}
+  .field .lab span{font-size:13px;letter-spacing:.04em;color:#cfccc3}
+  .field .lab b{font-family:'Big Shoulders Display';font-weight:700;font-size:21px;color:var(--bone)}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;background:rgba(242,240,235,.18);border-radius:4px;outline:none}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:var(--red);cursor:pointer;border:3px solid var(--ink);box-shadow:0 0 0 1px var(--red)}
+  input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--red);cursor:pointer;border:3px solid var(--ink)}
+  .calc-out{margin-top:26px;border-top:1px solid var(--line-d);padding-top:22px}
+  .calc-out .lbl{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#b7b4aa;margin-bottom:6px}
+  .calc-out .big{font-family:'Big Shoulders Display';font-weight:800;font-size:clamp(46px,7vw,64px);line-height:.86;color:var(--red)}
+  .calc-out .yr{font-size:14px;color:#cfccc3;margin-top:12px}
+  .calc-out .yr b{font-family:'Big Shoulders Display';font-weight:700;color:var(--bone);font-size:17px}
+  .calc .note{font-size:11.5px;color:#8c8a81;margin-top:18px;line-height:1.5}
+
+  /* FINDINGS */
+  .findings{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .find{background:var(--bone);padding:30px 30px 32px;position:relative}
+  .find::before{content:"";position:absolute;left:0;top:30px;bottom:30px;width:4px;background:var(--red);opacity:.85}
+  .find .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8a887e;font-weight:600;margin-bottom:12px;padding-left:14px}
+  .find h3{font-size:27px;margin-bottom:10px;padding-left:14px;line-height:1}
+  .find p{font-size:15.5px;color:#43423d;padding-left:14px;line-height:1.55}
+  .find .flag{display:inline-block;margin:14px 0 0 14px;font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--red);background:rgba(230,57,70,.09);padding:4px 10px;border-radius:2px}
+  .inoltre{margin-top:1px;background:var(--ink);color:#cfccc3;padding:20px 30px;font-size:14.5px;border-left:5px solid var(--red)}
+  .inoltre b{color:var(--bone);font-weight:600}
+
+  /* STAT BAND */
+  .band{background:var(--ink);color:var(--bone);padding:70px 0}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:34px}
+  .stat .n{font-family:'Big Shoulders Display',sans-serif;font-weight:800;font-size:clamp(54px,8vw,88px);line-height:.82;color:var(--bone)}
+  .stat .n .red{color:var(--red)}
+  .stat .l{margin-top:14px;font-size:13px;line-height:1.45;color:#b7b4aa;border-top:1px solid var(--line-d);padding-top:13px}
+
+  /* BENCHMARK */
+  .bench{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:46px}
+  .bm{border:1px solid var(--line);padding:28px 26px;background:var(--bone);position:relative;transition:transform .35s ease,box-shadow .35s ease}
+  .bm:hover{transform:translateY(-5px);box-shadow:0 18px 40px -24px rgba(14,14,14,.55)}
+  .bm .name{font-family:'Bebas Neue';font-size:34px;line-height:.9;margin-bottom:6px}
+  .bm .cat{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:16px}
+  .bm ul{list-style:none;font-size:14.5px;color:#43423d}
+  .bm li{padding:7px 0 7px 18px;position:relative;border-top:1px solid var(--line)}
+  .bm li:first-child{border-top:none}
+  .bm li::before{content:"";position:absolute;left:0;top:15px;width:7px;height:7px;background:var(--red)}
+  .market{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .mk{background:var(--bone);padding:24px 24px}
+  .mk strong{font-family:'Big Shoulders Display';font-weight:800;font-size:30px;color:var(--ink);display:block;line-height:1}
+  .mk strong .red{color:var(--red)}
+  .mk span{font-size:13px;color:#5a584f;display:block;margin-top:9px;line-height:1.45}
+  .mk em{font-style:normal;font-size:11px;color:#9a978c;display:block;margin-top:8px;letter-spacing:.03em}
+
+  /* ROADMAP */
+  .phase{display:grid;grid-template-columns:auto 1fr;gap:30px;padding:34px 0;border-top:1px solid var(--line)}
+  .phase:last-child{border-bottom:1px solid var(--line)}
+  .phase .pn{font-family:'Big Shoulders Display';font-weight:800;font-size:60px;line-height:.8;color:var(--bone);background:var(--ink);width:78px;height:78px;display:flex;align-items:center;justify-content:center;border-left:5px solid var(--red)}
+  .phase .pc h3{font-size:32px;margin-bottom:4px}
+  .phase .pc .when{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:14px}
+  .phase .pc .items{display:flex;flex-wrap:wrap;gap:9px}
+  .phase .pc .items span{font-size:13.5px;background:var(--bone-2);border:1px solid var(--line);padding:6px 13px;color:#3c3b36}
+
+  /* READY / URGENCY / CTA */
+  .proof{background:var(--ink);color:var(--bone)}
+  .ready{border:1px solid var(--line-d);border-left:5px solid var(--red);padding:40px 38px;margin-bottom:34px;background:linear-gradient(180deg,rgba(230,57,70,.06),transparent)}
+  .ready .k{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:14px}
+  .ready h3{font-size:clamp(34px,5vw,54px);line-height:.96;color:var(--bone);margin-bottom:16px}
+  .ready p{color:#cfccc3;font-size:17px;max-width:680px;margin-bottom:14px}
+  .ready p:last-of-type{margin-bottom:0}
+  .ready .urg{color:var(--bone);font-weight:600}
+  .demo-link{display:inline-flex;align-items:center;gap:10px;margin-top:24px;font-family:'Space Grotesk';font-weight:700;font-size:15px;letter-spacing:.02em;color:var(--ink);background:var(--bone);padding:15px 26px;text-decoration:none;border-radius:2px;transition:background .25s,transform .25s,color .25s}
+  .demo-link:hover{background:var(--red);color:#fff;transform:translateY(-2px)}
+  .demo-link .ph{color:var(--red-deep);font-weight:600}
+  .demo-link:hover .ph{color:#fff}
+
+  .casebox{border:1px solid var(--line-d);padding:32px 34px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;margin-bottom:30px}
+  .casebox .ct .k{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:10px}
+  .casebox .ct h3{font-size:36px;line-height:.95;margin-bottom:8px;color:var(--bone)}
+  .casebox .ct p{color:#cfccc3;font-size:15.5px;max-width:520px}
+  .casebox a.mini{white-space:nowrap;font-family:'Space Grotesk';font-weight:600;font-size:13px;letter-spacing:.04em;color:var(--ink);background:var(--bone);padding:13px 20px;text-decoration:none;border-radius:2px;transition:background .25s,transform .25s}
+  .casebox a.mini:hover{background:var(--red);color:#fff;transform:translateY(-2px)}
+
+  .cta{border-top:1px solid var(--line-d);margin-top:14px;padding-top:46px;display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+  .cta h2{font-size:clamp(44px,8vw,88px);color:var(--bone);line-height:.9}
+  .cta h2 b{color:var(--red)}
+  .cta .right{text-align:right}
+  .cta .right .contact{font-family:'Big Shoulders Display';font-weight:600;font-size:18px;color:var(--bone);letter-spacing:.02em;line-height:1.7}
+  .cta .right .contact .ed{color:var(--red)}
+  .btn{display:inline-block;margin-top:18px;font-family:'Space Grotesk';font-weight:700;font-size:15px;letter-spacing:.03em;background:var(--red);padding:16px 30px;text-decoration:none;border-radius:2px;transition:transform .25s,box-shadow .25s;color:#fff}
+  .btn:hover{transform:translateY(-3px);box-shadow:0 16px 34px -16px rgba(230,57,70,.7)}
+
+  footer{background:var(--ink);color:#86847b;padding:54px 0 70px;border-top:1px solid var(--line-d)}
+  footer .cols{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;margin-bottom:34px}
+  footer h4{font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--bone-dim);margin-bottom:14px}
+  footer p,footer li{font-size:12.5px;line-height:1.65;color:#86847b}
+  footer ul{list-style:none}
+  footer li{padding:3px 0}
+  footer .fbrand{font-family:'Big Shoulders Display';font-weight:800;font-size:22px;color:var(--bone);letter-spacing:.04em;display:flex;align-items:center;gap:9px}
+  footer .fbrand .tick{width:4px;height:22px;background:var(--red)}
+  footer .base{border-top:1px solid var(--line-d);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:11px;letter-spacing:.05em;color:#6e6c64}
+
+  @media (max-width:820px){
+    .findings,.stats,.bench,.market,.cost-grid{grid-template-columns:1fr}
+    .cost-grid,.stats{gap:28px}
+    .casebox{grid-template-columns:1fr}
+    .sec-head{flex-direction:column;gap:10px}
+    .hero::after{transform:translateX(0);left:0}
+    footer .cols{grid-template-columns:1fr}
+    section{padding:62px 0}
+    .wrap{padding:0 22px}
+  }
+  @media (prefers-reduced-motion:reduce){.rv,.hero .rv{transition:none;animation:none;opacity:1;transform:none}}
+  @media print{
+    body{font-size:12px}body::before{display:none}
+    .rv,.hero .rv{opacity:1 !important;transform:none !important;animation:none !important}
+    .hero,.band,.calc,.proof,.ready,.inoltre,footer,.phase .pn{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .bm:hover{transform:none;box-shadow:none}
+    section{padding:34px 0;break-inside:avoid}
+    .find,.phase,.casebox,.calc,.ready{break-inside:avoid}
+  }
+</style>
+<noscript><style>.rv,.hero .rv{opacity:1 !important;transform:none !important;animation:none !important}</style></noscript>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="wrap">
+    <div class="brandrow rv d1">
+      <div class="brand"><span class="tick"></span>GENESIS&nbsp;AI<small>by Simonini 47</small></div>
+      <div class="meta-r">Audit indipendente<br>Documento riservato</div>
+    </div>
+    <div class="eyebrow rv d2">Audit Digitale &amp; Analisi delle Opportunità</div>
+    <h1 class="rv d3" style="margin-top:18px">HARÙ<br>RESTAURANT</h1>
+    <div class="sub rv d4">Avete già vinto la parte difficile.<br><b>Manca solo l'ultimo strato.</b></div>
+    <p class="lede rv d4">Tredici ristoranti, una reputazione che pochi hanno, clienti che tornano. La cucina e il marchio funzionano. Questo documento mostra, numeri alla mano, l'unico pezzo rimasto indietro — il digitale — e quanto vale rimetterlo al passo.</p>
+    <div class="docmeta rv d5">
+      <div><span>Preparato per</span><strong>La Direzione Harù</strong></div>
+      <div><span>Data</span><strong>Maggio 2026</strong></div>
+      <div><span>Ambito</span><strong>Web · E-commerce · Pagamenti · App</strong></div>
+    </div>
+  </div>
+</header>
+
+<!-- PREMESSA -->
+<section style="padding-bottom:42px">
+  <div class="wrap">
+    <div class="eyebrow rv" style="margin-bottom:34px">In sintesi</div>
+    <p class="premise rv">
+      Il vostro problema <b>non è il prodotto.</b>
+      <span class="muted">Il problema è che ogni ordine passa da piattaforme di terzi che trattengono fino a oltre un terzo dell'incasso e tengono per sé i dati dei vostri clienti — il tutto su strumenti web di cinque anni fa.</span>
+      Rimettere al passo il digitale significa una cosa sola: più margine su ogni piatto, e il controllo diretto di chi ordina da voi.
+    </p>
+  </div>
+</section>
+
+<!-- 01 — IL COSTO NASCOSTO + CALCOLATORE -->
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-no">01 —</div>
+      <div class="t">
+        <h2>Quanto vi costa, oggi</h2>
+        <p>La voce che pesa di più non è in nessun preventivo: sono le commissioni delle piattaforme di delivery. Mettete i vostri numeri qui sotto.</p>
+      </div>
+    </div>
+    <div class="cost-grid">
+      <div class="rv">
+        <p>Su ogni ordine che arriva da Glovo, Deliveroo o Just Eat, le piattaforme trattengono in media tra il <b style="color:var(--red)">14% e il 35%</b> del valore. Secondo l'associazione di categoria UBRI, sommando promozioni e costi accessori il prelievo totale in fattura può arrivare a superare il 50%.</p>
+        <p>Ma il costo più grande non è in percentuale: su quei canali il cliente <b style="color:var(--red)">non è vostro.</b> Non sapete chi è, non potete contattarlo, non potete farlo tornare. Un canale di proprietà ribalta tutto — e ogni euro di sconto su un ordine diretto costa molto meno di una commissione.</p>
+        <p class="quote-tag">Fonti: Il Fatto Quotidiano · UBRI — Unione Brand della Ristorazione Italiana · Osservatorio eCommerce B2c Netcomm–Politecnico di Milano.</p>
+      </div>
+
+      <div class="calc rv">
+        <div class="k">Il vostro conto, in tempo reale</div>
+        <div class="ksub">Spostate i cursori sui vostri numeri reali.</div>
+        <div class="field">
+          <div class="lab"><span>Delivery al mese (una sede)</span><b id="volOut">€ 8.000</b></div>
+          <input type="range" id="vol" min="1000" max="30000" step="500" value="8000">
+        </div>
+        <div class="field">
+          <div class="lab"><span>Commissione media</span><b id="commOut">28%</b></div>
+          <input type="range" id="comm" min="10" max="40" step="1" value="28">
+        </div>
+        <div class="calc-out">
+          <div class="lbl">Trattenuto dalle piattaforme · all'anno</div>
+          <div class="big" id="annOut">€ 26.880</div>
+          <div class="yr">Cioè <b id="moOut">€ 2.240</b> al mese che escono dall'azienda — <b>per ogni sede</b> attiva sul delivery.</div>
+        </div>
+        <div class="note">Numeri impostabili da voi: l'esempio iniziale è puramente indicativo. La matematica resta pesante a qualsiasi tariffa.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 — DIAGNOSI -->
+<section style="background:var(--bone-2);padding-top:74px">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-no">02 —</div>
+      <div class="t">
+        <h2>Perché succede</h2>
+        <p>Quattro nodi rilevati analizzando il sito principale, l'e-commerce della zona Valtellina e i canali di ordinazione.</p>
+      </div>
+    </div>
+    <div class="findings rv">
+      <div class="find">
+        <div class="k">Piattaforma</div>
+        <h3>Tecnologia di cinque anni fa</h3>
+        <p>Il sito e gli shop girano su WooCommerce 4.8.3, rilasciato a fine 2020. Significa anni di aggiornamenti di sicurezza e di funzioni di vendita mancati, su uno standard oggi arrivato alla versione 9-10.</p>
+        <span class="flag">Sicurezza + performance</span>
+      </div>
+      <div class="find">
+        <div class="k">Pagamenti</div>
+        <h3>Online si paga solo con PayPal</h3>
+        <p>Niente Satispay, niente Apple Pay / Google Pay, niente carte salvate, niente buoni pasto digitali. In più un minimo d'ordine di 50 € per la consegna, che frena chi vorrebbe ordinare meno.</p>
+        <span class="flag">Carrelli abbandonati</span>
+      </div>
+      <div class="find">
+        <div class="k">Architettura</div>
+        <h3>Solo 3 sedi su 13 ordinano online</h3>
+        <p>Le altre sono volantini PDF o link non attivi. Ogni zona è un sito a sé, con menù e prezzi diversi e nessun account unico: il cliente non percepisce un solo grande brand "Harù".</p>
+        <span class="flag">Esperienza frammentata</span>
+      </div>
+      <div class="find">
+        <div class="k">Strumenti di crescita</div>
+        <h3>Niente app, fidelity o prenotazioni</h3>
+        <p>Nessuna app di ordinazione, nessun programma fedeltà, nessuna prenotazione tavoli online, nessuna automazione WhatsApp. Ogni cliente abituale resta "in affitto" presso il telefono o le piattaforme.</p>
+        <span class="flag">Zero fidelizzazione diretta</span>
+      </div>
+    </div>
+    <div class="inoltre rv">
+      <b>E sotto la superficie:</b> visibilità su Google poco presidiata per le singole sedi, testi che mescolano italiano e inglese, alcune foto segnaposto al posto del piatto. Dettagli che, sommati, fanno percepire meno valore di quello reale.
+    </div>
+  </div>
+</section>
+
+<!-- STAT BAND -->
+<div class="band">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat rv"><div class="n">2020</div><div class="l">L'anno della versione del software che gestisce oggi i vostri ordini</div></div>
+      <div class="stat rv"><div class="n"><span class="red">3</span>/13</div><div class="l">Le sedi con un vero sistema di ordinazione online funzionante</div></div>
+      <div class="stat rv"><div class="n">1</div><div class="l">I metodi di pagamento digitali disponibili online (solo PayPal)</div></div>
+      <div class="stat rv"><div class="n"><span class="red">0</span></div><div class="l">App, programmi fedeltà e sistemi di prenotazione attivi</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 03 — BENCHMARK -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-no">03 —</div>
+      <div class="t">
+        <h2>Dove sono già i concorrenti</h2>
+        <p>Le catene di sushi e poke più avanti in Italia hanno smesso da tempo di dipendere solo dalle piattaforme.</p>
+      </div>
+    </div>
+    <div class="bench">
+      <div class="bm rv">
+        <div class="name">Poke House</div>
+        <div class="cat">App + Loyalty "Squad"</div>
+        <ul><li>App brandizzata iOS / Android</li><li>Programma a punti con premi</li><li>Tracciamento ordine in tempo reale</li><li>Carte fedeltà in Apple/Google Wallet</li></ul>
+      </div>
+      <div class="bm rv">
+        <div class="name">NIMA Sushi</div>
+        <div class="cat">App + Push</div>
+        <ul><li>App di ordinazione dedicata</li><li>Notifiche push promozionali</li><li>Offerte esclusive solo per l'app</li><li>Catena da 6 ristoranti</li></ul>
+      </div>
+      <div class="bm rv">
+        <div class="name">Sushi Daily</div>
+        <div class="cat">Fidelity + Ordine online</div>
+        <ul><li>"Fidelity club" per gli abituali</li><li>Ordine online integrato</li><li>Presenza digitale coordinata</li><li>Brand riconoscibile ovunque</li></ul>
+      </div>
+    </div>
+    <div class="market rv">
+      <div class="mk"><strong>+8%</strong><span>Crescita del food &amp; grocery online in Italia nel 2024 (4,6 mld €)</span><em>Netcomm – Politecnico di Milano</em></div>
+      <div class="mk"><strong>&gt;70%</strong><span>Degli ordini di food online sono ri-ordini: è qui che la fidelity fa la differenza</span><em>Dati di settore</em></div>
+      <div class="mk"><strong><span class="red">~98%</span></strong><span>Tasso di apertura dei messaggi WhatsApp, contro circa il 20% delle email</span><em>Benchmark marketing</em></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 — PIANO -->
+<section style="background:var(--bone-2)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-no">04 —</div>
+      <div class="t">
+        <h2>La visione</h2>
+        <p>Un unico ecosistema digitale per tutte le 13 sedi. Tre fasi, per ordine di priorità: prima i risultati rapidi, poi la struttura, infine gli strumenti che generano clienti che tornano.</p>
+      </div>
+    </div>
+    <div class="phase rv">
+      <div class="pn">1</div>
+      <div class="pc">
+        <div class="when">Vittorie rapide</div>
+        <h3>Mettere in sicurezza e sbloccare</h3>
+        <div class="items"><span>Aggiornamento piattaforma + sicurezza</span><span>Satispay · Apple/Google Pay · carte salvate</span><span>Buoni pasto digitali</span><span>Schede Google per ogni sede</span><span>Visibilità sulla ricerca</span><span>Fix sedi senza ordinazione</span></div>
+      </div>
+    </div>
+    <div class="phase rv">
+      <div class="pn">2</div>
+      <div class="pc">
+        <div class="when">La struttura</div>
+        <h3>Un unico sito, un unico brand</h3>
+        <div class="items"><span>Sito brand moderno, veloce, responsive</span><span>Riconoscimento automatico della zona</span><span>Menù visivo + fotografia professionale</span><span>Account unico tra tutte le sedi</span><span>Tracciamento ordine per il cliente</span><span>Multilingua IT / EN</span></div>
+      </div>
+    </div>
+    <div class="phase rv">
+      <div class="pn">3</div>
+      <div class="pc">
+        <div class="when">La crescita</div>
+        <h3>App, fidelity e relazione diretta</h3>
+        <div class="items"><span>App di ordinazione brandizzata</span><span>Programma fedeltà + CRM</span><span>Automazioni WhatsApp / email / SMS</span><span>Campagna per spostare ordini dalle piattaforme</span><span>Prenotazione tavoli online</span><span>Gestione social e contenuti</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 — È GIÀ PRONTO + CTA -->
+<section class="proof">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-no">05 —</div>
+      <div class="t">
+        <h2 style="color:var(--bone)">E il bello?</h2>
+        <p style="color:#cfccc3">Non vi stiamo chiedendo di immaginare nulla. La prima parte l'abbiamo già costruita.</p>
+      </div>
+    </div>
+
+    <div class="ready rv">
+      <div class="k">È già fatto</div>
+      <h3>Il vostro nuovo sito è già pronto.</h3>
+      <p>Non un progetto lungo e rischioso da commissionare: il vostro nuovo sito, sul vostro menù e sul vostro brand, è <b class="urg">già costruito e online</b>. Lo trovate qui sotto. Non c'è nulla da progettare — solo da decidere se accenderlo.</p>
+      <p><span class="urg">Perché ora:</span> ogni mese che la vecchia piattaforma resta attiva è esattamente la cifra che avete calcolato qui sopra — moltiplicata per ogni mese che passa. Il costo dell'attesa non è zero: è margine che continua a finire sulle piattaforme. E mentre aspettate, i concorrenti con un'app vi tolgono i clienti che modernizzano per primi.</p>
+      <a class="demo-link" href="haru-index.html" target="_blank" rel="noopener">Apri l'anteprima del vostro nuovo sito <span class="ph">live</span> →</a>
+    </div>
+
+    <div class="casebox rv">
+      <div class="ct">
+        <div class="k">Case study · stesso settore</div>
+        <h3>Hinode Sushi</h3>
+        <p>Per un ristorante di sushi abbiamo realizzato un progetto digitale completo e multilingua, dal sito alla presenza online. Lo stesso approccio che proponiamo ad Harù, su scala più grande.</p>
+      </div>
+      <a class="mini" href="https://genesisai.it/work/hinode-sushi" target="_blank" rel="noopener">Vedi il case study →</a>
+    </div>
+
+    <div class="cta rv">
+      <div>
+        <div class="eyebrow" style="margin-bottom:18px">Il prossimo passo</div>
+        <h2>VENTI MINUTI<br>E VE LO <b>MOSTRIAMO.</b></h2>
+      </div>
+      <div class="right">
+        <div class="contact">
+          genesisai.it<br>
+          <span class="ed">info@genesisai.it</span>
+        </div>
+        <a class="btn" href="https://genesisai.it" target="_blank" rel="noopener">Prenota una call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="fbrand"><span class="tick"></span>GENESIS AI</div>
+        <p style="margin-top:14px;max-width:440px">Agenzia digitale per la ristorazione e le PMI italiane. Siti, e-commerce, app, automazioni e contenuti — costruiti per generare margine, non solo per essere belli.</p>
+      </div>
+      <div>
+        <h4>Nota metodologica</h4>
+        <ul>
+          <li>Analisi basata sull'ispezione pubblica del sito principale e dell'e-commerce della zona Valtellina (maggio 2026).</li>
+          <li>La versione del software è rilevata dai metadati delle pagine; i metodi di pagamento dai termini di vendita pubblicati.</li>
+          <li>Le percentuali di commissione sono fasce di mercato da fonti di settore: i contratti reali si negoziano caso per caso.</li>
+          <li>Il calcolatore usa i valori che inserite voi e ha solo scopo illustrativo.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="base">
+      <span>© 2026 Genesis AI · Simonini 47 — P.IVA 01077610143</span>
+      <span>Documento riservato · preparato per la Direzione Harù</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Live commission calculator (in-memory only, no storage)
+  (function(){
+    var vol = document.getElementById('vol');
+    var comm = document.getElementById('comm');
+    var volOut = document.getElementById('volOut');
+    var commOut = document.getElementById('commOut');
+    var annOut = document.getElementById('annOut');
+    var moOut = document.getElementById('moOut');
+    if(!vol||!comm) return;
+    var fmt = function(n){ return '€ ' + Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.'); };
+    function update(){
+      var v = parseFloat(vol.value), c = parseFloat(comm.value)/100;
+      var mo = v*c, ann = mo*12;
+      volOut.textContent = fmt(v);
+      commOut.textContent = comm.value + '%';
+      annOut.textContent = fmt(ann);
+      moOut.textContent = fmt(mo);
+    }
+    vol.addEventListener('input', update);
+    comm.addEventListener('input', update);
+    update();
+  })();
+
+  // Scroll reveal (progressive enhancement; content visible if JS off)
+  (function(){
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var els = document.querySelectorAll('section .rv, .band .rv');
+    if (!('IntersectionObserver' in window)) { els.forEach(function(e){e.classList.add('in')}); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){ io.observe(e); });
+  })();
+</script>
+</body>
+</html>
