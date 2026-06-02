@@ -676,13 +676,14 @@
   var html = years.map(function (y) {
     var cum = PER_YEAR * y;
     var pct = (cum / maxCum) * 100;
+    var keptPct = pct * 0.98;          // trattenuto sul canale diretto ≈ 98% (solo ~2% costi di incasso)
     return '' +
       '<div class="yb-col">' +
         '<div class="yb-twin">' +
           '<div class="yb-bar lost" data-h="' + pct.toFixed(1) + '" style="height:0%">' +
             '<span></span>' +
           '</div>' +
-          '<div class="yb-bar kept" style="height:6%"></div>' +
+          '<div class="yb-bar kept" data-h="' + keptPct.toFixed(1) + '" style="height:0%"></div>' +
         '</div>' +
         '<div class="yb-val">' + euroK(cum) + '</div>' +
         '<div class="yb-label">Anno <b>' + y + '</b></div>' +
@@ -691,7 +692,7 @@
   host.innerHTML = html;
 
   function grow() {
-    host.querySelectorAll('.yb-bar.lost').forEach(function (bar, i) {
+    host.querySelectorAll('.yb-bar[data-h]').forEach(function (bar, i) {
       var h = bar.getAttribute('data-h');
       setTimeout(function () { bar.style.height = h + '%'; }, 120 * i + 80);
     });
