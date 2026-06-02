@@ -25,8 +25,10 @@
 - Design system **dark-editorial "japanese-modern"** (vedi `assets/styles.css` +
   `assets/haru.css`): palette scura, accenti, tipografia con Noto Sans SC per il
   cinese, film grain, micro-animazioni (reveal/stagger, count-up, marquee piatti).
-- **Deploy: Vercel** (`vercel deploy --prod` + `vercel alias set ... haru-sushi-cn.vercel.app`).
-  Netlify era il piano A ma è bloccato da limite account → si usa Vercel.
+- **Deploy: Vercel, automatico da GitHub.** Ogni `git push` sul branch `main` del repo
+  [`sosaai/haru-demo`](https://github.com/sosaai/haru-demo) ripubblica da solo in ~30s
+  su `https://haru-sushi-cn.vercel.app`. (Netlify era il piano A ma è bloccato da limite
+  account → si usa Vercel.)
 
 ## Pagine principali (root)
 
@@ -94,19 +96,22 @@ e sono esclusi dal deploy (`.vercelignore`). Non fanno parte del sito Harù.
 - ⬜ Compressione immagini prodotti in WebP.
 - ⬜ Distinzione menu pranzo/cena.
 
-## Deploy (procedura)
+## Deploy (automatico da GitHub)
+
+Il progetto Vercel `haru` è collegato al repo
+[`sosaai/haru-demo`](https://github.com/sosaai/haru-demo): **ogni push sul branch `main`
+pubblica in automatico** su `https://haru-sushi-cn.vercel.app` (~30s, nessun comando).
+Vedi [`DEPLOY.md`](DEPLOY.md) per la guida passo-passo (anche da browser).
 
 ```bash
-# 1. (se cambi la home) sincronizza la copia root
+# (se cambi la home) sincronizza la copia root, poi committa e pusha
 cp haru-index.html index.html
-# 2. deploy
-vercel deploy --prod --yes
-# 3. punta l'alias di produzione al nuovo deployment
-vercel alias set <nuovo-deployment-url> haru-sushi-cn.vercel.app
+git add -A && git commit -m "descrizione modifica" && git push
 ```
 
 `vercel.json` riscrive `/` → `/haru-index.html`. `.vercelignore` esclude
-generatori, `data/`, `menus-sedi.js` e i vecchi file SHUN.
+generatori, `data/`, `menus-sedi.js` e i vecchi file SHUN. Deploy manuale di
+emergenza (sconsigliato, usa il push): `vercel deploy --prod`.
 
 ---
 
