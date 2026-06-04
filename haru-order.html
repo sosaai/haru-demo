@@ -44,6 +44,13 @@ section.order-section { padding: clamp(48px, 6vw, 90px) 0; }
 
 #menuArea { margin-top: 8px; opacity: 0.4; pointer-events: none; transition: opacity 0.5s var(--ease); position: relative; }
 body.zone-selected #menuArea { opacity: 1; pointer-events: auto; }
+/* Categorie e ricerca restano interattive anche prima di scegliere il ristorante:
+   si può filtrare/sfogliare il menu; l'aggiunta al carrello resta gated (vedi JS). */
+#menuArea .cat-tabs, #menuArea .menu-search { pointer-events: auto; }
+/* Placeholder pulito per gli articoli senza foto reale (no logo sfocato) */
+.product-card .pc-noimg { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center; padding: 14px; background: linear-gradient(160deg, var(--bg-3), var(--bg-2)); }
+.product-card .pc-noimg .ni-mark { font-family: var(--font-jp); font-size: 26px; color: var(--accent-2); opacity: 0.4; }
+.product-card .pc-noimg .ni-name { font-size: 12.5px; color: var(--fg-muted); line-height: 1.3; max-width: 92%; }
 .menu-locked-hint { position: absolute; inset: 0; z-index: 5; display: flex; align-items: center; justify-content: center; text-align: center; pointer-events: none; }
 .menu-locked-hint span { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-muted); background: rgba(10,10,10,0.7); border: 1px solid var(--border); padding: 14px 24px; border-radius: 100px; backdrop-filter: blur(4px); }
 body.zone-selected .menu-locked-hint { display: none; }
@@ -401,8 +408,12 @@ body.zone-selected .save-strip { display: flex; }
     var tag = p.tag ? '<span class="pc-tag">' + esc(p.tag) + '</span>' : '';
     var desc = p.desc ? '<div class="pc-desc">' + esc(p.desc) + '</div>' : '';
     var allerg = p.allerg ? '<div class="pc-allerg">Allergeni: ' + esc(p.allerg) + '</div>' : '';
+    var noImg = !p.img || /Immagine-con-logo-Haru|favicon/i.test(p.img);
+    var media = noImg
+      ? '<div class="pc-noimg"><span class="ni-mark">春</span><span class="ni-name">' + esc(p.name) + '</span></div>'
+      : '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + '" loading="lazy" />';
     return '<div class="product-card">' +
-        '<div class="pc-media">' + tag + '<img src="' + esc(p.img) + '" alt="' + esc(p.name) + '" loading="lazy" /></div>' +
+        '<div class="pc-media">' + tag + media + '</div>' +
         '<div class="pc-body">' +
           '<div class="pc-name">' + esc(p.name) + ' ' + jp + '</div>' +
           desc + allerg +
